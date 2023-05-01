@@ -1,19 +1,23 @@
 import styled from "styled-components";
-import Player from "./Player";
+import GameFigure from "./GameFigure";
+import type { Player } from "../types/Player";
 
 export default function FieldItem({
   name,
   fieldNumber,
-  playerLocation,
+  players,
 }: {
   name: string;
   fieldNumber: number;
-  playerLocation: number;
+  players: Player[];
 }) {
   return (
     <ListItem>
       {name} Icon
-      {fieldNumber === playerLocation && <Player />}
+      {players.map(
+        ({ playerLocation, id, name }) =>
+          playerLocation === fieldNumber && <GameFigure key={id} name={name} />
+      )}
     </ListItem>
   );
 }

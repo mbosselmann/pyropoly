@@ -1,55 +1,33 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Panel from "./Panel";
 import GameCenter from "./GameCenter";
 import type { Field } from "../types/Field";
+import type { Player } from "../types/Player";
 
-export default function Board({ fields }: { fields: Field[][] }) {
-  const [playerLocation, setPlayerLocation] = useState(0);
-  const [currentFieldMessage, setCurrentFieldMessage] = useState(
-    findMessage(0) ?? ""
-  );
-
-  function findMessage(fieldNumber: number) {
-    return fields
-      ?.flatMap((field) => field)
-      ?.find((field) => field.fieldNumber === fieldNumber)?.message;
-  }
-
-  function updatePlayerLocation(diceNumber: number) {
-    const newPlayerLocation = (playerLocation + diceNumber) % 16;
-    setPlayerLocation(newPlayerLocation);
-    setCurrentFieldMessage(findMessage(newPlayerLocation) ?? "");
-  }
+export default function Board({
+  fields,
+  players,
+  currentFieldMessage,
+  updatePlayerLocation,
+}: {
+  fields: Field[][];
+  players: Player[];
+  currentFieldMessage: string;
+  updatePlayerLocation: (diceNumber: number) => void;
+}) {
   return (
     <Container>
-      <Panel
-        fields={fields[0]}
-        variant="horizontal"
-        playerLocation={playerLocation}
-      />
+      <Panel fields={fields[0]} variant="horizontal" players={players} />
       <Grid>
-        <Panel
-          fields={fields[1]}
-          variant="vertical"
-          playerLocation={playerLocation}
-        />
+        <Panel fields={fields[1]} variant="vertical" players={players} />
         <GameCenter
           fieldName={"Field"}
           updatePlayerLocation={updatePlayerLocation}
           currentFieldMessage={currentFieldMessage}
         />
-        <Panel
-          fields={fields[2]}
-          variant="vertical"
-          playerLocation={playerLocation}
-        />
+        <Panel fields={fields[2]} variant="vertical" players={players} />
       </Grid>
-      <Panel
-        fields={fields[3]}
-        variant="horizontal"
-        playerLocation={playerLocation}
-      />
+      <Panel fields={fields[3]} variant="horizontal" players={players} />
     </Container>
   );
 }

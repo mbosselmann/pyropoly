@@ -1,8 +1,27 @@
 import Head from "next/head";
 import Board from "../components/Board";
-import { fields } from "../db";
+import type { Field } from "../types/Field";
+import type { Player } from "../types/Player";
 
-export default function Home() {
+interface HomeProps {
+  players: Player[];
+  fields: Field[][];
+  updatePlayerLocation: (diceNumber: number) => void;
+  addPlayer: () => void;
+  currentFieldMessage: string;
+  currentPlayer: string;
+  setNextPlayer: () => void;
+}
+
+export default function Home({
+  players,
+  fields,
+  updatePlayerLocation,
+  addPlayer,
+  currentFieldMessage,
+  currentPlayer,
+  setNextPlayer,
+}: HomeProps) {
   return (
     <>
       <Head>
@@ -12,7 +31,26 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Monopoly (on Fire)</h1>
-      <Board fields={fields} />
+      <h2>Select amount of players:</h2>
+      <p>{players.length}</p>
+      <button type="button" onClick={addPlayer}>
+        Add player
+      </button>
+      {currentPlayer && (
+        <>
+          <h2>Current player:</h2>
+          <p>{players?.find((player) => player?.id === currentPlayer)?.name}</p>
+          <button type="button" onClick={setNextPlayer}>
+            I am done. Next player!
+          </button>
+        </>
+      )}
+      <Board
+        fields={fields}
+        players={players}
+        currentFieldMessage={currentFieldMessage}
+        updatePlayerLocation={updatePlayerLocation}
+      />
     </>
   );
 }

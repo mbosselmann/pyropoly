@@ -101,3 +101,31 @@ export const fields = [
     { id: 5, name: "Corner 3", fieldNumber: 12, message: "Nice start!" },
   ],
 ];
+
+export const examplePlayers = [
+  {
+    id: "1",
+    name: "Zero",
+    playerLocation: 0,
+  },
+  {
+    id: "2",
+    name: "One",
+    playerLocation: 0,
+  },
+  {
+    id: "3",
+    name: "Two",
+    playerLocation: 0,
+  },
+  {
+    id: "4",
+    name: "Three",
+    playerLocation: 0,
+  },
+  {
+    id: "5",
+    name: "Four",
+    playerLocation: 0,
+  },
+];

@@ -1,14 +1,15 @@
 import styled, { css } from "styled-components";
 import FieldItem from "./FieldItem";
 import type { Field } from "../types/Field";
+import type { Player } from "../types/Player";
 
 interface PanelProps {
   fields: Field[];
   variant: string;
-  playerLocation: number;
+  players: Player[];
 }
 
-export default function Panel({ fields, variant, playerLocation }: PanelProps) {
+export default function Panel({ fields, variant, players }: PanelProps) {
   return (
     <List variant={variant}>
       {fields.map((field) => (
@@ -16,7 +17,7 @@ export default function Panel({ fields, variant, playerLocation }: PanelProps) {
           key={field.id}
           name={field.name}
           fieldNumber={field.fieldNumber}
-          playerLocation={playerLocation}
+          players={players}
         />
       ))}
     </List>
