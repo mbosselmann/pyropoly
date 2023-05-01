@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Head from "next/head";
 import Board from "../components/Board";
 import type { Field } from "../types/Field";
@@ -22,6 +23,22 @@ export default function Home({
   currentPlayer,
   setNextPlayer,
 }: HomeProps) {
+  const [number, setNumber] = useState(0);
+  const [hasRolled, setHasRolled] = useState(false);
+
+  function rollDice() {
+    const newNumber = Math.floor(Math.random() * 3 + 1);
+    setNumber(newNumber);
+    updatePlayerLocation(newNumber);
+    setHasRolled(true);
+  }
+
+  function handleNextPlayer() {
+    setNextPlayer();
+    setHasRolled(false);
+    setNumber(0);
+  }
+
   return (
     <>
       <Head>
@@ -40,16 +57,26 @@ export default function Home({
         <>
           <h2>Current player:</h2>
           <p>{players?.find((player) => player?.id === currentPlayer)?.name}</p>
-          <button type="button" onClick={setNextPlayer}>
-            I am done. Next player!
-          </button>
+          <p>
+            Dice:
+            {number === 0 ? "You need to roll the dice first." : number}
+          </p>
+
+          {hasRolled ? (
+            <button type="button" onClick={handleNextPlayer}>
+              I am done. Next player!
+            </button>
+          ) : (
+            <button type="button" onClick={rollDice}>
+              Roll the Dice!
+            </button>
+          )}
         </>
       )}
       <Board
         fields={fields}
         players={players}
         currentFieldMessage={currentFieldMessage}
-        updatePlayerLocation={updatePlayerLocation}
       />
     </>
   );

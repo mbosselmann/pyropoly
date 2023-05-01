@@ -8,12 +8,10 @@ export default function Board({
   fields,
   players,
   currentFieldMessage,
-  updatePlayerLocation,
 }: {
   fields: Field[][];
   players: Player[];
   currentFieldMessage: string;
-  updatePlayerLocation: (diceNumber: number) => void;
 }) {
   return (
     <Container>
@@ -22,7 +20,6 @@ export default function Board({
         <Panel fields={fields[1]} variant="vertical" players={players} />
         <GameCenter
           fieldName={"Field"}
-          updatePlayerLocation={updatePlayerLocation}
           currentFieldMessage={currentFieldMessage}
         />
         <Panel fields={fields[2]} variant="vertical" players={players} />
