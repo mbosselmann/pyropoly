@@ -1,6 +1,12 @@
 import Head from "next/head";
 import type { Player } from "../types/Player";
 import Link from "next/link";
+import Caspar from "@/components/Icons/Caspar";
+import Charlie from "@/components/Icons/Charlie";
+import Chester from "@/components/Icons/Chester";
+import Daisy from "@/components/Icons/Daisy";
+import Bailey from "@/components/Icons/Bailey";
+import Boots from "@/components/Icons/Boots";
 
 interface HomeProps {
   players: Player[];
@@ -17,8 +23,22 @@ export default function Home({ players, addPlayer }: HomeProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <h1>Monopoly (on Fire)</h1>
-      <h2>Select amount of players:</h2>
+      <h2 id="game-start">Start a new game:</h2>
+      <form aria-labelledby="game-start">
+        <label htmlFor="user-name">Enter your name:</label>
+        <input type="text" id="user-name" defaultValue="Silent Parrot" />
+        <label htmlFor="amount-of-opponents">Select amount of opponents</label>
+        <input type="number" id="amount-of-opponents" />
+        <button type="submit">Next Step</button>
+      </form>
+      <h2>Select amount of opponents:</h2>
       <p>{players.length}</p>
+      <Caspar />
+      <Charlie />
+      <Chester />
+      <Daisy />
+      <Bailey />
+      <Boots />
       <button type="button" onClick={addPlayer}>
         Add player
       </button>
