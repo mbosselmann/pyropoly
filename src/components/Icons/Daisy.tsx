@@ -7,7 +7,7 @@ export default function Daisy() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
       fill="none"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
       width="512"
       height="512"
     >
@@ -24,10 +24,10 @@ export default function Daisy() {
           <path
             d="M4 2h8v1h1v3h1v2h-1v3h-1v1H4v-1H3V8H2V6h1V3h1V2Z"
             fill="#fff"
-            fill-opacity=".1"
+            fillOpacity=".1"
           />
           <path d="M4 13h1v2h6v-2h1v2h1v1H3v-1h1v-2Z" fill="#d11141" />
-          <path fill="#fff" fill-opacity=".2" d="M4 13h1v2H4zM11 13h1v2h-1z" />
+          <path fill="#fff" fillOpacity=".2" d="M4 13h1v2H4zM11 13h1v2h-1z" />
           <path d="M10 5h1v2H9V6h1V5ZM5 5h1v2H4V6h1V5Z" fill="#fff" />
           <path fill="#876658" d="M11 6h-1v1h1zM6 6H5v1h1z" />
           <path d="M9 9v1H7v1H6v-1h1V9h2Z" fill="#de0f0d" />

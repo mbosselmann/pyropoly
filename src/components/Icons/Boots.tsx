@@ -7,7 +7,7 @@ export default function Boots() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
       fill="none"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
       width="512"
       height="512"
     >
@@ -24,13 +24,13 @@ export default function Boots() {
           <path
             d="M4 2h8v1h1v3h1v2h-1v3h-1v1H4v-1H3V8H2V6h1V3h1V2Z"
             fill="#fff"
-            fill-opacity=".1"
+            fillOpacity=".1"
           />
           <path d="M4 13h1v1h6v-1h1v1h1v2H3v-2h1v-1Z" fill="#88d8b0" />
-          <path fill="#fff" fill-opacity=".5" d="M9 15h2v1H9z" />
+          <path fill="#fff" fillOpacity=".5" d="M9 15h2v1H9z" />
           <path fill="#fff" d="M12 5H9v3h3zM7 5H4v3h3z" />
           <path fill="#697b94" d="M12 6h-2v1h2zM7 6H5v1h2z" />
-          <path fill="#fff" fill-opacity=".7" d="M12 6h-1v1h1zM7 6H6v1h1z" />
+          <path fill="#fff" fillOpacity=".7" d="M12 6h-1v1h1zM7 6H6v1h1z" />
           <path d="M6 9v1h3v1h1v-1H9V9H6Z" fill="#e35d6a" />
           <path
             d="M13 1H3v1H2v4h1V3h10v3h1V2h-1V1ZM2 8h1v3h1v1H2V8ZM12 11h1V8h1v4h-2v-1Z"

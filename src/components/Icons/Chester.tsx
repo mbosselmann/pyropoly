@@ -7,7 +7,7 @@ export default function Chester() {
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 16 16"
       fill="none"
-      shape-rendering="crispEdges"
+      shapeRendering="crispEdges"
       width="512"
       height="512"
     >
@@ -24,17 +24,17 @@ export default function Chester() {
           <path
             d="M4 2h8v1h1v3h1v2h-1v3h-1v1H4v-1H3V8H2V6h1V3h1V2Z"
             fill="#fff"
-            fill-opacity=".1"
+            fillOpacity=".1"
           />
           <path d="M4 13h1v1h6v-1h1v3H4v-3Z" fill="#428bca" />
-          <path fill="#fff" fill-opacity=".3" d="M9 15h2v1H9z" />
-          <g fill-rule="evenodd" clip-rule="evenodd">
+          <path fill="#fff" fillOpacity=".3" d="M9 15h2v1H9z" />
+          <g fillRule="evenodd" clipRule="evenodd">
             <path d="M11 5h-1v2h2V6h-1V5ZM6 5H5v2h2V6H6V5Z" fill="#fff" />
             <path d="M10 5v1h1v1H9V5h1ZM5 5v1h1v1H4V5h1Z" fill="#5b7c8b" />
             <path
               d="M10 5v1H9V5h1Zm1 1v1h-1V6h1ZM5 5v1H4V5h1Zm1 1v1H5V6h1Z"
               fill="#fff"
-              fill-opacity=".5"
+              fillOpacity=".5"
             />
           </g>
           <path d="M10 11v-1H7V9H6v1h1v1h3Z" fill="#d29985" />
