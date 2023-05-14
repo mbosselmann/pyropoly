@@ -1,44 +1,13 @@
-import { useState } from "react";
 import Head from "next/head";
-import Board from "../components/Board";
-import type { Field } from "../types/Field";
 import type { Player } from "../types/Player";
+import Link from "next/link";
 
 interface HomeProps {
   players: Player[];
-  fields: Field[][];
-  updatePlayerLocation: (diceNumber: number) => void;
   addPlayer: () => void;
-  currentFieldMessage: string;
-  currentPlayer: string;
-  setNextPlayer: () => void;
 }
 
-export default function Home({
-  players,
-  fields,
-  updatePlayerLocation,
-  addPlayer,
-  currentFieldMessage,
-  currentPlayer,
-  setNextPlayer,
-}: HomeProps) {
-  const [number, setNumber] = useState(0);
-  const [hasRolled, setHasRolled] = useState(false);
-
-  function rollDice() {
-    const newNumber = Math.floor(Math.random() * 3 + 1);
-    setNumber(newNumber);
-    updatePlayerLocation(newNumber);
-    setHasRolled(true);
-  }
-
-  function handleNextPlayer() {
-    setNextPlayer();
-    setHasRolled(false);
-    setNumber(0);
-  }
-
+export default function Home({ players, addPlayer }: HomeProps) {
   return (
     <>
       <Head>
@@ -53,31 +22,7 @@ export default function Home({
       <button type="button" onClick={addPlayer}>
         Add player
       </button>
-      {currentPlayer && (
-        <>
-          <h2>Current player:</h2>
-          <p>{players?.find((player) => player?.id === currentPlayer)?.name}</p>
-          <p>
-            Dice:
-            {number === 0 ? "You need to roll the dice first." : number}
-          </p>
-
-          {hasRolled ? (
-            <button type="button" onClick={handleNextPlayer}>
-              I am done. Next player!
-            </button>
-          ) : (
-            <button type="button" onClick={rollDice}>
-              Roll the Dice!
-            </button>
-          )}
-        </>
-      )}
-      <Board
-        fields={fields}
-        players={players}
-        currentFieldMessage={currentFieldMessage}
-      />
+      <Link href="/board">Start</Link>
     </>
   );
 }

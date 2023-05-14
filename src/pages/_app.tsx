@@ -39,7 +39,7 @@ export default function App({ Component, pageProps }: AppProps) {
       ...players,
       {
         id: String(players.length + 1),
-        name: "player" + players.length + 1,
+        name: "player" + Number(players.length + 1),
         playerLocation: 0,
       },
     ]);
