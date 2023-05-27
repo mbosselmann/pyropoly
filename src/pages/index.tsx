@@ -1,19 +1,50 @@
+import { useState } from "react";
+import styled from "styled-components";
 import Head from "next/head";
+import { AVATAR_MAP } from "@/components/AvatarIcons";
 import type { Player } from "../types/Player";
-import Link from "next/link";
-import Caspar from "@/components/Icons/Caspar";
-import Charlie from "@/components/Icons/Charlie";
-import Chester from "@/components/Icons/Chester";
-import Daisy from "@/components/Icons/Daisy";
-import Bailey from "@/components/Icons/Bailey";
-import Boots from "@/components/Icons/Boots";
+import type { Avatar } from "@/types/Avatar";
+import type { Color } from "@/types/Color";
+import NewGameForm from "@/components/NewGameForm";
 
 interface HomeProps {
   players: Player[];
-  addPlayer: () => void;
+  avatars: Avatar[];
+  colors: Color[];
 }
 
-export default function Home({ players, addPlayer }: HomeProps) {
+const CurrentStateOfUserInput = styled.div``;
+
+const AvatarIcon = styled.div<{ selectedColor: string }>`
+  border: 5px solid black;
+  width: 200px;
+  height: 200px;
+  background-color: ${({ selectedColor }) => selectedColor && selectedColor};
+  border-radius: 0.5rem;
+`;
+
+export default function Home({ avatars, colors }: HomeProps) {
+  const [userName, setUserName] = useState("Silent Parrot");
+  const [selectedAvatar, setSelectedAvatar] = useState("charlie");
+  const [selectedColor, setSelectedColor] = useState("");
+  const [currentStep, setCurrentStep] = useState(1);
+
+  function updateSelectedAvatar(name: string) {
+    setSelectedAvatar(name);
+  }
+
+  function updateSelectedColor(colorCode: string) {
+    setSelectedColor(colorCode);
+  }
+
+  function updateCurrentStep(step: number) {
+    setCurrentStep(step);
+  }
+
+  function updateUserName(name: string) {
+    setUserName(name);
+  }
+
   return (
     <>
       <Head>
@@ -24,25 +55,29 @@ export default function Home({ players, addPlayer }: HomeProps) {
       </Head>
       <h1>Monopoly (on Fire)</h1>
       <h2 id="game-start">Start a new game:</h2>
-      <form aria-labelledby="game-start">
-        <label htmlFor="user-name">Enter your name:</label>
-        <input type="text" id="user-name" defaultValue="Silent Parrot" />
-        <label htmlFor="amount-of-opponents">Select amount of opponents</label>
-        <input type="number" id="amount-of-opponents" />
-        <button type="submit">Next Step</button>
-      </form>
-      <h2>Select amount of opponents:</h2>
-      <p>{players.length}</p>
-      <Caspar />
-      <Charlie />
-      <Chester />
-      <Daisy />
-      <Bailey />
-      <Boots />
-      <button type="button" onClick={addPlayer}>
-        Add player
-      </button>
-      <Link href="/board">Start</Link>
+      <CurrentStateOfUserInput>
+        <AvatarIcon selectedColor={selectedColor}>
+          {AVATAR_MAP[selectedAvatar.toLowerCase()]}
+        </AvatarIcon>
+        <p>Name: {userName}</p>
+        <p>
+          Color:{" "}
+          {colors.find((color) => color.code === selectedColor)?.name ??
+            "No color selected"}
+        </p>
+      </CurrentStateOfUserInput>
+      <NewGameForm
+        userName={userName}
+        avatars={avatars}
+        colors={colors}
+        currentStep={currentStep}
+        selectedAvatar={selectedAvatar}
+        updateSelectedAvatar={updateSelectedAvatar}
+        selectedColor={selectedColor}
+        updateSelectedColor={updateSelectedColor}
+        updateCurrentStep={updateCurrentStep}
+        updateUserName={updateUserName}
+      />
     </>
   );
 }
