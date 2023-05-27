@@ -2,6 +2,8 @@ import type { AppProps } from "next/app";
 import { useState } from "react";
 import { fields } from "../db";
 import { examplePlayers } from "../db";
+import { avatars } from "@/db";
+import { colors } from "@/db";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [players, setPlayers] = useState(examplePlayers);
@@ -34,17 +36,6 @@ export default function App({ Component, pageProps }: AppProps) {
     );
   }
 
-  function addPlayer() {
-    setPlayers([
-      ...players,
-      {
-        id: String(players.length + 1),
-        name: "player" + Number(players.length + 1),
-        playerLocation: 0,
-      },
-    ]);
-  }
-
   function setNextPlayer() {
     const findNextPlayer = players.findIndex(
       (player) => player.id === currentPlayer
@@ -55,9 +46,10 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <Component
       {...pageProps}
+      avatars={avatars}
+      colors={colors}
       players={players}
       fields={fields}
-      addPlayer={addPlayer}
       updatePlayerLocation={updatePlayerLocation}
       currentFieldMessage={currentFieldMessage}
       currentPlayer={currentPlayer}
