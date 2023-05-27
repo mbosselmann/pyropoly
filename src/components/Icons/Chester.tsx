@@ -8,8 +8,6 @@ export default function Chester() {
       viewBox="0 0 16 16"
       fill="none"
       shapeRendering="crispEdges"
-      width="512"
-      height="512"
     >
       <desc>{description}</desc>
       <mask id="viewboxMask">
