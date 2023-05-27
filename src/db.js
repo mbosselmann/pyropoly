@@ -129,3 +129,81 @@ export const examplePlayers = [
     playerLocation: 0,
   },
 ];
+
+export const avatars = [
+  {
+    id: 1,
+    name: "Bailey",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+  {
+    id: 2,
+    name: "Boots",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+  {
+    id: 3,
+    name: "Caspar",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+  {
+    id: 4,
+    name: "Charlie",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+  {
+    id: 5,
+    name: "Chester",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+  {
+    id: 6,
+    name: "Daisy",
+    playerLocation: 0,
+    isSelected: false,
+    isOpponent: false,
+  },
+];
+
+export const colors = [
+  {
+    id: 1,
+    name: "Green",
+    code: "#00b59e",
+  },
+  {
+    id: 2,
+    name: "Blue",
+    code: "#009efa",
+  },
+  {
+    id: 3,
+    name: "Purple",
+    code: "#8075ca",
+  },
+  {
+    id: 4,
+    name: "Pink",
+    code: "#e45691",
+  },
+  {
+    id: 5,
+    name: "Orange",
+    code: "#ffb656",
+  },
+  {
+    id: 6,
+    name: "Yellow",
+    code: "#fbd148",
+  },
+];
