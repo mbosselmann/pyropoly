@@ -15,6 +15,9 @@ interface HomeProps {
 
 const Main = styled.main`
   display: grid;
+  padding: 1rem;
+  border-radius: 0.5rem;
+  background-color: #fff;
   grid-template-areas: "headline headline headline" "title title title" "user-input form form";
 `;
 
@@ -27,15 +30,13 @@ const Title = styled.h2`
 `;
 
 const CurrentStateOfUserInput = styled.div`
+  width: 250px;
   grid-area: user-input;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   gap: 0.5rem;
-  border: 0.4rem solid black;
-  border-right: 0.2rem solid black;
-  border-radius: 0.5rem 0 0 0.5rem;
   padding: 1rem;
 
   & p {

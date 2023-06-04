@@ -4,6 +4,7 @@ import { fields } from "../db";
 import { examplePlayers } from "../db";
 import { avatars } from "@/db";
 import { colors } from "@/db";
+import GlobalStyles from "../../styles";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [players, setPlayers] = useState(examplePlayers);
@@ -44,16 +45,19 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <Component
-      {...pageProps}
-      avatars={avatars}
-      colors={colors}
-      players={players}
-      fields={fields}
-      updatePlayerLocation={updatePlayerLocation}
-      currentFieldMessage={currentFieldMessage}
-      currentPlayer={currentPlayer}
-      setNextPlayer={setNextPlayer}
-    />
+    <>
+      <GlobalStyles />
+      <Component
+        {...pageProps}
+        avatars={avatars}
+        colors={colors}
+        players={players}
+        fields={fields}
+        updatePlayerLocation={updatePlayerLocation}
+        currentFieldMessage={currentFieldMessage}
+        currentPlayer={currentPlayer}
+        setNextPlayer={setNextPlayer}
+      />
+    </>
   );
 }

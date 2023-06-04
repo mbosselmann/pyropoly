@@ -17,18 +17,17 @@ const Input = styled.input`
   display: none;
 `;
 
-const Label = styled.label`
+const Label = styled.label<{ isSelected: boolean; selectedColor: string }>`
   display: block;
-  width: 100px;
-  height: 100px;
-`;
-
-const Wrapper = styled.p<{ isSelected: boolean; selectedColor: string }>`
   border: ${({ isSelected }) =>
     isSelected ? "5px solid black" : "5px solid lightgrey"};
   border-radius: 0.5rem;
   background-color: ${({ selectedColor }) => selectedColor && selectedColor};
+  width: 100px;
+  height: 100px;
 `;
+
+const Wrapper = styled.p``;
 
 export default function RadioInput({
   id,
@@ -41,20 +40,21 @@ export default function RadioInput({
   avatarName = "",
 }: RadioInputProps) {
   return (
-    <Wrapper
-      isSelected={isSelected}
-      selectedColor={colorCode ? colorCode : selectedColor}
-    >
+    <p>
       <Input
         type="radio"
         id={String(id) + name}
         name={name}
         onChange={onChange}
       />
-      <Label htmlFor={String(id) + name}>
+      <Label
+        htmlFor={String(id) + name}
+        isSelected={isSelected}
+        selectedColor={colorCode ? colorCode : selectedColor}
+      >
         <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
         {avatarName && AVATAR_MAP[avatarName.toLowerCase()]}
       </Label>
-    </Wrapper>
+    </p>
   );
 }

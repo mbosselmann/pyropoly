@@ -3,14 +3,15 @@ import { AVATAR_MAP } from "@/components/AvatarIcons";
 import type { Color } from "@/types/Color";
 
 const AvatarIcon = styled.div<{ selectedColor: string }>`
-  width: 200px;
-  height: 200px;
+  width: 220px;
+  height: 220px;
   background-color: ${({ selectedColor }) =>
     selectedColor ? selectedColor : "rgba(232, 231, 231, 0.75)"};
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 
 const Article = styled.article`
+  width: 220px;
   border-radius: 0.5rem;
   box-shadow: 0px 0px 18px 0px rgba(158, 158, 158, 0.75);
 `;

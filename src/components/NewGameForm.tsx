@@ -18,14 +18,12 @@ interface NewGameFormProps {
 }
 
 const Form = styled.form`
+  width: 450px;
   grid-area: form;
   display: grid;
   grid-template-rows: 1fr 3rem;
   place-items: center;
   padding: 1rem;
-  border: 0.4rem solid black;
-  border-left: 0.2rem solid black;
-  border-radius: 0 0.5rem 0.5rem 0;
   min-height: 430px;
 `;
 
