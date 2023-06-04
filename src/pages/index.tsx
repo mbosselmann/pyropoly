@@ -1,26 +1,46 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import { AVATAR_MAP } from "@/components/AvatarIcons";
-import type { Player } from "../types/Player";
+import type { PlayerData } from "../types/Player";
 import type { Avatar } from "@/types/Avatar";
 import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";
+import Player from "@/components/Player";
 
 interface HomeProps {
-  players: Player[];
+  players: PlayerData[];
   avatars: Avatar[];
   colors: Color[];
 }
 
-const CurrentStateOfUserInput = styled.div``;
+const Main = styled.main`
+  display: grid;
+  grid-template-areas: "headline headline headline" "title title title" "user-input form form";
+`;
 
-const AvatarIcon = styled.div<{ selectedColor: string }>`
-  border: 5px solid black;
-  width: 200px;
-  height: 200px;
-  background-color: ${({ selectedColor }) => selectedColor && selectedColor};
-  border-radius: 0.5rem;
+const Headline = styled.h1`
+  grid-area: headline;
+`;
+
+const Title = styled.h2`
+  grid-area: title;
+`;
+
+const CurrentStateOfUserInput = styled.div`
+  grid-area: user-input;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  border: 0.4rem solid black;
+  border-right: 0.2rem solid black;
+  border-radius: 0.5rem 0 0 0.5rem;
+  padding: 1rem;
+
+  & p {
+    margin: 0;
+  }
 `;
 
 export default function Home({ avatars, colors }: HomeProps) {
@@ -53,31 +73,30 @@ export default function Home({ avatars, colors }: HomeProps) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Monopoly (on Fire)</h1>
-      <h2 id="game-start">Start a new game:</h2>
-      <CurrentStateOfUserInput>
-        <AvatarIcon selectedColor={selectedColor}>
-          {AVATAR_MAP[selectedAvatar.toLowerCase()]}
-        </AvatarIcon>
-        <p>Name: {userName}</p>
-        <p>
-          Color:{" "}
-          {colors.find((color) => color.code === selectedColor)?.name ??
-            "No color selected"}
-        </p>
-      </CurrentStateOfUserInput>
-      <NewGameForm
-        userName={userName}
-        avatars={avatars}
-        colors={colors}
-        currentStep={currentStep}
-        selectedAvatar={selectedAvatar}
-        updateSelectedAvatar={updateSelectedAvatar}
-        selectedColor={selectedColor}
-        updateSelectedColor={updateSelectedColor}
-        updateCurrentStep={updateCurrentStep}
-        updateUserName={updateUserName}
-      />
+      <Main>
+        <Headline>Monopoly (on Fire)</Headline>
+        <Title id="game-start">Start a new game:</Title>
+        <CurrentStateOfUserInput>
+          <Player
+            selectedAvatar={selectedAvatar}
+            selectedColor={selectedColor}
+            userName={userName}
+            colors={colors}
+          />
+        </CurrentStateOfUserInput>
+        <NewGameForm
+          userName={userName}
+          avatars={avatars}
+          colors={colors}
+          currentStep={currentStep}
+          selectedAvatar={selectedAvatar}
+          updateSelectedAvatar={updateSelectedAvatar}
+          selectedColor={selectedColor}
+          updateSelectedColor={updateSelectedColor}
+          updateCurrentStep={updateCurrentStep}
+          updateUserName={updateUserName}
+        />
+      </Main>
     </>
   );
 }
