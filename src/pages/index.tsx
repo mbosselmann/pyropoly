@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import type { PlayerData } from "../types/Player";
+import type { PlayerData } from "../types/PlayerData";
 import type { Avatar } from "@/types/Avatar";
 import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";

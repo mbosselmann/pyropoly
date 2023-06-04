@@ -2,7 +2,7 @@ import styled from "styled-components";
 import Panel from "./Panel";
 import GameCenter from "./GameCenter";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/Player";
+import type { Player } from "../types/PlayerData";
 
 export default function Board({
   fields,

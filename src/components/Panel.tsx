@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import FieldItem from "./FieldItem";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/Player";
+import type { Player } from "../types/PlayerData";
 
 interface PanelProps {
   fields: Field[];

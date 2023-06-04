@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GameFigure from "./GameFigure";
-import type { Player } from "../types/Player";
+import type { Player } from "../types/PlayerData";
 
 export default function FieldItem({
   name,

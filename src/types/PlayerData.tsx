@@ -1,4 +1,4 @@
-export type Player = {
+export type PlayerData = {
   id: string;
   name: string;
   playerLocation: number;

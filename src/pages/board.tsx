@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Head from "next/head";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/Player";
+import type { Player } from "../types/PlayerData";
 import Board from "../components/Board";
 import Link from "next/link";
 
