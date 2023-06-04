@@ -1,5 +1,5 @@
-import styled from "styled-components";
 import RadioInput from "@/components/RadioInput";
+import { Fieldset } from "./StyledFieldset";
 
 interface RadioFormSectionProps {
   data: {
@@ -13,20 +13,6 @@ interface RadioFormSectionProps {
   legend: string;
   inputName: string;
 }
-
-const Fieldset = styled.fieldset`
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 0.5rem;
-  max-width: 400px;
-
-  & p {
-    margin: 0;
-    height: 100px;
-    width: 100px;
-  }
-`;
 
 export default function RadioFormSection({
   data,
