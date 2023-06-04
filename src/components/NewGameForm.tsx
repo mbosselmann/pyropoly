@@ -2,6 +2,7 @@ import Link from "next/link";
 import RadioForm from "@/components/RadioForm";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
+import styled from "styled-components";
 
 interface NewGameFormProps {
   userName: string;
@@ -16,6 +17,18 @@ interface NewGameFormProps {
   updateUserName: (arg0: string) => void;
 }
 
+const Form = styled.form`
+  grid-area: form;
+  display: grid;
+  grid-template-rows: 1fr 3rem;
+  place-items: center;
+  padding: 1rem;
+  border: 0.4rem solid black;
+  border-left: 0.2rem solid black;
+  border-radius: 0 0.5rem 0.5rem 0;
+  min-height: 430px;
+`;
+
 export default function NewGameForm({
   userName,
   avatars,
@@ -29,9 +42,9 @@ export default function NewGameForm({
   updateCurrentStep,
 }: NewGameFormProps) {
   return (
-    <form aria-labelledby="game-start">
+    <Form aria-labelledby="game-start">
       {currentStep === 1 && (
-        <>
+        <div>
           <label htmlFor="user-name">Enter your name:</label>
           <input
             type="text"
@@ -39,7 +52,7 @@ export default function NewGameForm({
             defaultValue={userName}
             onChange={(event) => updateUserName(event.target.value)}
           />
-        </>
+        </div>
       )}
       {currentStep === 2 && (
         <RadioForm
@@ -62,33 +75,14 @@ export default function NewGameForm({
         />
       )}
       {currentStep === 4 && (
-        <>
-          <fieldset>
-            <legend>Select amount of opponents</legend>
-            <input type="radio" id="one-opponent" name="amount-of-opponents" />
-            <label htmlFor="one-opponents">1</label>
-            <input type="radio" id="two-opponents" name="amount-of-opponents" />
-            <label htmlFor="two-opponents">2</label>
-            <input
-              type="radio"
-              id="three-opponents"
-              name="amount-of-opponents"
-            />
-            <label htmlFor="three-opponents">3</label>
-            <input
-              type="radio"
-              id="four-opponents"
-              name="amount-of-opponents"
-            />
-            <label htmlFor="four-opponents">4</label>
-            <input
-              type="radio"
-              id="five-opponents"
-              name="amount-of-opponents"
-            />
-            <label htmlFor="five-opponents">5</label>
-          </fieldset>
-        </>
+        <RadioForm
+          data={avatars}
+          selectedAvatar={selectedAvatar}
+          legend="Select your opponents:"
+          onChange={updateSelectedAvatar}
+          selectedColor={selectedColor}
+          inputName="avatar"
+        />
       )}
       <section>
         {currentStep !== 1 && (
@@ -99,12 +93,14 @@ export default function NewGameForm({
             Back to previous step
           </button>
         )}
-        <button
-          type="button"
-          onClick={() => updateCurrentStep(currentStep + 1)}
-        >
-          Next Step
-        </button>
+        {currentStep !== 4 && (
+          <button
+            type="button"
+            onClick={() => updateCurrentStep(currentStep + 1)}
+          >
+            Next Step
+          </button>
+        )}
         {currentStep === 4 && (
           <>
             <button type="button" onClick={() => updateCurrentStep(1)}>
@@ -114,6 +110,6 @@ export default function NewGameForm({
           </>
         )}
       </section>
-    </form>
+    </Form>
   );
 }
