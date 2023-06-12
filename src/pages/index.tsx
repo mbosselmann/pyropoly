@@ -1,16 +1,16 @@
 import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
-import type { PlayerData } from "../types/PlayerData";
 import type { Avatar } from "@/types/Avatar";
 import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";
 import Player from "@/components/Player";
 
 interface HomeProps {
-  players: PlayerData[];
+  players: Avatar[];
   avatars: Avatar[];
   colors: Color[];
+  updateOpponents: (arg0: string) => void;
 }
 
 const Main = styled.main`
@@ -44,7 +44,7 @@ const CurrentStateOfUserInput = styled.div`
   }
 `;
 
-export default function Home({ avatars, colors }: HomeProps) {
+export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
   const [userName, setUserName] = useState("Silent Parrot");
   const [selectedAvatar, setSelectedAvatar] = useState("charlie");
   const [selectedColor, setSelectedColor] = useState("");
@@ -86,6 +86,7 @@ export default function Home({ avatars, colors }: HomeProps) {
           />
         </CurrentStateOfUserInput>
         <NewGameForm
+          updateOpponents={updateOpponents}
           userName={userName}
           avatars={avatars}
           colors={colors}

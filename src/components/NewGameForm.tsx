@@ -1,5 +1,5 @@
 import Link from "next/link";
-import RadioForm from "@/components/RadioForm";
+import CustomGroupForm from "@/components/CustomGroupForm";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
 import styled from "styled-components";
@@ -15,6 +15,7 @@ interface NewGameFormProps {
   updateSelectedColor: (arg0: string) => void;
   updateCurrentStep: (arg0: number) => void;
   updateUserName: (arg0: string) => void;
+  updateOpponents: (arg0: string) => void;
 }
 
 const Form = styled.form`
@@ -36,6 +37,7 @@ export default function NewGameForm({
   selectedAvatar,
   updateSelectedAvatar,
   selectedColor,
+  updateOpponents,
   updateSelectedColor,
   updateCurrentStep,
 }: NewGameFormProps) {
@@ -53,8 +55,9 @@ export default function NewGameForm({
         </div>
       )}
       {currentStep === 2 && (
-        <RadioForm
-          data={avatars}
+        <CustomGroupForm
+          type="radio"
+          avatars={avatars}
           selectedAvatar={selectedAvatar}
           legend="Select your avatar:"
           onChange={updateSelectedAvatar}
@@ -63,8 +66,9 @@ export default function NewGameForm({
         />
       )}
       {currentStep === 3 && (
-        <RadioForm
-          data={colors}
+        <CustomGroupForm
+          type="radio"
+          colors={colors}
           selectedAvatar={selectedAvatar}
           legend="Select your color:"
           onChange={updateSelectedColor}
@@ -73,11 +77,13 @@ export default function NewGameForm({
         />
       )}
       {currentStep === 4 && (
-        <RadioForm
-          data={avatars}
+        <CustomGroupForm
+          type="checkbox"
+          colors={colors}
+          avatars={avatars.filter((avatar) => avatar.name !== selectedAvatar)}
           selectedAvatar={selectedAvatar}
           legend="Select your opponents:"
-          onChange={updateSelectedAvatar}
+          onChange={updateOpponents}
           selectedColor={selectedColor}
           inputName="avatar"
         />

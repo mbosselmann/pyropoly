@@ -1,5 +1,5 @@
 export type Color = {
-    id: number;
-    name: string;
-    code: string
-}
+  id: string;
+  name: string;
+  code: string;
+};

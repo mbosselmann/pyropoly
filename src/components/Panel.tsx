@@ -1,12 +1,12 @@
 import styled, { css } from "styled-components";
 import FieldItem from "./FieldItem";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/PlayerData";
+import { Avatar } from "@/types/Avatar";
 
 interface PanelProps {
   fields: Field[];
   variant: string;
-  players: Player[];
+  players: Avatar[];
 }
 
 export default function Panel({ fields, variant, players }: PanelProps) {

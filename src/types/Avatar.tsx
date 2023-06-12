@@ -1,5 +1,5 @@
 export type Avatar = {
-  id: number;
+  id: string;
   name: string;
   playerLocation: number;
   isSelected: boolean;

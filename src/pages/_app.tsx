@@ -1,13 +1,13 @@
 import type { AppProps } from "next/app";
 import { useState } from "react";
 import { fields } from "../db";
-import { examplePlayers } from "../db";
 import { avatars } from "@/db";
 import { colors } from "@/db";
 import GlobalStyles from "../../styles";
+import { Avatar } from "@/types/Avatar";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [players, setPlayers] = useState(examplePlayers);
+  const [players, setPlayers] = useState<Avatar[]>(avatars);
   const [currentFieldMessage, setCurrentFieldMessage] = useState(
     findMessage(0) ?? ""
   );
@@ -44,19 +44,32 @@ export default function App({ Component, pageProps }: AppProps) {
     setCurrentPlayer(players[findNextPlayer + 1]?.id ?? players[0].id);
   }
 
+  function updateOpponents(opponentId: string) {
+    setPlayers(
+      players.map((player) =>
+        player.id === opponentId
+          ? { ...player, isOpponent: !player.isOpponent }
+          : player
+      )
+    );
+  }
+
   return (
     <>
       <GlobalStyles />
       <Component
         {...pageProps}
-        avatars={avatars}
+        avatars={players}
         colors={colors}
-        players={players}
+        players={players.filter(
+          (player) => player.isSelected || player.isOpponent
+        )}
         fields={fields}
         updatePlayerLocation={updatePlayerLocation}
         currentFieldMessage={currentFieldMessage}
         currentPlayer={currentPlayer}
         setNextPlayer={setNextPlayer}
+        updateOpponents={updateOpponents}
       />
     </>
   );
