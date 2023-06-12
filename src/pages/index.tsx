@@ -11,6 +11,12 @@ interface HomeProps {
   avatars: Avatar[];
   colors: Color[];
   updateOpponents: (arg0: string) => void;
+  selectedColor: string;
+  updateSelectedColor: (arg0: string) => void;
+  userName: string;
+  updateUserName: (arg0: string) => void;
+  updateSelectedAvatar: (arg0: string) => void;
+  selectedAvatar: string;
 }
 
 const Main = styled.main`
@@ -44,26 +50,21 @@ const CurrentStateOfUserInput = styled.div`
   }
 `;
 
-export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
-  const [userName, setUserName] = useState("Silent Parrot");
-  const [selectedAvatar, setSelectedAvatar] = useState("charlie");
-  const [selectedColor, setSelectedColor] = useState("");
+export default function Home({
+  avatars,
+  colors,
+  updateOpponents,
+  selectedColor,
+  updateSelectedColor,
+  userName,
+  updateUserName,
+  updateSelectedAvatar,
+  selectedAvatar,
+}: HomeProps) {
   const [currentStep, setCurrentStep] = useState(1);
-
-  function updateSelectedAvatar(name: string) {
-    setSelectedAvatar(name);
-  }
-
-  function updateSelectedColor(colorCode: string) {
-    setSelectedColor(colorCode);
-  }
 
   function updateCurrentStep(step: number) {
     setCurrentStep(step);
-  }
-
-  function updateUserName(name: string) {
-    setUserName(name);
   }
 
   return (

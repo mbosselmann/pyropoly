@@ -1,12 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/PlayerData";
 import Board from "../components/Board";
 import Link from "next/link";
+import { Avatar } from "@/types/Avatar";
 
 interface BaordProps {
-  players: Player[];
+  players: Avatar[];
   fields: Field[][];
   updatePlayerLocation: (diceNumber: number) => void;
   currentFieldMessage: string;
