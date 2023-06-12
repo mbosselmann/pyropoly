@@ -11,12 +11,8 @@ interface HomeProps {
   avatars: Avatar[];
   colors: Color[];
   updateOpponents: (arg0: string) => void;
-  selectedColor: string;
-  updateSelectedColor: (arg0: string) => void;
-  userName: string;
-  updateUserName: (arg0: string) => void;
-  updateSelectedAvatar: (arg0: string) => void;
-  selectedAvatar: string;
+  user: { name: string; avatar: string; color: string };
+  updateUser: (arg0: string, arg1: string) => void;
 }
 
 const Main = styled.main`
@@ -54,12 +50,8 @@ export default function Home({
   avatars,
   colors,
   updateOpponents,
-  selectedColor,
-  updateSelectedColor,
-  userName,
-  updateUserName,
-  updateSelectedAvatar,
-  selectedAvatar,
+  user,
+  updateUser,
 }: HomeProps) {
   const [currentStep, setCurrentStep] = useState(1);
 
@@ -80,24 +72,20 @@ export default function Home({
         <Title id="game-start">Start a new game:</Title>
         <CurrentStateOfUserInput>
           <Player
-            selectedAvatar={selectedAvatar}
-            selectedColor={selectedColor}
-            userName={userName}
+            selectedAvatar={user.avatar}
+            selectedColor={user.color}
+            userName={user.name}
             colors={colors}
           />
         </CurrentStateOfUserInput>
         <NewGameForm
           updateOpponents={updateOpponents}
-          userName={userName}
           avatars={avatars}
           colors={colors}
           currentStep={currentStep}
-          selectedAvatar={selectedAvatar}
-          updateSelectedAvatar={updateSelectedAvatar}
-          selectedColor={selectedColor}
-          updateSelectedColor={updateSelectedColor}
           updateCurrentStep={updateCurrentStep}
-          updateUserName={updateUserName}
+          user={user}
+          updateUser={updateUser}
         />
       </Main>
     </>

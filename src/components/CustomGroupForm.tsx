@@ -7,7 +7,8 @@ interface FormSectionProps {
   avatars?: Avatar[] | null;
   colors?: Color[];
   type: string;
-  onChange: (arg0: string) => void;
+  updateOpponents?: (arg0: string) => void;
+  updateUser?: (arg0: string, arg1: string) => void;
   selectedColor: string;
   selectedAvatar: string;
   legend: string;
@@ -17,7 +18,8 @@ interface FormSectionProps {
 export default function CustomGroupForm({
   avatars = null,
   colors,
-  onChange,
+  updateOpponents,
+  updateUser,
   type,
   selectedColor,
   selectedAvatar,
@@ -43,7 +45,9 @@ export default function CustomGroupForm({
             labelText={name}
             isSelected={selectedAvatar === name}
             colorCode={selectedColor}
-            onChange={() => onChange(name)}
+            onChange={() => {
+              if (updateUser) updateUser("avatar", name);
+            }}
           />
         ))}
       {type === "checkbox" &&
@@ -58,7 +62,9 @@ export default function CustomGroupForm({
             colorCode={colorCodesCopy ? colorCodesCopy[index] : ""}
             labelText={name}
             isSelected={isOpponent}
-            onChange={() => onChange(id)}
+            onChange={() => {
+              if (updateOpponents) updateOpponents(id);
+            }}
           />
         ))}
       {!avatars &&
@@ -73,7 +79,9 @@ export default function CustomGroupForm({
             labelText={name}
             isSelected={selectedColor === code}
             colorCode={code}
-            onChange={() => onChange(code)}
+            onChange={() => {
+              if (updateUser) updateUser("color", code);
+            }}
           />
         ))}
     </Fieldset>

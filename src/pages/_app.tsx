@@ -12,20 +12,14 @@ export default function App({ Component, pageProps }: AppProps) {
     findMessage(0) ?? ""
   );
   const [currentPlayer, setCurrentPlayer] = useState(players[0].id);
-  const [userName, setUserName] = useState("Silent Parrot");
-  const [selectedAvatar, setSelectedAvatar] = useState("charlie");
-  const [selectedColor, setSelectedColor] = useState("");
+  const [user, setUser] = useState({
+    name: "SilentParrot",
+    color: "",
+    avatar: "charlie",
+  });
 
-  function updateSelectedAvatar(name: string) {
-    setSelectedAvatar(name);
-  }
-
-  function updateSelectedColor(colorCode: string) {
-    setSelectedColor(colorCode);
-  }
-
-  function updateUserName(name: string) {
-    setUserName(name);
+  function updateUser(key: string, value: string) {
+    setUser({ ...user, [key]: value });
   }
 
   function findMessage(fieldNumber: number) {
@@ -85,12 +79,8 @@ export default function App({ Component, pageProps }: AppProps) {
         currentPlayer={currentPlayer}
         setNextPlayer={setNextPlayer}
         updateOpponents={updateOpponents}
-        updateSelectedAvatar={updateSelectedAvatar}
-        updateSelectedColor={updateSelectedColor}
-        updateUserName={updateUserName}
-        userName={userName}
-        selectedAvatar={selectedAvatar}
-        selectedColor={selectedColor}
+        updateUser={updateUser}
+        user={user}
       />
     </>
   );

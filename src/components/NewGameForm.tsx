@@ -5,17 +5,13 @@ import { Color } from "@/types/Color";
 import styled from "styled-components";
 
 interface NewGameFormProps {
-  userName: string;
   avatars: Avatar[];
   colors: Color[];
   currentStep: number;
-  selectedAvatar: string;
-  updateSelectedAvatar: (arg0: string) => void;
-  selectedColor: string;
-  updateSelectedColor: (arg0: string) => void;
   updateCurrentStep: (arg0: number) => void;
-  updateUserName: (arg0: string) => void;
   updateOpponents: (arg0: string) => void;
+  user: { name: string; avatar: string; color: string };
+  updateUser: (arg0: string, arg1: string) => void;
 }
 
 const Form = styled.form`
@@ -29,17 +25,13 @@ const Form = styled.form`
 `;
 
 export default function NewGameForm({
-  userName,
   avatars,
   colors,
   currentStep,
-  updateUserName,
-  selectedAvatar,
-  updateSelectedAvatar,
-  selectedColor,
   updateOpponents,
-  updateSelectedColor,
   updateCurrentStep,
+  user,
+  updateUser,
 }: NewGameFormProps) {
   return (
     <Form aria-labelledby="game-start">
@@ -49,8 +41,8 @@ export default function NewGameForm({
           <input
             type="text"
             id="user-name"
-            defaultValue={userName}
-            onChange={(event) => updateUserName(event.target.value)}
+            defaultValue={user.name}
+            onChange={(event) => updateUser("name", event.target.value)}
           />
         </div>
       )}
@@ -58,10 +50,10 @@ export default function NewGameForm({
         <CustomGroupForm
           type="radio"
           avatars={avatars}
-          selectedAvatar={selectedAvatar}
+          selectedAvatar={user.avatar}
           legend="Select your avatar:"
-          onChange={updateSelectedAvatar}
-          selectedColor={selectedColor}
+          updateUser={updateUser}
+          selectedColor={user.color}
           inputName="avatar"
         />
       )}
@@ -69,10 +61,10 @@ export default function NewGameForm({
         <CustomGroupForm
           type="radio"
           colors={colors}
-          selectedAvatar={selectedAvatar}
+          selectedAvatar={user.avatar}
           legend="Select your color:"
-          onChange={updateSelectedColor}
-          selectedColor={selectedColor}
+          updateUser={updateUser}
+          selectedColor={user.color}
           inputName="color"
         />
       )}
@@ -80,11 +72,11 @@ export default function NewGameForm({
         <CustomGroupForm
           type="checkbox"
           colors={colors}
-          avatars={avatars.filter((avatar) => avatar.name !== selectedAvatar)}
-          selectedAvatar={selectedAvatar}
+          avatars={avatars.filter((avatar) => avatar.name !== user.name)}
+          selectedAvatar={user.avatar}
           legend="Select your opponents:"
-          onChange={updateOpponents}
-          selectedColor={selectedColor}
+          updateOpponents={updateOpponents}
+          selectedColor={user.color}
           inputName="avatar"
         />
       )}
