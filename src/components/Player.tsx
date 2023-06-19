@@ -40,7 +40,7 @@ export default function Player({
         {AVATAR_MAP[selectedAvatar.toLowerCase()]}
       </AvatarIcon>
       <List role="list">
-        <li>Name: {userName}</li>
+        <li>Name: {userName ?? "SilentParrot"}</li>
         <li>
           Color:{" "}
           {colors.find((color) => color.code === selectedColor)?.name ??

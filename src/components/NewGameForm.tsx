@@ -10,7 +10,7 @@ interface NewGameFormProps {
   currentStep: number;
   updateCurrentStep: (arg0: number) => void;
   updateOpponents: (arg0: string) => void;
-  user: { name: string; avatar: string; color: string };
+  user: { name: string; username: string; color: string };
   updateUser: (arg0: string, arg1: string) => void;
 }
 
@@ -36,32 +36,30 @@ export default function NewGameForm({
   return (
     <Form aria-labelledby="game-start">
       {currentStep === 1 && (
-        <div>
-          <label htmlFor="user-name">Enter your name:</label>
-          <input
-            type="text"
-            id="user-name"
-            defaultValue={user.name}
-            onChange={(event) => updateUser("name", event.target.value)}
-          />
-        </div>
-      )}
-      {currentStep === 2 && (
         <CustomGroupForm
           type="radio"
           avatars={avatars}
-          selectedAvatar={user.avatar}
           legend="Select your avatar:"
           updateUser={updateUser}
           selectedColor={user.color}
           inputName="avatar"
         />
       )}
+      {currentStep === 2 && (
+        <div>
+          <label htmlFor="user-name">Enter your name:</label>
+          <input
+            type="text"
+            id="user-name"
+            defaultValue={user.username ?? "Silent Parrot"}
+            onChange={(event) => updateUser("username", event.target.value)}
+          />
+        </div>
+      )}
       {currentStep === 3 && (
         <CustomGroupForm
           type="radio"
           colors={colors}
-          selectedAvatar={user.avatar}
           legend="Select your color:"
           updateUser={updateUser}
           selectedColor={user.color}
@@ -73,7 +71,6 @@ export default function NewGameForm({
           type="checkbox"
           colors={colors}
           avatars={avatars.filter((avatar) => avatar.name !== user.name)}
-          selectedAvatar={user.avatar}
           legend="Select your opponents:"
           updateOpponents={updateOpponents}
           selectedColor={user.color}

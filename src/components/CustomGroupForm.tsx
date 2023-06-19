@@ -10,7 +10,6 @@ interface FormSectionProps {
   updateOpponents?: (arg0: string) => void;
   updateUser?: (arg0: string, arg1: string) => void;
   selectedColor: string;
-  selectedAvatar: string;
   legend: string;
   inputName: string;
 }
@@ -22,7 +21,6 @@ export default function CustomGroupForm({
   updateUser,
   type,
   selectedColor,
-  selectedAvatar,
   legend,
   inputName,
 }: FormSectionProps) {
@@ -35,7 +33,7 @@ export default function CustomGroupForm({
       <legend>{legend}</legend>
       {type === "radio" &&
         avatars &&
-        avatars.map(({ id, name }) => (
+        avatars.map(({ id, name, isSelected }) => (
           <CustomInput
             key={id}
             id={id}
@@ -43,10 +41,10 @@ export default function CustomGroupForm({
             avatarName={name}
             name={inputName}
             labelText={name}
-            isSelected={selectedAvatar === name}
+            isSelected={isSelected}
             colorCode={selectedColor}
             onChange={() => {
-              if (updateUser) updateUser("avatar", name);
+              if (updateUser) updateUser("name", name);
             }}
           />
         ))}

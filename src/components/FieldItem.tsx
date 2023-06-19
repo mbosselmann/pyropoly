@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GameFigure from "./GameFigure";
-import type { Player } from "../types/PlayerData";
+import { Avatar } from "@/types/Avatar";
 
 export default function FieldItem({
   name,
@@ -9,14 +9,16 @@ export default function FieldItem({
 }: {
   name: string;
   fieldNumber: number;
-  players: Player[];
+  players: Avatar[];
 }) {
   return (
     <ListItem>
       {name} Icon
       {players.map(
-        ({ playerLocation, id, name }) =>
-          playerLocation === fieldNumber && <GameFigure key={id} name={name} />
+        ({ playerLocation, id, name, username }) =>
+          playerLocation === fieldNumber && (
+            <GameFigure key={id} name={username ?? name} />
+          )
       )}
     </ListItem>
   );

@@ -7,19 +7,39 @@ import GlobalStyles from "../../styles";
 import { Avatar } from "@/types/Avatar";
 
 export default function App({ Component, pageProps }: AppProps) {
-  const [players, setPlayers] = useState<Avatar[]>(avatars);
+  const [players, setPlayers] = useState(avatars);
   const [currentFieldMessage, setCurrentFieldMessage] = useState(
     findMessage(0) ?? ""
   );
   const [currentPlayer, setCurrentPlayer] = useState(players[0].id);
-  const [user, setUser] = useState({
-    name: "SilentParrot",
-    color: "",
-    avatar: "charlie",
-  });
 
   function updateUser(key: string, value: string) {
-    setUser({ ...user, [key]: value });
+    if (key === "name") {
+      const oldUserAvatar: Avatar | undefined = players.find(
+        (player) => player.isSelected
+      );
+      const newUserAvatar = players.find((player) => player.name === value);
+      if (newUserAvatar) {
+        return setPlayers(
+          players.map((player, index) =>
+            player.id === newUserAvatar.id
+              ? {
+                  ...oldUserAvatar,
+                  ...newUserAvatar,
+                  isSelected: true,
+                  username: oldUserAvatar?.username ?? "Silent Parrot",
+                }
+              : avatars[index]
+          )
+        );
+      }
+    }
+
+    return setPlayers(
+      players.map((player) =>
+        player.isSelected ? { ...player, [key]: value } : player
+      )
+    );
   }
 
   function findMessage(fieldNumber: number) {
@@ -80,7 +100,7 @@ export default function App({ Component, pageProps }: AppProps) {
         setNextPlayer={setNextPlayer}
         updateOpponents={updateOpponents}
         updateUser={updateUser}
-        user={user}
+        user={players.find((player) => player.isSelected) ?? avatars[3]}
       />
     </>
   );

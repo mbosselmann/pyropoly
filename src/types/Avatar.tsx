@@ -4,4 +4,5 @@ export type Avatar = {
   playerLocation: number;
   isSelected: boolean;
   isOpponent: boolean;
+  username?: string;
 };

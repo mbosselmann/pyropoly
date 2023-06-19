@@ -11,7 +11,7 @@ interface HomeProps {
   avatars: Avatar[];
   colors: Color[];
   updateOpponents: (arg0: string) => void;
-  user: { name: string; avatar: string; color: string };
+  user: { name: string; username: string; color: string };
   updateUser: (arg0: string, arg1: string) => void;
 }
 
@@ -72,9 +72,9 @@ export default function Home({
         <Title id="game-start">Start a new game:</Title>
         <CurrentStateOfUserInput>
           <Player
-            selectedAvatar={user.avatar}
+            selectedAvatar={user.name}
             selectedColor={user.color}
-            userName={user.name}
+            userName={user.username}
             colors={colors}
           />
         </CurrentStateOfUserInput>

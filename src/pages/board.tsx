@@ -37,6 +37,7 @@ export default function BoardPage({
     setHasRolled(false);
     setNumber(0);
   }
+  console.log(players);
 
   return (
     <>
