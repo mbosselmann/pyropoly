@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { AVATAR_MAP } from "@/components/AvatarIcons";
 import type { Color } from "@/types/Color";
 
-const AvatarIcon = styled.div<{ selectedColor: string }>`
+const AvatarIcon = styled.div<{ selectedColor: string | undefined }>`
   width: 220px;
   height: 220px;
   background-color: ${({ selectedColor }) =>
@@ -23,8 +23,8 @@ const List = styled.ul`
 
 interface PlayerProps {
   selectedAvatar: string;
-  selectedColor: string;
-  userName: string;
+  selectedColor?: string;
+  userName?: string;
   colors: Color[];
 }
 

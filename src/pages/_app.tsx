@@ -14,35 +14,6 @@ export default function App({ Component, pageProps }: AppProps) {
   );
   const [currentPlayer, setCurrentPlayer] = useState(players[0].id);
 
-  function updateUser(key: string, value: string) {
-    if (key === "name") {
-      const oldUserAvatar: Avatar | undefined = players.find(
-        (player) => player.isSelected
-      );
-      const newUserAvatar = players.find((player) => player.name === value);
-      if (newUserAvatar) {
-        return setPlayers(
-          players.map((player, index) =>
-            player.id === newUserAvatar.id
-              ? {
-                  ...oldUserAvatar,
-                  ...newUserAvatar,
-                  isSelected: true,
-                  username: oldUserAvatar?.username ?? "Silent Parrot",
-                }
-              : avatars[index]
-          )
-        );
-      }
-    }
-
-    return setPlayers(
-      players.map((player) =>
-        player.isSelected ? { ...player, [key]: value } : player
-      )
-    );
-  }
-
   function findMessage(fieldNumber: number) {
     return fields
       ?.flatMap((field) => field)
@@ -65,13 +36,6 @@ export default function App({ Component, pageProps }: AppProps) {
     setCurrentFieldMessage(
       findMessage(updatedPlayers[indexOfCurrentPlayer].playerLocation) ?? ""
     );
-  }
-
-  function setNextPlayer() {
-    const findNextPlayer = players.findIndex(
-      (player) => player.id === currentPlayer
-    );
-    setCurrentPlayer(players[findNextPlayer + 1]?.id ?? players[0].id);
   }
 
   function updateOpponents(opponentId: string) {
@@ -97,11 +61,7 @@ export default function App({ Component, pageProps }: AppProps) {
         fields={fields}
         updatePlayerLocation={updatePlayerLocation}
         currentFieldMessage={currentFieldMessage}
-        currentPlayer={currentPlayer}
-        setNextPlayer={setNextPlayer}
         updateOpponents={updateOpponents}
-        updateUser={updateUser}
-        user={players.find((player) => player.isSelected) ?? avatars[3]}
       />
     </PlayersProvider>
   );

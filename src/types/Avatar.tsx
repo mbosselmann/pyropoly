@@ -5,4 +5,5 @@ export type Avatar = {
   isSelected: boolean;
   isOpponent: boolean;
   username?: string;
+  color?: string;
 };

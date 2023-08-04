@@ -3,6 +3,7 @@ import CustomGroupForm from "@/components/CustomGroupForm";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
 import styled from "styled-components";
+import { usePlayers, usePlayersDispatch } from "@/context";
 
 interface NewGameFormProps {
   avatars: Avatar[];
@@ -10,8 +11,6 @@ interface NewGameFormProps {
   currentStep: number;
   updateCurrentStep: (arg0: number) => void;
   updateOpponents: (arg0: string) => void;
-  user: { name: string; username: string; color: string };
-  updateUser: (arg0: string, arg1: string) => void;
 }
 
 const Form = styled.form`
@@ -30,9 +29,11 @@ export default function NewGameForm({
   currentStep,
   updateOpponents,
   updateCurrentStep,
-  user,
-  updateUser,
 }: NewGameFormProps) {
+  const { user } = usePlayers();
+  const dispatch = usePlayersDispatch();
+  console.log(user);
+
   return (
     <Form aria-labelledby="game-start">
       {currentStep === 1 && (
@@ -40,8 +41,7 @@ export default function NewGameForm({
           type="radio"
           avatars={avatars}
           legend="Select your avatar:"
-          updateUser={updateUser}
-          selectedColor={user.color}
+          selectedColor={user.color as string}
           inputName="avatar"
         />
       )}
@@ -52,7 +52,9 @@ export default function NewGameForm({
             type="text"
             id="user-name"
             defaultValue={user.username ?? "Silent Parrot"}
-            onChange={(event) => updateUser("username", event.target.value)}
+            onChange={(event) =>
+              dispatch({ type: "updateUser", username: event.target.value })
+            }
           />
         </div>
       )}
@@ -61,8 +63,7 @@ export default function NewGameForm({
           type="radio"
           colors={colors}
           legend="Select your color:"
-          updateUser={updateUser}
-          selectedColor={user.color}
+          selectedColor={user?.color as string}
           inputName="color"
         />
       )}
@@ -70,10 +71,10 @@ export default function NewGameForm({
         <CustomGroupForm
           type="checkbox"
           colors={colors}
-          avatars={avatars.filter((avatar) => avatar.name !== user.name)}
+          avatars={avatars.filter((avatar) => avatar.name !== user?.name)}
           legend="Select your opponents:"
           updateOpponents={updateOpponents}
-          selectedColor={user.color}
+          selectedColor={user?.color as string}
           inputName="avatar"
         />
       )}

@@ -5,14 +5,13 @@ import type { Avatar } from "@/types/Avatar";
 import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";
 import Player from "@/components/Player";
+import { usePlayers } from "@/context";
 
 interface HomeProps {
   players: Avatar[];
   avatars: Avatar[];
   colors: Color[];
   updateOpponents: (arg0: string) => void;
-  user: { name: string; username: string; color: string };
-  updateUser: (arg0: string, arg1: string) => void;
 }
 
 const Main = styled.main`
@@ -46,15 +45,10 @@ const CurrentStateOfUserInput = styled.div`
   }
 `;
 
-export default function Home({
-  avatars,
-  colors,
-  updateOpponents,
-  user,
-  updateUser,
-}: HomeProps) {
+export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
   const [currentStep, setCurrentStep] = useState(1);
-
+  const { user } = usePlayers();
+  console.log(user);
   function updateCurrentStep(step: number) {
     setCurrentStep(step);
   }
@@ -71,12 +65,14 @@ export default function Home({
         <Headline>Monopoly (on Fire)</Headline>
         <Title id="game-start">Start a new game:</Title>
         <CurrentStateOfUserInput>
-          <Player
-            selectedAvatar={user.name}
-            selectedColor={user.color}
-            userName={user.username}
-            colors={colors}
-          />
+          {user && (
+            <Player
+              selectedAvatar={user.name}
+              selectedColor={user?.color}
+              userName={user?.username}
+              colors={colors}
+            />
+          )}
         </CurrentStateOfUserInput>
         <NewGameForm
           updateOpponents={updateOpponents}
@@ -84,8 +80,6 @@ export default function Home({
           colors={colors}
           currentStep={currentStep}
           updateCurrentStep={updateCurrentStep}
-          user={user}
-          updateUser={updateUser}
         />
       </Main>
     </>

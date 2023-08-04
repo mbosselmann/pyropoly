@@ -4,10 +4,10 @@ import { Avatar } from "@/types/Avatar";
 import playersReducer from "./reducer";
 
 const PlayersContext = createContext<{
-  players: Avatar[] | null;
+  players: Avatar[];
   currentPlayer: string;
-  dispatch: React.Dispatch<any>;
-}>({ players: null, currentPlayer: "", dispatch: () => null });
+  user: Avatar;
+}>({ players: avatars, currentPlayer: "", user: avatars[3] });
 
 const PlayersDispatchContext = createContext<React.Dispatch<any>>(() => null);
 
@@ -22,8 +22,14 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
     initialState
   );
 
+  const value = {
+    players,
+    currentPlayer,
+    user: players?.find((player) => player.isSelected) ?? avatars[3],
+  };
+
   return (
-    <PlayersContext.Provider value={{ players, currentPlayer, dispatch }}>
+    <PlayersContext.Provider value={value}>
       <PlayersDispatchContext.Provider value={dispatch}>
         {children}
       </PlayersDispatchContext.Provider>
