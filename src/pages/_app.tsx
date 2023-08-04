@@ -5,6 +5,7 @@ import { avatars } from "@/db";
 import { colors } from "@/db";
 import GlobalStyles from "../../styles";
 import { Avatar } from "@/types/Avatar";
+import { PlayersProvider } from "@/context";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [players, setPlayers] = useState(avatars);
@@ -84,7 +85,7 @@ export default function App({ Component, pageProps }: AppProps) {
   }
 
   return (
-    <>
+    <PlayersProvider>
       <GlobalStyles />
       <Component
         {...pageProps}
@@ -102,6 +103,6 @@ export default function App({ Component, pageProps }: AppProps) {
         updateUser={updateUser}
         user={players.find((player) => player.isSelected) ?? avatars[3]}
       />
-    </>
+    </PlayersProvider>
   );
 }

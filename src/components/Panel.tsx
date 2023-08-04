@@ -6,10 +6,9 @@ import { Avatar } from "@/types/Avatar";
 interface PanelProps {
   fields: Field[];
   variant: string;
-  players: Avatar[];
 }
 
-export default function Panel({ fields, variant, players }: PanelProps) {
+export default function Panel({ fields, variant }: PanelProps) {
   return (
     <List variant={variant}>
       {fields.map((field) => (
@@ -17,7 +16,6 @@ export default function Panel({ fields, variant, players }: PanelProps) {
           key={field.id}
           name={field.name}
           fieldNumber={field.fieldNumber}
-          players={players}
         />
       ))}
     </List>

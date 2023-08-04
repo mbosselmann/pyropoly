@@ -3,10 +3,10 @@ import Head from "next/head";
 import type { Field } from "../types/Field";
 import Board from "../components/Board";
 import Link from "next/link";
-import { Avatar } from "@/types/Avatar";
+import type { Avatar } from "@/types/Avatar";
+import { usePlayers, usePlayersDispatch } from "@/context";
 
 interface BaordProps {
-  players: Avatar[];
   fields: Field[][];
   updatePlayerLocation: (diceNumber: number) => void;
   currentFieldMessage: string;
@@ -15,13 +15,12 @@ interface BaordProps {
 }
 
 export default function BoardPage({
-  players,
   fields,
   updatePlayerLocation,
   currentFieldMessage,
-  currentPlayer,
-  setNextPlayer,
 }: BaordProps) {
+  const { currentPlayer, players } = usePlayers();
+  const dispatch = usePlayersDispatch();
   const [number, setNumber] = useState(0);
   const [hasRolled, setHasRolled] = useState(false);
 
@@ -33,10 +32,12 @@ export default function BoardPage({
   }
 
   function handleNextPlayer() {
-    setNextPlayer();
+    dispatch({ type: "setNextPlayer" });
     setHasRolled(false);
     setNumber(0);
   }
+  console.log(currentPlayer, typeof currentPlayer);
+  console.log(players?.find((player) => player?.id === currentPlayer)?.name);
   console.log(players);
 
   return (
@@ -68,11 +69,7 @@ export default function BoardPage({
           <Link href="/">Back to start</Link>
         </>
       )}
-      <Board
-        fields={fields}
-        players={players}
-        currentFieldMessage={currentFieldMessage}
-      />
+      <Board fields={fields} currentFieldMessage={currentFieldMessage} />
     </>
   );
 }

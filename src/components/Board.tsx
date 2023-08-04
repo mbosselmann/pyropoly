@@ -2,29 +2,26 @@ import styled from "styled-components";
 import Panel from "./Panel";
 import GameCenter from "./GameCenter";
 import type { Field } from "../types/Field";
-import type { Player } from "../types/PlayerData";
 
 export default function Board({
   fields,
-  players,
   currentFieldMessage,
 }: {
   fields: Field[][];
-  players: Player[];
   currentFieldMessage: string;
 }) {
   return (
     <Container>
-      <Panel fields={fields[0]} variant="horizontal" players={players} />
+      <Panel fields={fields[0]} variant="horizontal" />
       <Grid>
-        <Panel fields={fields[1]} variant="vertical" players={players} />
+        <Panel fields={fields[1]} variant="vertical" />
         <GameCenter
           fieldName={"Field"}
           currentFieldMessage={currentFieldMessage}
         />
-        <Panel fields={fields[2]} variant="vertical" players={players} />
+        <Panel fields={fields[2]} variant="vertical" />
       </Grid>
-      <Panel fields={fields[3]} variant="horizontal" players={players} />
+      <Panel fields={fields[3]} variant="horizontal" />
     </Container>
   );
 }

@@ -1,25 +1,25 @@
 import styled from "styled-components";
 import GameFigure from "./GameFigure";
-import { Avatar } from "@/types/Avatar";
+import { usePlayers } from "@/context";
 
 export default function FieldItem({
   name,
   fieldNumber,
-  players,
 }: {
   name: string;
   fieldNumber: number;
-  players: Avatar[];
 }) {
+  const { players } = usePlayers();
   return (
     <ListItem>
       {name} Icon
-      {players.map(
-        ({ playerLocation, id, name, username }) =>
-          playerLocation === fieldNumber && (
-            <GameFigure key={id} name={username ?? name} />
-          )
-      )}
+      {players &&
+        players.map(
+          ({ playerLocation, id, name, username }) =>
+            playerLocation === fieldNumber && (
+              <GameFigure key={id} name={username ?? name} />
+            )
+        )}
     </ListItem>
   );
 }
