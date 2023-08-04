@@ -33,8 +33,6 @@ export default function playersReducer(
         const newUserAvatar = state.players.find(
           (player) => player.name === action.value
         );
-        console.log("old", oldUserAvatar);
-        console.log("new", newUserAvatar);
 
         if (newUserAvatar) {
           const updatedPlayers = state.players.map((player, index) =>
@@ -47,7 +45,6 @@ export default function playersReducer(
                 }
               : avatars[index]
           );
-          console.log(updatedPlayers);
           return {
             currentPlayer: state.currentPlayer,
             players: updatedPlayers,
@@ -57,7 +54,6 @@ export default function playersReducer(
       const updatedPlayers = state.players.map((player) =>
         player.isSelected ? { ...player, [action.key]: action.value } : player
       );
-      console.log(updatedPlayers);
       return {
         currentPlayer: state.currentPlayer,
         players: updatedPlayers,

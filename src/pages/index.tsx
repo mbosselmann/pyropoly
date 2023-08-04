@@ -48,7 +48,6 @@ const CurrentStateOfUserInput = styled.div`
 export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
   const [currentStep, setCurrentStep] = useState(1);
   const { user } = usePlayers();
-  console.log(user);
   function updateCurrentStep(step: number) {
     setCurrentStep(step);
   }
