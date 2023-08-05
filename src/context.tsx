@@ -5,16 +5,22 @@ import playersReducer from "./reducer";
 
 const PlayersContext = createContext<{
   players: Avatar[];
-  currentPlayer: string;
+  currentPlayer: number;
   user: Avatar;
-}>({ players: avatars, currentPlayer: "", user: avatars[3] });
+  selectedPlayers: Avatar[];
+}>({
+  players: avatars,
+  currentPlayer: NaN,
+  user: avatars[3],
+  selectedPlayers: [],
+});
 
 const PlayersDispatchContext = createContext<React.Dispatch<any>>(() => null);
 
 export function PlayersProvider({ children }: { children: React.ReactNode }) {
   const initialState = {
     players: avatars,
-    currentPlayer: avatars[0].id,
+    currentPlayer: Number(avatars[0].id),
   };
 
   const [{ players, currentPlayer }, dispatch] = useReducer(
@@ -25,7 +31,10 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
   const value = {
     players,
     currentPlayer,
-    user: players?.find((player) => player.isSelected) ?? avatars[3],
+    user: players.find((player) => player.isSelected) ?? avatars[3],
+    selectedPlayers: players.filter(
+      (player) => player.isSelected || player.isOpponent
+    ),
   };
 
   return (

@@ -1,4 +1,3 @@
-import { useState } from "react";
 import styled from "styled-components";
 import Head from "next/head";
 import type { Avatar } from "@/types/Avatar";
@@ -8,10 +7,8 @@ import Player from "@/components/Player";
 import { usePlayers } from "@/context";
 
 interface HomeProps {
-  players: Avatar[];
   avatars: Avatar[];
   colors: Color[];
-  updateOpponents: (arg0: string) => void;
 }
 
 const Main = styled.main`
@@ -45,12 +42,8 @@ const CurrentStateOfUserInput = styled.div`
   }
 `;
 
-export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
-  const [currentStep, setCurrentStep] = useState(1);
+export default function Home({ colors }: HomeProps) {
   const { user } = usePlayers();
-  function updateCurrentStep(step: number) {
-    setCurrentStep(step);
-  }
 
   return (
     <>
@@ -73,13 +66,7 @@ export default function Home({ avatars, colors, updateOpponents }: HomeProps) {
             />
           )}
         </CurrentStateOfUserInput>
-        <NewGameForm
-          updateOpponents={updateOpponents}
-          avatars={avatars}
-          colors={colors}
-          currentStep={currentStep}
-          updateCurrentStep={updateCurrentStep}
-        />
+        <NewGameForm colors={colors} />
       </Main>
     </>
   );

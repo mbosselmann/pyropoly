@@ -12,19 +12,24 @@ type PlayersActions = {
 };
 
 export default function playersReducer(
-  state: { players: Avatar[]; currentPlayer: string },
+  state: { players: Avatar[]; currentPlayer: number },
   action: PlayersActions
-): { players: Avatar[]; currentPlayer: string } {
+): { players: Avatar[]; currentPlayer: number } {
   switch (action.type) {
     case "setNextPlayer": {
-      const findNextPlayer: number =
-        state.players &&
-        Number(
-          state.players.findIndex((player) => player.id === state.currentPlayer)
-        ) + 1;
-      const nextPlayer: string = state.players
-        ? state.players[findNextPlayer].id
-        : state.players[0]["id"];
+      const selectedPlayers = state.players.filter(
+        (player) => player.isSelected || player.isOpponent
+      );
+      const findCurrentPlayerIndex = selectedPlayers.findIndex(
+        (player) => Number(player.id) === state.currentPlayer
+      );
+      const nextPlayer = Number(
+        selectedPlayers[
+          selectedPlayers.length - 1 === findCurrentPlayerIndex
+            ? 0
+            : findCurrentPlayerIndex + 1
+        ].id
+      );
       return { currentPlayer: nextPlayer, players: state.players };
     }
     case "updateUser": {
@@ -58,6 +63,15 @@ export default function playersReducer(
         currentPlayer: state.currentPlayer,
         players: updatedPlayers,
       };
+    }
+    case "updateOpponents": {
+      const updatedPlayers = state.players.map((player) => {
+        if (player.id === action.value) {
+          return { ...player, isOpponent: !player.isOpponent };
+        }
+        return player;
+      });
+      return { currentPlayer: state.currentPlayer, players: updatedPlayers };
     }
     default: {
       throw new Error(`Unhandled action type: ${action.type}`);

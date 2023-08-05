@@ -1,16 +1,12 @@
-import Link from "next/link";
-import CustomGroupForm from "@/components/CustomGroupForm";
-import { Avatar } from "@/types/Avatar";
-import { Color } from "@/types/Color";
+import { useState } from "react";
 import styled from "styled-components";
 import { usePlayers, usePlayersDispatch } from "@/context";
+import Link from "next/link";
+import CustomGroupForm from "@/components/CustomGroupForm";
+import { Color } from "@/types/Color";
 
 interface NewGameFormProps {
-  avatars: Avatar[];
   colors: Color[];
-  currentStep: number;
-  updateCurrentStep: (arg0: number) => void;
-  updateOpponents: (arg0: string) => void;
 }
 
 const Form = styled.form`
@@ -23,26 +19,26 @@ const Form = styled.form`
   min-height: 430px;
 `;
 
-export default function NewGameForm({
-  avatars,
-  colors,
-  currentStep,
-  updateOpponents,
-  updateCurrentStep,
-}: NewGameFormProps) {
+export default function NewGameForm({ colors }: NewGameFormProps) {
   const { user } = usePlayers();
   const dispatch = usePlayersDispatch();
-  console.log(user);
+  const [currentStep, setCurrentStep] = useState(1);
+
+  function updateCurrentStep(step: number) {
+    setCurrentStep(step);
+  }
 
   return (
-    <Form aria-labelledby="game-start">
+    <Form
+      aria-labelledby="game-start"
+      onSubmit={(event) => event.preventDefault()}
+    >
       {currentStep === 1 && (
         <CustomGroupForm
           type="radio"
-          avatars={avatars}
           legend="Select your avatar:"
-          selectedColor={user.color as string}
           inputName="avatar"
+          step={1}
         />
       )}
       {currentStep === 2 && (
@@ -63,19 +59,17 @@ export default function NewGameForm({
           type="radio"
           colors={colors}
           legend="Select your color:"
-          selectedColor={user?.color as string}
           inputName="color"
+          step={3}
         />
       )}
       {currentStep === 4 && (
         <CustomGroupForm
           type="checkbox"
           colors={colors}
-          avatars={avatars.filter((avatar) => avatar.name !== user?.name)}
           legend="Select your opponents:"
-          updateOpponents={updateOpponents}
-          selectedColor={user?.color as string}
           inputName="avatar"
+          step={4}
         />
       )}
       <section>

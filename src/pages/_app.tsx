@@ -4,7 +4,6 @@ import { fields } from "../db";
 import { avatars } from "@/db";
 import { colors } from "@/db";
 import GlobalStyles from "../../styles";
-import { Avatar } from "@/types/Avatar";
 import { PlayersProvider } from "@/context";
 
 export default function App({ Component, pageProps }: AppProps) {
@@ -38,22 +37,11 @@ export default function App({ Component, pageProps }: AppProps) {
     );
   }
 
-  function updateOpponents(opponentId: string) {
-    setPlayers(
-      players.map((player) =>
-        player.id === opponentId
-          ? { ...player, isOpponent: !player.isOpponent }
-          : player
-      )
-    );
-  }
-
   return (
     <PlayersProvider>
       <GlobalStyles />
       <Component
         {...pageProps}
-        avatars={players}
         colors={colors}
         players={players.filter(
           (player) => player.isSelected || player.isOpponent
@@ -61,7 +49,6 @@ export default function App({ Component, pageProps }: AppProps) {
         fields={fields}
         updatePlayerLocation={updatePlayerLocation}
         currentFieldMessage={currentFieldMessage}
-        updateOpponents={updateOpponents}
       />
     </PlayersProvider>
   );

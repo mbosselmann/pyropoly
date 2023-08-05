@@ -9,17 +9,19 @@ export default function FieldItem({
   name: string;
   fieldNumber: number;
 }) {
-  const { players } = usePlayers();
+  const { selectedPlayers } = usePlayers();
   return (
     <ListItem>
       {name} Icon
-      {players &&
-        players.map(
-          ({ playerLocation, id, name, username }) =>
-            playerLocation === fieldNumber && (
-              <GameFigure key={id} name={username ?? name} />
-            )
-        )}
+      {selectedPlayers &&
+        selectedPlayers
+          .filter((player) => player.isSelected || player.isOpponent)
+          .map(
+            ({ playerLocation, id, name, username }) =>
+              playerLocation === fieldNumber && (
+                <GameFigure key={id} name={username ?? name} />
+              )
+          )}
     </ListItem>
   );
 }

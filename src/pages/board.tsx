@@ -3,15 +3,12 @@ import Head from "next/head";
 import type { Field } from "../types/Field";
 import Board from "../components/Board";
 import Link from "next/link";
-import type { Avatar } from "@/types/Avatar";
 import { usePlayers, usePlayersDispatch } from "@/context";
 
 interface BaordProps {
   fields: Field[][];
   updatePlayerLocation: (diceNumber: number) => void;
   currentFieldMessage: string;
-  currentPlayer: string;
-  setNextPlayer: () => void;
 }
 
 export default function BoardPage({
@@ -19,10 +16,14 @@ export default function BoardPage({
   updatePlayerLocation,
   currentFieldMessage,
 }: BaordProps) {
-  const { currentPlayer, players } = usePlayers();
+  const { currentPlayer, selectedPlayers } = usePlayers();
   const dispatch = usePlayersDispatch();
   const [number, setNumber] = useState(0);
   const [hasRolled, setHasRolled] = useState(false);
+
+  const currentPlayerObject = selectedPlayers.find(
+    (player) => Number(player.id) === currentPlayer
+  );
 
   function rollDice() {
     const newNumber = Math.floor(Math.random() * 3 + 1);
@@ -36,9 +37,6 @@ export default function BoardPage({
     setHasRolled(false);
     setNumber(0);
   }
-  console.log(currentPlayer, typeof currentPlayer);
-  console.log(players?.find((player) => player?.id === currentPlayer)?.name);
-  console.log(players);
 
   return (
     <>
@@ -51,7 +49,11 @@ export default function BoardPage({
       {currentPlayer && (
         <>
           <h2>Current player:</h2>
-          <p>{players?.find((player) => player?.id === currentPlayer)?.name}</p>
+          {currentPlayerObject ? (
+            <p>{currentPlayerObject?.username ?? currentPlayerObject?.name}</p>
+          ) : (
+            <p>You must first select players for your game.</p>
+          )}
           <p>
             Dice:
             {number === 0 ? "You need to roll the dice first." : number}
