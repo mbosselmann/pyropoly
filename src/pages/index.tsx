@@ -4,12 +4,7 @@ import type { Avatar } from "@/types/Avatar";
 import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";
 import Player from "@/components/Player";
-import { usePlayers } from "@/context";
-
-interface HomeProps {
-  avatars: Avatar[];
-  colors: Color[];
-}
+import { useGameData } from "@/context";
 
 const Main = styled.main`
   display: grid;
@@ -42,8 +37,8 @@ const CurrentStateOfUserInput = styled.div`
   }
 `;
 
-export default function Home({ colors }: HomeProps) {
-  const { user } = usePlayers();
+export default function Home() {
+  const { user } = useGameData();
 
   return (
     <>
@@ -62,11 +57,10 @@ export default function Home({ colors }: HomeProps) {
               selectedAvatar={user.name}
               selectedColor={user?.color}
               userName={user?.username}
-              colors={colors}
             />
           )}
         </CurrentStateOfUserInput>
-        <NewGameForm colors={colors} />
+        <NewGameForm />
       </Main>
     </>
   );

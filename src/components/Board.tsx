@@ -1,24 +1,17 @@
 import styled from "styled-components";
 import Panel from "./Panel";
 import GameCenter from "./GameCenter";
-import type { Field } from "../types/Field";
+import { useGameData } from "@/context";
 
-export default function Board({
-  fields,
-  currentFieldMessage,
-}: {
-  fields: Field[][];
-  currentFieldMessage: string;
-}) {
+export default function Board() {
+  const { fields } = useGameData();
+
   return (
     <Container>
       <Panel fields={fields[0]} variant="horizontal" />
       <Grid>
         <Panel fields={fields[1]} variant="vertical" />
-        <GameCenter
-          fieldName={"Field"}
-          currentFieldMessage={currentFieldMessage}
-        />
+        <GameCenter />
         <Panel fields={fields[2]} variant="vertical" />
       </Grid>
       <Panel fields={fields[3]} variant="horizontal" />

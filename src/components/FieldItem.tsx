@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import GameFigure from "./GameFigure";
-import { usePlayers } from "@/context";
+import { useGameData } from "@/context";
 
 export default function FieldItem({
   name,
@@ -9,7 +9,7 @@ export default function FieldItem({
   name: string;
   fieldNumber: number;
 }) {
-  const { selectedPlayers } = usePlayers();
+  const { selectedPlayers } = useGameData();
   return (
     <ListItem>
       {name} Icon

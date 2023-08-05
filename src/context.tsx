@@ -1,21 +1,27 @@
 import { createContext, useContext, useReducer } from "react";
-import { avatars } from "@/db";
-import { Avatar } from "@/types/Avatar";
-import playersReducer from "./reducer";
+import { avatars, colors, fields } from "@/db";
+import gameReducer from "./reducer";
+import type { Avatar } from "./types/Avatar";
+import type { Field } from "./types/Field";
+import type { Color } from "./types/Color";
 
-const PlayersContext = createContext<{
+const GameContext = createContext<{
   players: Avatar[];
   currentPlayer: number;
   user: Avatar;
   selectedPlayers: Avatar[];
+  fields: Field[][];
+  colors: Color[];
 }>({
   players: avatars,
   currentPlayer: NaN,
   user: avatars[3],
   selectedPlayers: [],
+  fields: fields,
+  colors: colors,
 });
 
-const PlayersDispatchContext = createContext<React.Dispatch<any>>(() => null);
+const GameDispatchContext = createContext<React.Dispatch<any>>(() => null);
 
 export function PlayersProvider({ children }: { children: React.ReactNode }) {
   const initialState = {
@@ -24,7 +30,7 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
   };
 
   const [{ players, currentPlayer }, dispatch] = useReducer(
-    playersReducer,
+    gameReducer,
     initialState
   );
 
@@ -35,21 +41,23 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
     selectedPlayers: players.filter(
       (player) => player.isSelected || player.isOpponent
     ),
+    fields,
+    colors,
   };
 
   return (
-    <PlayersContext.Provider value={value}>
-      <PlayersDispatchContext.Provider value={dispatch}>
+    <GameContext.Provider value={value}>
+      <GameDispatchContext.Provider value={dispatch}>
         {children}
-      </PlayersDispatchContext.Provider>
-    </PlayersContext.Provider>
+      </GameDispatchContext.Provider>
+    </GameContext.Provider>
   );
 }
 
-export function usePlayers() {
-  return useContext(PlayersContext);
+export function useGameData() {
+  return useContext(GameContext);
 }
 
-export function usePlayersDispatch() {
-  return useContext(PlayersDispatchContext);
+export function useGameDispatch() {
+  return useContext(GameDispatchContext);
 }

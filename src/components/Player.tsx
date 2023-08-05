@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { AVATAR_MAP } from "@/components/AvatarIcons";
-import type { Color } from "@/types/Color";
+import { useGameData } from "@/context";
 
 const AvatarIcon = styled.div<{ selectedColor: string | undefined }>`
   width: 220px;
@@ -25,15 +25,15 @@ interface PlayerProps {
   selectedAvatar: string;
   selectedColor?: string;
   userName?: string;
-  colors: Color[];
 }
 
 export default function Player({
   selectedAvatar,
   selectedColor,
   userName,
-  colors,
 }: PlayerProps) {
+  const { colors } = useGameData();
+
   return (
     <Article>
       <AvatarIcon selectedColor={selectedColor}>

@@ -1,9 +1,9 @@
 import type { Avatar } from "./types/Avatar";
 import { avatars } from "./db";
 
-type PlayersActions = {
+type GameActions = {
   key: string;
-  value: string;
+  value: string | number;
   type:
     | "updateUser"
     | "updateOpponents"
@@ -11,9 +11,9 @@ type PlayersActions = {
     | "setNextPlayer";
 };
 
-export default function playersReducer(
+export default function gameReducer(
   state: { players: Avatar[]; currentPlayer: number },
-  action: PlayersActions
+  action: GameActions
 ): { players: Avatar[]; currentPlayer: number } {
   switch (action.type) {
     case "setNextPlayer": {
@@ -71,6 +71,18 @@ export default function playersReducer(
         }
         return player;
       });
+      return { currentPlayer: state.currentPlayer, players: updatedPlayers };
+    }
+    case "updatePlayerLocation": {
+      const updatedPlayers = state.players.map((player) =>
+        Number(player.id) === state.currentPlayer
+          ? {
+              ...player,
+              playerLocation:
+                (player.playerLocation + Number(action.value)) % 16,
+            }
+          : player
+      );
       return { currentPlayer: state.currentPlayer, players: updatedPlayers };
     }
     default: {

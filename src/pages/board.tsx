@@ -1,23 +1,12 @@
 import { useState } from "react";
 import Head from "next/head";
-import type { Field } from "../types/Field";
 import Board from "../components/Board";
 import Link from "next/link";
-import { usePlayers, usePlayersDispatch } from "@/context";
+import { useGameData, useGameDispatch } from "@/context";
 
-interface BaordProps {
-  fields: Field[][];
-  updatePlayerLocation: (diceNumber: number) => void;
-  currentFieldMessage: string;
-}
-
-export default function BoardPage({
-  fields,
-  updatePlayerLocation,
-  currentFieldMessage,
-}: BaordProps) {
-  const { currentPlayer, selectedPlayers } = usePlayers();
-  const dispatch = usePlayersDispatch();
+export default function BoardPage() {
+  const { currentPlayer, selectedPlayers } = useGameData();
+  const dispatch = useGameDispatch();
   const [number, setNumber] = useState(0);
   const [hasRolled, setHasRolled] = useState(false);
 
@@ -28,7 +17,7 @@ export default function BoardPage({
   function rollDice() {
     const newNumber = Math.floor(Math.random() * 3 + 1);
     setNumber(newNumber);
-    updatePlayerLocation(newNumber);
+    dispatch({ type: "updatePlayerLocation", value: newNumber });
     setHasRolled(true);
   }
 
@@ -71,7 +60,7 @@ export default function BoardPage({
           <Link href="/">Back to start</Link>
         </>
       )}
-      <Board fields={fields} currentFieldMessage={currentFieldMessage} />
+      <Board />
     </>
   );
 }

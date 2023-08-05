@@ -1,13 +1,8 @@
 import { useState } from "react";
 import styled from "styled-components";
-import { usePlayers, usePlayersDispatch } from "@/context";
+import { useGameData, useGameDispatch } from "@/context";
 import Link from "next/link";
 import CustomGroupForm from "@/components/CustomGroupForm";
-import { Color } from "@/types/Color";
-
-interface NewGameFormProps {
-  colors: Color[];
-}
 
 const Form = styled.form`
   width: 450px;
@@ -19,9 +14,9 @@ const Form = styled.form`
   min-height: 430px;
 `;
 
-export default function NewGameForm({ colors }: NewGameFormProps) {
-  const { user } = usePlayers();
-  const dispatch = usePlayersDispatch();
+export default function NewGameForm() {
+  const { user } = useGameData();
+  const dispatch = useGameDispatch();
   const [currentStep, setCurrentStep] = useState(1);
 
   function updateCurrentStep(step: number) {
@@ -57,7 +52,6 @@ export default function NewGameForm({ colors }: NewGameFormProps) {
       {currentStep === 3 && (
         <CustomGroupForm
           type="radio"
-          colors={colors}
           legend="Select your color:"
           inputName="color"
           step={3}
@@ -66,7 +60,6 @@ export default function NewGameForm({ colors }: NewGameFormProps) {
       {currentStep === 4 && (
         <CustomGroupForm
           type="checkbox"
-          colors={colors}
           legend="Select your opponents:"
           inputName="avatar"
           step={4}
