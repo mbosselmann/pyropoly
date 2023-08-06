@@ -28,13 +28,91 @@ export const fields = [
     },
     {
       id: 5,
-      name: "Corner 2",
+      name: "Field",
       fieldNumber: 8,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 6,
+      name: "Field",
+      fieldNumber: 9,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 7,
+      name: "Field",
+      fieldNumber: 10,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 8,
+      name: "Field",
+      fieldNumber: 11,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 9,
+      name: "Field",
+      fieldNumber: 12,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 10,
+      name: "Field",
+      fieldNumber: 13,
+      message: "If we have no structure we do not find anything in our code.",
+    },
+    {
+      id: 11,
+      name: "Corner 2",
+      fieldNumber: 14,
       message:
         "You arrived on the recap field for endlessly repeating the learned topics by coding some recap projects. Try to show that you can apply your knowledge and that you are ready to move forward.",
     },
   ],
   [
+    {
+      id: 9,
+      name: "Field",
+      fieldNumber: 9,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
+    {
+      id: 8,
+      name: "Field",
+      fieldNumber: 8,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
+    {
+      id: 7,
+      name: "Field",
+      fieldNumber: 7,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
+    {
+      id: 6,
+      name: "Field",
+      fieldNumber: 6,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
+    {
+      id: 5,
+      name: "Field",
+      fieldNumber: 5,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
+    {
+      id: 4,
+      name: "Field",
+      fieldNumber: 4,
+      message:
+        "We have structure, we have stylings, now we want interaction! Let's go!",
+    },
     {
       id: 3,
       name: "Field",
@@ -70,6 +148,48 @@ export const fields = [
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
     },
+    {
+      id: 4,
+      name: "Field",
+      fieldNumber: 12,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
+    {
+      id: 5,
+      name: "Field",
+      fieldNumber: 13,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
+    {
+      id: 6,
+      name: "Field",
+      fieldNumber: 14,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
+    {
+      id: 7,
+      name: "Field",
+      fieldNumber: 15,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
+    {
+      id: 8,
+      name: "Field",
+      fieldNumber: 16,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
+    {
+      id: 9,
+      name: "Field",
+      fieldNumber: 17,
+      message:
+        "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+    },
   ],
   [
     {
@@ -98,7 +218,44 @@ export const fields = [
       fieldNumber: 13,
       message: "Nice start!",
     },
-    { id: 5, name: "Corner 3", fieldNumber: 12, message: "Nice start!" },
+    {
+      id: 5,
+      name: "Field",
+      fieldNumber: 14,
+      message: "Nice start!",
+    },
+    {
+      id: 6,
+      name: "Field",
+      fieldNumber: 15,
+      message: "Nice start!",
+    },
+    {
+      id: 7,
+      name: "Field",
+      fieldNumber: 16,
+      message: "Nice start!",
+    },
+    {
+      id: 8,
+      name: "Field",
+      fieldNumber: 17,
+      message: "Nice start!",
+    },
+    {
+      id: 9,
+      name: "Field",
+      fieldNumber: 18,
+      message: "Nice start!",
+    },
+    {
+      id: 10,
+      name: "Field",
+      fieldNumber: 19,
+      message: "Nice start!",
+    },
+
+    { id: 11, name: "Corner 3", fieldNumber: 20, message: "Nice start!" },
   ],
 ];
 

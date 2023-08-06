@@ -20,8 +20,8 @@ export default function Board() {
 }
 const Container = styled.div`
   display: grid;
-  width: 40rem;
-  height: 40rem;
+  width: 60rem;
+  height: 60rem;
   margin: 0 auto;
   gap: 0;
   grid-template-rows: 8rem auto 8rem;

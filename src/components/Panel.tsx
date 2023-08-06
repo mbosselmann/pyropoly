@@ -34,12 +34,12 @@ const List = styled.ul.attrs({
     variant === "vertical" &&
     css`
       width: 8rem;
-      grid-template-rows: 1fr 1fr 1fr;
+      grid-template-rows: repeat(9, 1fr);
     `}
   ${({ variant }) =>
     variant === "horizontal" &&
     css`
       height: 8rem;
-      grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+      grid-template-columns: 8rem repeat(9, 1fr) 8rem;
     `}
 `;
