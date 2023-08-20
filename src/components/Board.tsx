@@ -20,15 +20,15 @@ export default function Board() {
 }
 const Container = styled.div`
   display: grid;
-  width: 60rem;
-  height: 60rem;
+  width: var(--board-size);
+  height: var(--board-size);
   margin: 0 auto;
+  background-color: #fff;
   gap: 0;
-  grid-template-rows: 8rem auto 8rem;
-  border: 10px solid black;
+  grid-template-rows: var(--field-size) auto var(--field-size);
 `;
 
 const Grid = styled.div`
   display: grid;
-  grid-template-columns: 8rem auto 8rem;
+  grid-template-columns: var(--field-size) auto var(--field-size);
 `;

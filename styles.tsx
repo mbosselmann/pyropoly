@@ -1,6 +1,12 @@
 import { createGlobalStyle } from "styled-components";
 
 export default createGlobalStyle`
+ :root {
+  --field-size: 7rem;
+  --board-size: 50rem;
+ }
+
+
   *,
   *::before,
   *::after {

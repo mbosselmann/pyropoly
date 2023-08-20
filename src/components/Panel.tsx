@@ -33,13 +33,13 @@ const List = styled.ul.attrs({
   ${({ variant }) =>
     variant === "vertical" &&
     css`
-      width: 8rem;
+      width: var(--field-size);
       grid-template-rows: repeat(9, 1fr);
     `}
   ${({ variant }) =>
     variant === "horizontal" &&
     css`
-      height: 8rem;
-      grid-template-columns: 8rem repeat(9, 1fr) 8rem;
+      height: var(--field-size);
+      grid-template-columns: var(--field-size) repeat(9, 1fr) var(--field-size);
     `}
 `;
