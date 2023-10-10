@@ -8,13 +8,13 @@ export default function Board() {
 
   return (
     <Container>
-      <Panel fields={fields[0]} variant="horizontal" />
+      <Panel fields={fields[0]} variant="horizontal-top" />
       <Grid>
-        <Panel fields={fields[1]} variant="vertical" />
+        <Panel fields={fields[1]} variant="vertical-left" />
         <GameCenter />
-        <Panel fields={fields[2]} variant="vertical" />
+        <Panel fields={fields[2]} variant="vertical-right" />
       </Grid>
-      <Panel fields={fields[3]} variant="horizontal" />
+      <Panel fields={fields[3]} variant="horizontal-bottom" />
     </Container>
   );
 }

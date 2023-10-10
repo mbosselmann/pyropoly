@@ -16,6 +16,7 @@ export default function Panel({ fields, variant }: PanelProps) {
           key={field.id}
           name={field.name}
           fieldNumber={field.fieldNumber}
+          variant={variant}
         />
       ))}
     </List>
@@ -30,14 +31,15 @@ const List = styled.ul.attrs({
   margin: 0;
   list-style: none;
   word-break: break-word;
+  font-size: 0.7rem;
   ${({ variant }) =>
-    variant === "vertical" &&
+    (variant === "vertical-left" || variant === "vertical-right") &&
     css`
       width: var(--field-size);
       grid-template-rows: repeat(9, 1fr);
     `}
   ${({ variant }) =>
-    variant === "horizontal" &&
+    (variant === "horizontal-top" || variant === "horizontal-bottom") &&
     css`
       height: var(--field-size);
       grid-template-columns: var(--field-size) repeat(9, 1fr) var(--field-size);

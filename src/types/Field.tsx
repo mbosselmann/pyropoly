@@ -3,4 +3,5 @@ export type Field = {
   fieldNumber: number;
   name: string;
   message: string;
+  type: string;
 };
