@@ -4,4 +4,6 @@ export type Field = {
   name: string;
   message: string;
   type: string;
+  color?: string;
+  price?: number;
 };

@@ -16,7 +16,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: system-ui;
-      background-color: teal;
+      background-color: #5e548e;
   }
 
   #__next {

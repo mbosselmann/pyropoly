@@ -1,7 +1,6 @@
 import styled, { css } from "styled-components";
 import FieldItem from "./FieldItem";
 import type { Field } from "../types/Field";
-import { Avatar } from "@/types/Avatar";
 
 interface PanelProps {
   fields: Field[];
@@ -17,6 +16,9 @@ export default function Panel({ fields, variant }: PanelProps) {
           name={field.name}
           fieldNumber={field.fieldNumber}
           variant={variant}
+          color={field.color}
+          type={field.type}
+          price={field.price}
         />
       ))}
     </List>
