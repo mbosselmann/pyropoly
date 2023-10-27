@@ -1,7 +1,5 @@
 import styled from "styled-components";
 import Head from "next/head";
-import type { Avatar } from "@/types/Avatar";
-import type { Color } from "@/types/Color";
 import NewGameForm from "@/components/NewGameForm";
 import Player from "@/components/Player";
 import { useGameData } from "@/context";
