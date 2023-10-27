@@ -33,7 +33,7 @@ const List = styled.ul.attrs({
   margin: 0;
   list-style: none;
   word-break: break-word;
-  font-size: 0.7rem;
+  font-size: 0.45rem;
   ${({ variant }) =>
     (variant === "vertical-left" || variant === "vertical-right") &&
     css`
