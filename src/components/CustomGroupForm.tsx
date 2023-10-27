@@ -54,7 +54,12 @@ export default function CustomGroupForm({
               colorCode={colorCodesCopy ? colorCodesCopy[index] : ""}
               labelText={name}
               isSelected={isOpponent}
-              onChange={() => dispatch({ type: "updateOpponents", value: id })}
+              onChange={() =>
+                dispatch({
+                  type: "updateOpponents",
+                  value: { id, color: colorCodesCopy[index] },
+                })
+              }
             />
           ))}
       {step === 3 &&

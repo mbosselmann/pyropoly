@@ -3,7 +3,7 @@ import { avatars } from "./db";
 
 type GameActions = {
   key: string;
-  value: string | number;
+  value: string | number | { id: string; color: string };
   type:
     | "updateUser"
     | "updateOpponents"
@@ -66,8 +66,18 @@ export default function gameReducer(
     }
     case "updateOpponents": {
       const updatedPlayers = state.players.map((player) => {
-        if (player.id === action.value) {
-          return { ...player, isOpponent: !player.isOpponent };
+        if (
+          typeof action.value === "object" &&
+          "id" in action.value &&
+          "color" in action.value
+        ) {
+          if (player.id === action.value.id) {
+            return {
+              ...player,
+              isOpponent: !player.isOpponent,
+              color: action.value.color,
+            };
+          }
         }
         return player;
       });
