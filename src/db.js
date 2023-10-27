@@ -14,6 +14,8 @@ export const fields = [
       fieldNumber: 5,
       message:
         "This one is a tough topic. Try to gain the chance to free yourself from here by rolling the dice.",
+      color: "#5390D9",
+      price: 140,
     },
     {
       id: 3,
@@ -22,6 +24,7 @@ export const fields = [
       fieldNumber: 6,
       message:
         "Yeah! Let's learn more about it to fetch what we can. We gonna fetch them all!",
+      price: 150,
     },
     {
       id: 4,
@@ -29,6 +32,8 @@ export const fields = [
       type: "property",
       fieldNumber: 7,
       message: "If we have no structure we do not find anything in our code.",
+      color: "#5390D9",
+      price: 140,
     },
     {
       id: 5,
@@ -36,6 +41,8 @@ export const fields = [
       type: "property",
       fieldNumber: 8,
       message: "If we have no structure we do not find anything in our code.",
+      color: "#5390D9",
+      price: 160,
     },
     {
       id: 6,
@@ -43,6 +50,7 @@ export const fields = [
       type: "railroad",
       fieldNumber: 9,
       message: "If we have no structure we do not find anything in our code.",
+      price: 200,
     },
     {
       id: 7,
@@ -50,6 +58,8 @@ export const fields = [
       type: "property",
       fieldNumber: 10,
       message: "If we have no structure we do not find anything in our code.",
+      color: "#64DFDF",
+      price: 180,
     },
     {
       id: 8,
@@ -64,6 +74,8 @@ export const fields = [
       type: "property",
       fieldNumber: 12,
       message: "If we have no structure we do not find anything in our code.",
+      color: "#64DFDF",
+      price: 180,
     },
     {
       id: 10,
@@ -71,6 +83,8 @@ export const fields = [
       type: "property",
       fieldNumber: 13,
       message: "If we have no structure we do not find anything in our code.",
+      color: "#64DFDF",
+      price: 200,
     },
     {
       id: 11,
@@ -89,6 +103,8 @@ export const fields = [
       fieldNumber: 9,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      color: "#68d8d6",
+      price: 120,
     },
     {
       id: 8,
@@ -97,6 +113,8 @@ export const fields = [
       fieldNumber: 8,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      color: "#68d8d6",
+      price: 100,
     },
     {
       id: 7,
@@ -113,6 +131,8 @@ export const fields = [
       fieldNumber: 6,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      color: "#68d8d6",
+      price: 100,
     },
     {
       id: 5,
@@ -121,6 +141,7 @@ export const fields = [
       fieldNumber: 5,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      price: 200,
     },
     {
       id: 4,
@@ -129,6 +150,7 @@ export const fields = [
       fieldNumber: 4,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      price: 200,
     },
     {
       id: 3,
@@ -137,6 +159,8 @@ export const fields = [
       fieldNumber: 3,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
+      color: "#7400B8",
+      price: 60,
     },
     {
       id: 2,
@@ -151,6 +175,8 @@ export const fields = [
       type: "property",
       fieldNumber: 1,
       message: "Nice start! Let's learn all about semantics.",
+      color: "#7400B8",
+      price: 60,
     },
   ],
   [
@@ -160,10 +186,12 @@ export const fields = [
       type: "property",
       fieldNumber: 9,
       message: "Challenge accepted! Understand the basics.",
+      color: "#bbd0ff",
+      price: 220,
     },
     {
       id: 2,
-      name: "Pull Possibilities",
+      name: "Pull Chance",
       type: "chance",
       fieldNumber: 10,
       message: "...",
@@ -175,6 +203,8 @@ export const fields = [
       fieldNumber: 12,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      color: "#bbd0ff",
+      price: 220,
     },
     {
       id: 4,
@@ -183,6 +213,8 @@ export const fields = [
       fieldNumber: 13,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      color: "#bbd0ff",
+      price: 240,
     },
     {
       id: 5,
@@ -191,6 +223,7 @@ export const fields = [
       fieldNumber: 11,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      price: 200,
     },
     {
       id: 6,
@@ -199,6 +232,8 @@ export const fields = [
       fieldNumber: 14,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      color: "#ffafcc",
+      price: 260,
     },
     {
       id: 7,
@@ -207,6 +242,8 @@ export const fields = [
       fieldNumber: 15,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      color: "#ffafcc",
+      price: 260,
     },
     {
       id: 8,
@@ -215,6 +252,7 @@ export const fields = [
       fieldNumber: 16,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      price: 150,
     },
     {
       id: 9,
@@ -223,6 +261,8 @@ export const fields = [
       fieldNumber: 17,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
+      color: "#ffafcc",
+      price: 280,
     },
   ],
   [
@@ -238,10 +278,11 @@ export const fields = [
       id: 2,
       name: "Reducer Residence",
       type: "property",
-
       fieldNumber: 15,
       message:
         "Optional or not. This step also needs to be learned. Let us stay here before we start with our capstone project.",
+      color: "#00a6fb",
+      price: 400,
     },
     {
       id: 3,
@@ -249,6 +290,7 @@ export const fields = [
       type: "tax",
       fieldNumber: 14,
       message: "Next level! Now we have learned the fundamentals of react.",
+      price: 100,
     },
     {
       id: 4,
@@ -256,6 +298,8 @@ export const fields = [
       type: "property",
       fieldNumber: 13,
       message: "Nice start!",
+      color: "#00a6fb",
+      price: 350,
     },
     {
       id: 5,
@@ -270,6 +314,7 @@ export const fields = [
       type: "railroad",
       fieldNumber: 15,
       message: "Nice start!",
+      price: 200,
     },
     {
       id: 7,
@@ -277,6 +322,8 @@ export const fields = [
       type: "property",
       fieldNumber: 16,
       message: "Nice start!",
+      color: "#5E60CE",
+      price: 320,
     },
     {
       id: 8,
@@ -291,6 +338,8 @@ export const fields = [
       fieldNumber: 18,
       type: "property",
       message: "Nice start!",
+      color: "#5E60CE",
+      price: 300,
     },
     {
       id: 10,
@@ -298,6 +347,8 @@ export const fields = [
       fieldNumber: 19,
       type: "property",
       message: "Nice start!",
+      color: "#5E60CE",
+      price: 300,
     },
     {
       id: 11,
