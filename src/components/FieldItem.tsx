@@ -127,7 +127,7 @@ const Wrapper = styled.div`
 const ColorBox = styled.div<{ $color?: string; $variant: string }>`
   background-color: ${({ $color }) => $color ?? "black"};
   position: absolute;
-  height: 2rem;
+  height: 1.5rem;
   bottom: 0;
   left: 0;
   width: 100%;
@@ -136,7 +136,7 @@ const ColorBox = styled.div<{ $color?: string; $variant: string }>`
     ($variant === "vertical-left" || $variant === "vertical-right") &&
     css`
       height: 100%;
-      width: 2rem;
+      width: 1.5rem;
     `}
 
   ${({ $variant }) =>
@@ -169,7 +169,7 @@ const Price = styled.p<{ $variant: string }>`
       left: -1.7rem;
       translate: 0 -50%;
       width: 4rem;
-      height: 2rem;
+      height: 1.5rem;
     `}
 
   ${({ $variant }) =>
@@ -180,7 +180,7 @@ const Price = styled.p<{ $variant: string }>`
       right: -1.7rem;
       translate: 0 -50%;
       width: 4rem;
-      height: 2rem;
+      height: 1.5rem;
     `}
 
     ${({ $variant }) =>

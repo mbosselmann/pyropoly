@@ -24,4 +24,8 @@ export default createGlobalStyle`
     place-items: center;
     height: 100vh;
   }
+
+  ul {
+    padding-left: 0;
+  }
 `;
