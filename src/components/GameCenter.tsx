@@ -3,9 +3,13 @@ import styled from "styled-components";
 import { useState } from "react";
 import PlayerDetailsCard from "./PlayerDetailsCard";
 import PlayerPreviewCard from "./PlayerPreviewCard";
+import PlayerActions from "./PlayerActions";
 
 const Section = styled.section`
+  display: grid;
+  grid-template-rows: 1fr 5fr;
   padding: 0.5rem;
+  height: 100%;
 `;
 
 const List = styled.ul`
@@ -13,21 +17,16 @@ const List = styled.ul`
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  margin: 0;
+  border-bottom: 5px dotted hotpink;
 `;
 
 export default function GameCenter() {
-  const { selectedPlayers, currentPlayer, fields } = useGameData();
+  const { selectedPlayers, currentPlayer } = useGameData();
   const [playerDetailsId, setPlayerDetailsId] = useState<number | null>(null);
 
   const playerLocationOfCurrentPlayer = selectedPlayers.find(
     (player) => Number(player.id) === currentPlayer
   )?.playerLocation;
-
-  const fieldOfCurrentPlayer = fields
-    ?.flatMap((field) => field)
-    ?.find((field) => field.fieldNumber === playerLocationOfCurrentPlayer);
-  console.log(selectedPlayers);
 
   return (
     <Section>
@@ -53,10 +52,9 @@ export default function GameCenter() {
           onClosePlayerDetails={() => setPlayerDetailsId(null)}
         />
       ) : (
-        <>
-          <h2>{fieldOfCurrentPlayer?.name ?? ""}</h2>
-          <p>{fieldOfCurrentPlayer?.message ?? ""}</p>
-        </>
+        <PlayerActions
+          playerLocationOfCurrentPlayer={playerLocationOfCurrentPlayer}
+        />
       )}
     </Section>
   );

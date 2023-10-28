@@ -1,32 +1,8 @@
-import { useState } from "react";
 import Head from "next/head";
 import Board from "../components/Board";
 import Link from "next/link";
-import { useGameData, useGameDispatch } from "@/context";
 
 export default function BoardPage() {
-  const { currentPlayer, selectedPlayers } = useGameData();
-  const dispatch = useGameDispatch();
-  const [number, setNumber] = useState(0);
-  const [hasRolled, setHasRolled] = useState(false);
-
-  const currentPlayerObject = selectedPlayers.find(
-    (player) => Number(player.id) === currentPlayer
-  );
-
-  function rollDice() {
-    const newNumber = Math.floor(Math.random() * 3 + 1);
-    setNumber(newNumber);
-    dispatch({ type: "updatePlayerLocation", value: newNumber });
-    setHasRolled(true);
-  }
-
-  function handleNextPlayer() {
-    dispatch({ type: "setNextPlayer" });
-    setHasRolled(false);
-    setNumber(0);
-  }
-
   return (
     <>
       <Head>
@@ -35,32 +11,7 @@ export default function BoardPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Monopoly</h1>
-      {currentPlayer && (
-        <>
-          <h2>Current player:</h2>
-          {currentPlayerObject ? (
-            <p>{currentPlayerObject?.username ?? currentPlayerObject?.name}</p>
-          ) : (
-            <p>You must first select players for your game.</p>
-          )}
-          <p>
-            Dice:
-            {number === 0 ? "You need to roll the dice first." : number}
-          </p>
-
-          {hasRolled ? (
-            <button type="button" onClick={handleNextPlayer}>
-              I am done. Next player!
-            </button>
-          ) : (
-            <button type="button" onClick={rollDice}>
-              Roll the Dice!
-            </button>
-          )}
-          <Link href="/">Back to start</Link>
-        </>
-      )}
+      <h1>Monopoly</h1> <Link href="/">Back to start</Link>
       <Board />
     </>
   );
