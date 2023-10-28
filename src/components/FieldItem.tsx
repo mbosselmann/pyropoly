@@ -2,52 +2,6 @@ import styled, { css } from "styled-components";
 import GameFigure from "./GameFigure";
 import { useGameData } from "@/context";
 
-export default function FieldItem({
-  name,
-  fieldNumber,
-  variant,
-  color,
-  type,
-  price,
-}: {
-  name: string;
-  fieldNumber: number;
-  variant: string;
-  type: string;
-  color?: string;
-  price?: number;
-}) {
-  const { selectedPlayers } = useGameData();
-
-  return (
-    <ListItem $variant={variant} $fieldType={type}>
-      {color &&
-        (variant === "vertical-right" || variant === "horizontal-bottom") && (
-          <ColorBox $color={color} $variant={variant} />
-        )}
-      <Name $variant={variant} $fieldType={type}>
-        {name}
-      </Name>
-      <Wrapper>
-        {selectedPlayers &&
-          selectedPlayers
-            .filter((player) => player.isSelected || player.isOpponent)
-            .map(
-              ({ playerLocation, id, name, username }) =>
-                playerLocation === fieldNumber && (
-                  <GameFigure key={id} name={username ?? name} />
-                )
-            )}
-      </Wrapper>
-      {price && <Price $variant={variant}>{price} 💎</Price>}
-      {color &&
-        (variant === "vertical-left" || variant === "horizontal-top") && (
-          <ColorBox $color={color} $variant={variant} />
-        )}
-    </ListItem>
-  );
-}
-
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   border: 4px solid hotpink;
   border-width: 2px 4px;
@@ -198,3 +152,49 @@ const Price = styled.p<{ $variant: string }>`
       transform: rotate(180deg);
     `}
 `;
+
+export default function FieldItem({
+  name,
+  fieldNumber,
+  variant,
+  color,
+  type,
+  price,
+}: {
+  name: string;
+  fieldNumber: number;
+  variant: string;
+  type: string;
+  color?: string;
+  price?: number;
+}) {
+  const { selectedPlayers } = useGameData();
+
+  return (
+    <ListItem $variant={variant} $fieldType={type}>
+      {color &&
+        (variant === "vertical-right" || variant === "horizontal-bottom") && (
+          <ColorBox $color={color} $variant={variant} />
+        )}
+      <Name $variant={variant} $fieldType={type}>
+        {name}
+      </Name>
+      <Wrapper>
+        {selectedPlayers &&
+          selectedPlayers
+            .filter((player) => player.isSelected || player.isOpponent)
+            .map(
+              ({ playerLocation, id, name, username }) =>
+                playerLocation === fieldNumber && (
+                  <GameFigure key={id} name={username ?? name} />
+                )
+            )}
+      </Wrapper>
+      {price && <Price $variant={variant}>{price} 💎</Price>}
+      {color &&
+        (variant === "vertical-left" || variant === "horizontal-top") && (
+          <ColorBox $color={color} $variant={variant} />
+        )}
+    </ListItem>
+  );
+}
