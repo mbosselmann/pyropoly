@@ -22,10 +22,13 @@ export default createGlobalStyle`
   #__next {
     display: grid;
     place-items: center;
-    height: 100vh;
   }
 
   ul {
     padding-left: 0;
+  }
+
+  p, ul {
+    margin: 0;
   }
 `;

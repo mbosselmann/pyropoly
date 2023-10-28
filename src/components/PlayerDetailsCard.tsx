@@ -10,6 +10,10 @@ const Article = styled.article`
   gap: 1rem;
   padding: 1rem;
   box-shadow: 0px 0px 18px 0px rgba(158, 158, 158, 0.75);
+
+  & :first-child {
+    align-self: center;
+  }
 `;
 
 type PlayerDetailsCardProps = {

@@ -15,6 +15,7 @@ const Container = styled.div`
 
 const Grid = styled.div`
   display: grid;
+  height: 100%;
   grid-template-columns: var(--field-size) auto var(--field-size);
 `;
 
