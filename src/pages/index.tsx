@@ -1,7 +1,7 @@
 import styled from "styled-components";
 import Head from "next/head";
 import NewGameForm from "@/components/NewGameForm";
-import Player from "@/components/Player";
+import PlayerCard from "@/components/PlayerCard";
 import { useGameData } from "@/context";
 
 const Main = styled.main`
@@ -51,7 +51,7 @@ export default function Home() {
         <Title id="game-start">Start a new game:</Title>
         <CurrentStateOfUserInput>
           {user && (
-            <Player
+            <PlayerCard
               selectedAvatar={user.name}
               selectedColor={user?.color}
               userName={user?.username}

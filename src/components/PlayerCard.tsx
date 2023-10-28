@@ -19,6 +19,10 @@ const Article = styled.article`
 const List = styled.ul`
   list-style: none;
   padding: 0.3rem 1rem;
+
+  li {
+    text-align: center;
+  }
 `;
 
 interface PlayerProps {
@@ -27,7 +31,7 @@ interface PlayerProps {
   userName?: string;
 }
 
-export default function Player({
+export default function PlayerCard({
   selectedAvatar,
   selectedColor,
   userName,
@@ -40,7 +44,9 @@ export default function Player({
         {AVATAR_MAP[selectedAvatar.toLowerCase()]}
       </AvatarIcon>
       <List role="list">
-        <li>Name: {userName ?? "SilentParrot"}</li>
+        <li>
+          <strong>{userName ?? "SilentParrot"}</strong>
+        </li>
         <li>
           Color:{" "}
           {colors.find((color) => color.code === selectedColor)?.name ??
