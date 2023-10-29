@@ -19,7 +19,7 @@ export const fields = [
     },
     {
       id: 3,
-      name: "Lockfile Lounge",
+      name: "Lock\u00ADfile Lounge",
       type: "utility",
       fieldNumber: 12,
       message:
@@ -54,7 +54,7 @@ export const fields = [
     },
     {
       id: 7,
-      name: "DOMinion Domain",
+      name: "DOM\u00ADinion Domain",
       type: "property",
       fieldNumber: 16,
       message: "If we have no structure we do not find anything in our code.",
@@ -118,7 +118,7 @@ export const fields = [
     },
     {
       id: 7,
-      name: "Debugging Dilemmas",
+      name: "Debug\u00ADging Dilemmas",
       type: "chance",
       fieldNumber: 7,
       message:
@@ -145,7 +145,7 @@ export const fields = [
     },
     {
       id: 4,
-      name: "Dependency Debt",
+      name: "Depen\u00ADdency Debt",
       type: "tax",
       fieldNumber: 4,
       message:
@@ -154,7 +154,7 @@ export const fields = [
     },
     {
       id: 3,
-      name: "Selectorville",
+      name: "Selector\u00ADville",
       type: "property",
       fieldNumber: 3,
       message:
@@ -171,7 +171,7 @@ export const fields = [
     },
     {
       id: 1,
-      name: "Pixel Playground",
+      name: "Pixel Play\u00ADground",
       type: "property",
       fieldNumber: 1,
       message: "Nice start! Let's learn all about semantics.",
@@ -294,7 +294,7 @@ export const fields = [
     },
     {
       id: 4,
-      name: "Lifecycle Loft",
+      name: "Life\u00ADcycle Loft",
       type: "property",
       fieldNumber: 37,
       message: "Nice start!",
@@ -318,7 +318,7 @@ export const fields = [
     },
     {
       id: 7,
-      name: "Middleware Meadow",
+      name: "Middle\u00ADware Meadow",
       type: "property",
       fieldNumber: 34,
       message: "Nice start!",
@@ -334,7 +334,7 @@ export const fields = [
     },
     {
       id: 9,
-      name: "Expressway Estates",
+      name: "Express\u00ADway Estates",
       fieldNumber: 32,
       type: "property",
       message: "Nice start!",
