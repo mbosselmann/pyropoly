@@ -1,5 +1,5 @@
 import type { Avatar } from "./types/Avatar";
-import { avatars } from "./db";
+import { avatars } from "./data/db";
 
 type GameActions =
   | {
