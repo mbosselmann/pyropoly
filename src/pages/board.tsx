@@ -1,6 +1,24 @@
+import styled from "styled-components";
 import Head from "next/head";
 import Board from "../components/Board";
 import Link from "next/link";
+import { Luckiest_Guy } from "next/font/google";
+
+const luckiestGuy = Luckiest_Guy({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
+
+const Header = styled.header`
+  width: 45rem;
+  padding: 1rem;
+  margin: 0;
+  color: #fff;
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+`;
 
 export default function BoardPage() {
   return (
@@ -11,8 +29,13 @@ export default function BoardPage() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <h1>Monopoly</h1> <Link href="/">Back to start</Link>
-      <Board />
+      <Header>
+        <h1 className={luckiestGuy.className}>Monopoly (on Fire)</h1>
+        <Link href="/">Back to start</Link>
+      </Header>
+      <main>
+        <Board />
+      </main>
     </>
   );
 }

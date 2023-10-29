@@ -3,6 +3,13 @@ import Head from "next/head";
 import NewGameForm from "@/components/NewGameForm";
 import PlayerCard from "@/components/PlayerCard";
 import { useGameData } from "@/context";
+import { Luckiest_Guy } from "next/font/google";
+
+const luckiestGuy = Luckiest_Guy({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 const Main = styled.main`
   display: grid;
@@ -47,7 +54,9 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <Headline>Monopoly (on Fire)</Headline>
+        <Headline className={luckiestGuy.className}>
+          Monopoly (on Fire)
+        </Headline>
         <Title id="game-start">Start a new game:</Title>
         <CurrentStateOfUserInput>
           {user && (

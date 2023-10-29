@@ -20,11 +20,11 @@ const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
 `;
 
 const Name = styled.p<{ $variant: string; $fieldType: string }>`
-  word-wrap: break-all;
-  white-space: normal;
   margin: 0;
+  padding: 0.3rem;
   text-align: center;
   position: absolute;
+  hyphens: manual;
 
   ${({ $variant }) =>
     $variant === "vertical-left" &&
@@ -35,7 +35,6 @@ const Name = styled.p<{ $variant: string; $fieldType: string }>`
       height: 100%;
       padding-right: 0.4rem;
     `}
-
   ${({ $variant }) =>
     $variant === "vertical-right" &&
     css`
@@ -46,7 +45,6 @@ const Name = styled.p<{ $variant: string; $fieldType: string }>`
       right: 0;
       padding-top: 0.4rem;
     `}
-
     ${({ $variant, $fieldType }) =>
     $variant === "horizontal-bottom" &&
     css`
@@ -57,7 +55,6 @@ const Name = styled.p<{ $variant: string; $fieldType: string }>`
       ${$fieldType === "jail" && "transform: rotate(315deg);"}
       ${$fieldType === "start" && "transform: rotate(45deg);"}
     `}
-
     ${({ $variant, $fieldType }) =>
     $variant === "horizontal-top" &&
     css`
@@ -68,7 +65,7 @@ const Name = styled.p<{ $variant: string; $fieldType: string }>`
       padding-top: 0.4rem;
       ${$fieldType === "jail" && "transform: rotate(135deg);"}
       ${$fieldType === "bonus" && "transform: rotate(225deg);"}
-    `}
+    `};
 `;
 
 const Wrapper = styled.div`
