@@ -73,6 +73,10 @@ const Wrapper = styled.div`
   top: 50%;
   left: 50%;
   translate: -50% -50%;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.2rem;
+  z-index: 3;
 `;
 
 const ColorBox = styled.div<{ $color?: string; $variant: string }>`
@@ -165,7 +169,7 @@ export default function FieldItem({
   color?: string;
   price?: number;
 }) {
-  const { selectedPlayers } = useGameData();
+  const { selectedPlayers, currentPlayer } = useGameData();
 
   return (
     <ListItem $variant={variant} $fieldType={type}>
@@ -187,6 +191,7 @@ export default function FieldItem({
                     key={id}
                     name={username ?? name}
                     color={color ?? "black"}
+                    isCurrentPlayer={Number(id) === currentPlayer}
                   />
                 )
             )}
