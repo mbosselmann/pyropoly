@@ -184,9 +184,13 @@ export default function FieldItem({
           selectedPlayers
             .filter((player) => player.isSelected || player.isOpponent)
             .map(
-              ({ playerLocation, id, name, username }) =>
+              ({ playerLocation, id, name, username, color }) =>
                 playerLocation === fieldNumber && (
-                  <GameFigure key={id} name={username ?? name} />
+                  <GameFigure
+                    key={id}
+                    name={username ?? name}
+                    color={color ?? "black"}
+                  />
                 )
             )}
       </Wrapper>

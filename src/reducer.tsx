@@ -91,7 +91,7 @@ export default function gameReducer(
           ? {
               ...player,
               playerLocation:
-                (player.playerLocation + Number(action.value)) % 16,
+                (player.playerLocation + Number(action.value)) % 40,
             }
           : player
       );
