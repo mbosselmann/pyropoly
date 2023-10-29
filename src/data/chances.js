@@ -222,4 +222,34 @@ const chances = [
     title: "Push Notification",
     message: "Stay alert! Roll the dice again.",
   },
+  {
+    id: 57,
+    title: "Infinite Scroll",
+    message: "Endless content! Move forward 2 spaces.",
+  },
+  {
+    id: 58,
+    title: "Code Review",
+    message: "Feedback helps! Move back 1 space.",
+  },
+  {
+    id: 59,
+    title: "Third-Party API",
+    message: "Integrate external data! Move ahead 2 spaces.",
+  },
+  {
+    id: 60,
+    title: "A/B Testing",
+    message: "User experience insights! Move back 1 space.",
+  },
+  {
+    id: 61,
+    title: "Dependency Injection",
+    message: "Flexible modules! Move ahead 2 spaces.",
+  },
+  {
+    id: 62,
+    title: "Push Notification",
+    message: "Engage users! Move ahead 2 spaces.",
+  },
 ];
