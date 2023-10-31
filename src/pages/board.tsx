@@ -3,6 +3,8 @@ import Head from "next/head";
 import Board from "../components/Board";
 import Link from "next/link";
 import { Luckiest_Guy } from "next/font/google";
+import Back from "@/components/Icons/Back";
+import Fire from "@/components/Icons/Fire";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ["latin"],
@@ -12,12 +14,36 @@ const luckiestGuy = Luckiest_Guy({
 
 const Header = styled.header`
   width: 45rem;
-  padding: 1rem;
+  padding: 0.5rem;
   margin: 0;
   color: #fff;
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
+  align-items: center;
+`;
+
+const BackLink = styled(Link)`
+  color: white;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+
+  &:hover {
+    filter: drop-shadow(0 0 10px #ffafcc);
+  }
+`;
+
+const Main = styled.main`
+  position: relative;
+`;
+
+const Container = styled.div<{ $variant: string }>`
+  width: 100px;
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  ${({ $variant }) => $variant === "left" && "left: -150px;"};
+  ${({ $variant }) => $variant === "right" && "right: -150px;"};
 `;
 
 export default function BoardPage() {
@@ -31,11 +57,19 @@ export default function BoardPage() {
       </Head>
       <Header>
         <h1 className={luckiestGuy.className}>Monopoly (on Fire)</h1>
-        <Link href="/">Back to start</Link>
+        <BackLink href="/" aria-label="Back to start">
+          <Back />
+        </BackLink>
       </Header>
-      <main>
+      <Main>
+        <Container $variant={"left"}>
+          <Fire />
+        </Container>
         <Board />
-      </main>
+        <Container $variant={"right"}>
+          <Fire />
+        </Container>
+      </Main>
     </>
   );
 }

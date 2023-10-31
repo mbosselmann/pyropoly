@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 import GameFigure from "./GameFigure";
 import { useGameData } from "@/context";
+import Chance from "./Icons/Chance";
+import Chest from "./Icons/Chest";
 
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   border: 4px solid hotpink;
@@ -17,6 +19,11 @@ const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
         border-width: 4px;
       }
     `}
+
+  & svg {
+    width: 40px;
+    height: 40px;
+  }
 `;
 
 const Name = styled.p<{ $variant: string; $fieldType: string }>`
@@ -180,6 +187,8 @@ export default function FieldItem({
       <Name $variant={variant} $fieldType={type}>
         {name}
       </Name>
+      {type === "chance" && <Chance />}
+      {type === "chest" && <Chest />}
       <Wrapper>
         {selectedPlayers &&
           selectedPlayers

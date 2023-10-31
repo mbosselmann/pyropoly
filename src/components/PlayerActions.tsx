@@ -1,10 +1,13 @@
 import { useState } from "react";
-import { useGameData, useGameDispatch } from "@/context";
 import styled from "styled-components";
+import { useGameData, useGameDispatch } from "@/context";
+import FieldActions from "./FieldActions";
+import Chance from "./Icons/Chance";
+import Chest from "./Icons/Chest";
 
 const Wrapper = styled.div`
   display: grid;
-  grid-template-rows: 3fr 1fr;
+  grid-template-rows: 5fr 2fr;
 `;
 
 const CardSection = styled.section`
@@ -12,8 +15,30 @@ const CardSection = styled.section`
   display: grid;
   grid-template-columns: 1fr 1fr;
   place-items: center;
-  height: 5rem;
-  border: 5px solid black;
+  height: 100%;
+`;
+
+const CardBorder = styled.div`
+  border: 5px dotted hotpink;
+  width: 80%;
+  height: 90%;
+  padding: 0.5rem;
+`;
+
+const Card = styled.div`
+  border: 3px outset #f47aa6;
+  display: grid;
+  place-items: center;
+  border-radius: 5px;
+  background-color: #ffc8dd;
+  height: 100%;
+  box-shadow: 0 0 20px inset #ffafcc;
+
+  & svg {
+    width: 50px;
+    height: 50px;
+    filter: drop-shadow(0 0 20px white);
+  }
 `;
 
 export default function PlayerActions({
@@ -21,12 +46,6 @@ export default function PlayerActions({
 }: {
   playerLocationOfCurrentPlayer: number | undefined;
 }) {
-  const { fields } = useGameData();
-
-  const fieldOfCurrentPlayer = fields
-    ?.flatMap((field) => field)
-    ?.find((field) => field.fieldNumber === playerLocationOfCurrentPlayer);
-
   const { currentPlayer, selectedPlayers } = useGameData();
   const dispatch = useGameDispatch();
   const [number, setNumber] = useState(0);
@@ -54,13 +73,10 @@ export default function PlayerActions({
       {currentPlayer && (
         <section>
           {hasRolled ? (
-            <section>
-              <h2>{fieldOfCurrentPlayer?.name ?? ""}</h2>
-              <p>{fieldOfCurrentPlayer?.message ?? ""}</p>
-              <button type="button" onClick={handleNextPlayer}>
-                I am done. Next player!
-              </button>
-            </section>
+            <FieldActions
+              playerLocationOfCurrentPlayer={playerLocationOfCurrentPlayer}
+              onNextPlayer={handleNextPlayer}
+            />
           ) : (
             <section>
               <h2>Current player:</h2>
@@ -83,8 +99,16 @@ export default function PlayerActions({
         </section>
       )}
       <CardSection>
-        <p>Chest</p>
-        <p>Chance</p>
+        <CardBorder>
+          <Card>
+            <Chest />
+          </Card>
+        </CardBorder>
+        <CardBorder>
+          <Card>
+            <Chance />
+          </Card>
+        </CardBorder>
       </CardSection>
     </Wrapper>
   );
