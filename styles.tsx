@@ -5,6 +5,10 @@ export default createGlobalStyle`
  :root {
   --field-size: 6.5rem;
   --board-size: 45rem;
+  --bg-color: #5e548e;
+  --light-bg-color: #9d8cef;
+  --disabled-bg-color: #f3f2fd;
+  --box-shadow: #c9c8d4;
  }
 
 
@@ -17,7 +21,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: #5e548e;
+    background-color: var(--bg-color);
     height: 100vh;
   }
 

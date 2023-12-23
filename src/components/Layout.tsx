@@ -13,7 +13,7 @@ const Main = styled.main`
   padding: 2rem 1rem 1rem;
   border-radius: 0.5rem;
   background-color: #fff;
-  min-height: 90%;
+  height: 90%;
 `;
 
 const Headline = styled.h1`

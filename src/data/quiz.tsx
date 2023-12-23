@@ -1,6 +1,6 @@
-import { Quiz } from "@/types/Quiz";
+import { QuizQuestion } from "@/types/QuizQuestion";
 
-export const quiz: Quiz[] = [
+export const quizQuestions: QuizQuestion[] = [
   {
     id: "1",
     question: "What happens when a player lands on an unowned property?",

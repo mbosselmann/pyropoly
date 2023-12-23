@@ -1,4 +1,4 @@
-export type Quiz = {
+export type QuizQuestion = {
   id: string;
   question: string;
   options: string[];
