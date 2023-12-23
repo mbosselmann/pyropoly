@@ -1,4 +1,6 @@
-export const fields = [
+import { Field } from "@/types/Field";
+
+export const fields: Field[][] = [
   [
     {
       id: 1,

@@ -1,4 +1,6 @@
-export const avatars = [
+import { Avatar } from "@/types/Avatar";
+
+export const avatars: Avatar[] = [
   {
     id: "1",
     name: "Bailey",

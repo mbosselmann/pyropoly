@@ -1,4 +1,6 @@
-const chests = [
+import { Card } from "@/types/Card";
+
+export const chests: Card[] = [
   {
     id: 1,
     title: "Code Retreat",

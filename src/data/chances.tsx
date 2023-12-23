@@ -1,4 +1,6 @@
-const chances = [
+import { Card } from "@/types/Card";
+
+export const chances: Card[] = [
   {
     id: 1,
     title: "Refactor Request",

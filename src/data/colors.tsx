@@ -1,4 +1,6 @@
-export const themes = [
+import { Color } from "@/types/Color";
+
+export const themes: Color[][] = [
   [
     {
       id: "1",
