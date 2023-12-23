@@ -41,8 +41,6 @@ export default function QuizPage() {
     useState<number>(0);
 
   function updateProgress() {
-    if (!selectedAnswer) return;
-
     setCount((prevCount) => prevCount + 1);
     setSelectedAnswer("");
   }
@@ -75,7 +73,13 @@ export default function QuizPage() {
           </ProgressContainer>
         </Section>
       ) : (
-        <p> You answered {amountOfCorrectAnswers} questions correct.</p>
+        <p>
+          {" "}
+          You answered {amountOfCorrectAnswers} questions correct. <br />
+          {amountOfCorrectAnswers > 7
+            ? "Really good! You can start."
+            : "Maybe you should study the rules and try again?"}
+        </p>
       )}
     </Layout>
   );

@@ -1,5 +1,5 @@
 import { QuizQuestion } from "@/types/QuizQuestion";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import { useState } from "react";
 import Card from "../Card";
 import { Button } from "../Button";
@@ -31,6 +31,8 @@ export default function CardList({
   );
 
   function handleDisplayQuestion() {
+    if (!selectedAnswer) return;
+
     if (count <= 8) {
       setDisplayedQuestionId(quizQuestions[count + 1].id);
     }
