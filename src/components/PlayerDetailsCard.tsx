@@ -2,6 +2,7 @@ import styled from "styled-components";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
 import PlayerCard from "./PlayerCard";
+import { Field } from "@/types/Field";
 
 const Article = styled.article`
   display: grid;
@@ -25,13 +26,11 @@ export default function PlayerDetailsCard({
   player,
   onClosePlayerDetails,
 }: PlayerDetailsCardProps) {
-  const { fields } = useGameData();
+  const { fields }: { fields: Field[][] } = useGameData();
 
   if (!player) {
     return null;
   }
-
-  console.log(player);
 
   const getFieldName = (playerLocation: number) => {
     return fields

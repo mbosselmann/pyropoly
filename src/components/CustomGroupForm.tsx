@@ -1,6 +1,8 @@
 import CustomInput from "@/components/CustomInput";
 import { Fieldset } from "./Fieldset";
 import { useGameData, useGameDispatch } from "@/context";
+import { Avatar } from "@/types/Avatar";
+import { Color } from "@/types/Color";
 
 interface FormSectionProps {
   type: string;
@@ -15,7 +17,11 @@ export default function CustomGroupForm({
   inputName,
   step,
 }: FormSectionProps) {
-  const { players, user, colors } = useGameData();
+  const {
+    players,
+    user,
+    colors,
+  }: { players: Avatar[]; user: Avatar; colors: Color[] } = useGameData();
   const dispatch = useGameDispatch();
 
   const colorCodesCopy = colors

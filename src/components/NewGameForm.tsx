@@ -4,6 +4,7 @@ import { useGameData, useGameDispatch } from "@/context";
 import Link from "next/link";
 import CustomGroupForm from "@/components/CustomGroupForm";
 import SelectTheme from "./SelectTheme";
+import { Avatar } from "@/types/Avatar";
 
 const Form = styled.form`
   width: 450px;
@@ -16,9 +17,9 @@ const Form = styled.form`
 `;
 
 export default function NewGameForm() {
-  const { user } = useGameData();
+  const { user }: { user: Avatar } = useGameData();
   const dispatch = useGameDispatch();
-  const [currentStep, setCurrentStep] = useState(1);
+  const [currentStep, setCurrentStep] = useState<number>(1);
 
   function updateCurrentStep(step: number) {
     setCurrentStep(step);

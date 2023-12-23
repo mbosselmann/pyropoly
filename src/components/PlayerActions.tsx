@@ -4,6 +4,7 @@ import { useGameData, useGameDispatch } from "@/context";
 import FieldActions from "./FieldActions";
 import Chance from "./Icons/Chance";
 import Chest from "./Icons/Chest";
+import { Avatar } from "@/types/Avatar";
 
 const Wrapper = styled.div`
   display: grid;
@@ -46,12 +47,15 @@ export default function PlayerActions({
 }: {
   playerLocationOfCurrentPlayer: number | undefined;
 }) {
-  const { currentPlayer, selectedPlayers } = useGameData();
+  const {
+    selectedPlayers,
+    currentPlayer,
+  }: { selectedPlayers: Avatar[]; currentPlayer: number } = useGameData();
   const dispatch = useGameDispatch();
-  const [number, setNumber] = useState(0);
-  const [hasRolled, setHasRolled] = useState(false);
+  const [number, setNumber] = useState<number>(0);
+  const [hasRolled, setHasRolled] = useState<boolean>(false);
 
-  const currentPlayerObject = selectedPlayers.find(
+  const currentPlayerObject: Avatar | undefined = selectedPlayers.find(
     (player) => Number(player.id) === currentPlayer
   );
 

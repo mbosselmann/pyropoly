@@ -2,6 +2,7 @@ import styled from "styled-components";
 import NewGameForm from "@/components/NewGameForm";
 import PlayerCard from "@/components/PlayerCard";
 import { useGameData } from "@/context";
+import { Avatar } from "@/types/Avatar";
 
 const Section = styled.section`
   display: grid;
@@ -29,7 +30,7 @@ const CurrentStateOfUserInput = styled.div`
 `;
 
 export default function NewGame() {
-  const { user } = useGameData();
+  const { user }: { user: Avatar } = useGameData();
 
   return (
     <Section>

@@ -2,6 +2,7 @@ import styled from "styled-components";
 import Panel from "./Panel";
 import GameCenter from "./GameCenter";
 import { useGameData } from "@/context";
+import { Field } from "@/types/Field";
 
 const Container = styled.div`
   display: grid;
@@ -20,7 +21,7 @@ const Grid = styled.div`
 `;
 
 export default function Board() {
-  const { fields } = useGameData();
+  const { fields }: { fields: Field[][] } = useGameData();
 
   return (
     <Container>

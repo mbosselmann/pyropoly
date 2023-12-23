@@ -4,6 +4,7 @@ import { useState } from "react";
 import PlayerDetailsCard from "./PlayerDetailsCard";
 import PlayerPreviewCard from "./PlayerPreviewCard";
 import PlayerActions from "./PlayerActions";
+import { Avatar } from "@/types/Avatar";
 
 const Section = styled.section`
   display: grid;
@@ -21,7 +22,10 @@ const List = styled.ul`
 `;
 
 export default function GameCenter() {
-  const { selectedPlayers, currentPlayer } = useGameData();
+  const {
+    selectedPlayers,
+    currentPlayer,
+  }: { selectedPlayers: Avatar[]; currentPlayer: number } = useGameData();
   const [playerDetailsId, setPlayerDetailsId] = useState<number | null>(null);
 
   const playerLocationOfCurrentPlayer = selectedPlayers.find(

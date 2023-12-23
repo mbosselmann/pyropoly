@@ -3,6 +3,7 @@ import GameFigure from "./GameFigure";
 import { useGameData } from "@/context";
 import Chance from "./Icons/Chance";
 import Chest from "./Icons/Chest";
+import { Avatar } from "@/types/Avatar";
 
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   border: 4px solid hotpink;
@@ -176,7 +177,10 @@ export default function FieldItem({
   color?: string;
   price?: number;
 }) {
-  const { selectedPlayers, currentPlayer } = useGameData();
+  const {
+    selectedPlayers,
+    currentPlayer,
+  }: { selectedPlayers: Avatar[]; currentPlayer: number } = useGameData();
 
   return (
     <ListItem $variant={variant} $fieldType={type}>

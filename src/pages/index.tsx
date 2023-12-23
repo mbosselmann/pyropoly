@@ -1,9 +1,10 @@
 import { useState } from "react";
 import Layout from "@/components/Layout";
 import NewGame from "@/components/NewGame";
+import Link from "next/link";
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [isOpen, setIsOpen] = useState<boolean>(false);
 
   return (
     <Layout>
@@ -17,9 +18,7 @@ export default function Home() {
           </button>
           <button type="button">What is Monopoly?</button>
           <button type="button">What are the rules?</button>
-          <button type="button">
-            Quiz to Check if you are ready to start.
-          </button>
+          <Link href="/quiz">Quiz to Check if you are ready to start.</Link>
         </section>
       )}
     </Layout>
