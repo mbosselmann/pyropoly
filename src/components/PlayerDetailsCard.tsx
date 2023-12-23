@@ -39,7 +39,7 @@ export default function PlayerDetailsCard({
       ?.find((field) => field.fieldNumber === playerLocation)?.name;
   };
 
-  const { name, username, color, playerLocation } = player;
+  const { name, username, color, playerLocation, gems } = player;
 
   return (
     <Article>
@@ -56,6 +56,7 @@ export default function PlayerDetailsCard({
         <p>
           On field: <strong>{getFieldName(playerLocation)}</strong>
         </p>
+        <p>Gems: {gems} 💎</p>
       </div>
     </Article>
   );
