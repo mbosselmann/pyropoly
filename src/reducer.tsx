@@ -18,12 +18,16 @@ type GameActions =
   | {
       value: number;
       type: "updatePlayerLocation";
+    }
+  | {
+      type: "updateSelectedTheme";
+      value: Color[];
     };
 
 export default function gameReducer(
-  state: { players: Avatar[]; currentPlayer: number },
+  state: { players: Avatar[]; currentPlayer: number; colors: Color[] },
   action: GameActions
-): { players: Avatar[]; currentPlayer: number } {
+): { players: Avatar[]; currentPlayer: number; colors: Color[] } {
   switch (action.type) {
     case "setNextPlayer": {
       const selectedPlayers = state.players.filter(
@@ -39,7 +43,11 @@ export default function gameReducer(
             : findCurrentPlayerIndex + 1
         ].id
       );
-      return { currentPlayer: nextPlayer, players: state.players };
+      return {
+        currentPlayer: nextPlayer,
+        players: state.players,
+        colors: state.colors,
+      };
     }
     case "updateUser": {
       if (action.key === "name") {
@@ -62,6 +70,7 @@ export default function gameReducer(
           return {
             currentPlayer: state.currentPlayer,
             players: updatedPlayers,
+            colors: state.colors,
           };
         }
       }
@@ -71,6 +80,7 @@ export default function gameReducer(
       return {
         currentPlayer: state.currentPlayer,
         players: updatedPlayers,
+        colors: state.colors,
       };
     }
     case "updateOpponents": {
@@ -84,7 +94,11 @@ export default function gameReducer(
         }
         return player;
       });
-      return { currentPlayer: state.currentPlayer, players: updatedPlayers };
+      return {
+        currentPlayer: state.currentPlayer,
+        players: updatedPlayers,
+        colors: state.colors,
+      };
     }
     case "updatePlayerLocation": {
       const updatedPlayers = state.players.map((player) =>
@@ -96,7 +110,18 @@ export default function gameReducer(
             }
           : player
       );
-      return { currentPlayer: state.currentPlayer, players: updatedPlayers };
+      return {
+        currentPlayer: state.currentPlayer,
+        players: updatedPlayers,
+        colors: state.colors,
+      };
+    }
+    case "updateSelectedTheme": {
+      return {
+        currentPlayer: state.currentPlayer,
+        players: state.players,
+        colors: action.value,
+      };
     }
   }
 }

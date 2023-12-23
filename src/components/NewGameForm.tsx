@@ -3,6 +3,7 @@ import styled from "styled-components";
 import { useGameData, useGameDispatch } from "@/context";
 import Link from "next/link";
 import CustomGroupForm from "@/components/CustomGroupForm";
+import SelectTheme from "./SelectTheme";
 
 const Form = styled.form`
   width: 450px;
@@ -50,12 +51,15 @@ export default function NewGameForm() {
         </div>
       )}
       {currentStep === 3 && (
-        <CustomGroupForm
-          type="radio"
-          legend="Select your color:"
-          inputName="color"
-          step={3}
-        />
+        <>
+          <SelectTheme />
+          <CustomGroupForm
+            type="radio"
+            legend="Select your color:"
+            inputName="color"
+            step={3}
+          />
+        </>
       )}
       {currentStep === 4 && (
         <CustomGroupForm

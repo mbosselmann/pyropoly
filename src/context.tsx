@@ -20,7 +20,7 @@ const GameContext = createContext<{
   user: avatars[3],
   selectedPlayers: [],
   fields: fields,
-  colors: colors,
+  colors: themes[0],
 });
 
 const GameDispatchContext = createContext<React.Dispatch<any>>(() => null);
@@ -29,9 +29,10 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
   const initialState = {
     players: avatars,
     currentPlayer: Number(avatars[0].id),
+    colors: themes[0],
   };
 
-  const [{ players, currentPlayer }, dispatch] = useReducer(
+  const [{ players, currentPlayer, colors }, dispatch] = useReducer(
     gameReducer,
     initialState
   );
