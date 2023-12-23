@@ -1,5 +1,5 @@
 import CustomInput from "@/components/CustomInput";
-import { Fieldset } from "./StyledFieldset";
+import { Fieldset } from "./Fieldset";
 import { useGameData, useGameDispatch } from "@/context";
 
 interface FormSectionProps {
