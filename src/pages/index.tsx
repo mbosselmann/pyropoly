@@ -16,11 +16,15 @@ const Main = styled.main`
   padding: 1rem;
   border-radius: 0.5rem;
   background-color: #fff;
-  grid-template-areas: "headline headline headline" "title title title" "user-input form form";
+  min-height: 90%;
+  grid-template-areas: "headline headline headline" "title title title" "user-input form form" "user-input form form" "user-input form form";
 `;
 
 const Headline = styled.h1`
   grid-area: headline;
+  display: grid;
+  place-items: end center;
+  font-size: 3rem;
 `;
 
 const Title = styled.h2`

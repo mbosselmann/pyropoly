@@ -18,11 +18,13 @@ export default createGlobalStyle`
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
     background-color: #5e548e;
+    height: 100vh;
   }
 
   #__next {
     display: grid;
     place-items: center;
+    height: 100%;
   }
 
   ul {
