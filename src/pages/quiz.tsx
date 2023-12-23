@@ -4,6 +4,7 @@ import Card from "@/components/Quiz/Card";
 import { quizQuestions } from "@/data/quiz";
 import { QuizQuestion } from "@/types/QuizQuestion";
 import { useState } from "react";
+import { Button } from "@/components/Quiz/Button";
 
 const Section = styled.section`
   display: grid;
@@ -38,28 +39,6 @@ const Progress = styled.progress`
 const ListItem = styled.li<{ isDisplayed: boolean }>`
   list-style: none;
   display: ${({ isDisplayed }) => (isDisplayed ? "grid" : "none")};
-`;
-
-const Button = styled.button<{ isAnswerSelected: boolean }>`
-  justify-self: end;
-  width: 10rem;
-  padding: 0.8rem 1.2rem;
-  background-color: var(--bg-color);
-  color: #fff;
-  border: none;
-  border-radius: 10px;
-  box-shadow: 0 0 15px
-    var(
-      ${({ isAnswerSelected }) =>
-        isAnswerSelected ? "--light-bg-color" : "--box-shadow"}
-    );
-
-  ${({ isAnswerSelected }) =>
-    isAnswerSelected &&
-    css`
-      font-weight: bold;
-      text-transform: uppercase;
-    `}
 `;
 
 export default function QuizPage() {
