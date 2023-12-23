@@ -6,4 +6,5 @@ export type Avatar = {
   isOpponent: boolean;
   username?: string;
   color?: string;
+  gems: number;
 };
