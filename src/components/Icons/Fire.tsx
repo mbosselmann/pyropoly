@@ -5,8 +5,10 @@ export default function Fire() {
       fill="white"
       viewBox="0 0 24 24"
       strokeWidth={1.5}
-      stroke="currentColor"
+      stroke="black"
       className="w-6 h-6"
+      width="50px"
+      height="50px"
     >
       <path
         strokeLinecap="round"

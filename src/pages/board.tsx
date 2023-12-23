@@ -20,6 +20,10 @@ const Header = styled.header`
   display: flex;
   justify-content: space-between;
   align-items: center;
+
+  & h1 {
+    padding-top: 15px;
+  }
 `;
 
 const BackLink = styled(Link)`
@@ -33,19 +37,6 @@ const BackLink = styled(Link)`
   }
 `;
 
-const Main = styled.main`
-  position: relative;
-`;
-
-const Container = styled.div<{ $variant: string }>`
-  width: 100px;
-  position: absolute;
-  top: 50%;
-  transform: translateY(-50%);
-  ${({ $variant }) => $variant === "left" && "left: -150px;"};
-  ${({ $variant }) => $variant === "right" && "right: -150px;"};
-`;
-
 export default function BoardPage() {
   return (
     <>
@@ -56,20 +47,16 @@ export default function BoardPage() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Header>
+        <Fire />
         <h1 className={luckiestGuy.className}>Monopoly (on Fire)</h1>
+        <Fire />
         <BackLink href="/" aria-label="Back to start">
           <Back />
         </BackLink>
       </Header>
-      <Main>
-        <Container $variant={"left"}>
-          <Fire />
-        </Container>
+      <main>
         <Board />
-        <Container $variant={"right"}>
-          <Fire />
-        </Container>
-      </Main>
+      </main>
     </>
   );
 }
