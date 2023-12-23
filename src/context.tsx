@@ -1,5 +1,7 @@
 import { createContext, useContext, useReducer } from "react";
-import { avatars, colors, fields } from "@/data/db";
+import { fields } from "@/data/fields";
+import { themes } from "@/data/colors";
+import { avatars } from "@/data/avatars";
 import gameReducer from "./reducer";
 import type { Avatar } from "./types/Avatar";
 import type { Field } from "./types/Field";

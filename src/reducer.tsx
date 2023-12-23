@@ -1,5 +1,6 @@
 import type { Avatar } from "./types/Avatar";
-import { avatars } from "./data/db";
+import { avatars } from "./data/avatars";
+import { Color } from "./types/Color";
 
 type GameActions =
   | {
