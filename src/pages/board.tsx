@@ -1,10 +1,9 @@
 import styled from "styled-components";
 import Head from "next/head";
 import Board from "../components/Board";
-import Link from "next/link";
 import { Luckiest_Guy } from "next/font/google";
-import Back from "@/components/Icons/Back";
 import Fire from "@/components/Icons/Fire";
+import BackLink from "@/components/BackLink";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ["latin"],
@@ -26,17 +25,6 @@ const Header = styled.header`
   }
 `;
 
-const BackLink = styled(Link)`
-  color: white;
-  width: 50px;
-  height: 50px;
-  border-radius: 50%;
-
-  &:hover {
-    filter: drop-shadow(0 0 10px #ffafcc);
-  }
-`;
-
 export default function BoardPage() {
   return (
     <>
@@ -50,9 +38,7 @@ export default function BoardPage() {
         <Fire />
         <h1 className={luckiestGuy.className}>Monopoly (on Fire)</h1>
         <Fire />
-        <BackLink href="/" aria-label="Back to start">
-          <Back />
-        </BackLink>
+        <BackLink color="#fff" />
       </Header>
       <main>
         <Board />
