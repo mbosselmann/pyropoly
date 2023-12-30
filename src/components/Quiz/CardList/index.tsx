@@ -13,6 +13,10 @@ type CardListProps = {
   updateProgress: () => void;
 };
 
+const List = styled.ul`
+  width: 100%;
+`;
+
 const ListItem = styled.li<{ isDisplayed: boolean }>`
   list-style: none;
   display: ${({ isDisplayed }) => (isDisplayed ? "grid" : "none")};
@@ -40,7 +44,7 @@ export default function CardList({
   }
 
   return (
-    <ul role="list">
+    <List role="list">
       {quizQuestions.map(
         ({ id, question, answerIndex, options }: QuizQuestion) => (
           <ListItem key={id} isDisplayed={id === displayedQuestionId}>
@@ -62,6 +66,6 @@ export default function CardList({
           </ListItem>
         )
       )}
-    </ul>
+    </List>
   );
 }

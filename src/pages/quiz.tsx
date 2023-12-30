@@ -7,13 +7,17 @@ import { quizQuestions } from "@/data/quiz";
 const Section = styled.section`
   display: grid;
   padding-top: 1rem;
-  grid-template-rows: 2rem auto 3rem;
+  grid-template-rows: 2rem auto 6rem;
+  height: 85%;
+  width: 100%;
+  gap: 1rem;
 `;
 
 const Title = styled.h2`
   text-align: center;
   padding: 1rem;
   font-size: 1.7rem;
+  margin-top: 3rem;
 `;
 
 const Paragraph = styled.p`
@@ -21,17 +25,24 @@ const Paragraph = styled.p`
 `;
 
 const ProgressContainer = styled.div`
-  padding-top: 3rem;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-self: center;
+  width: 70%;
 `;
 
 const Progress = styled.progress`
   appearance: none;
   display: block;
-  width: 50%;
+  width: 100%;
   height: 1rem;
+
+  &::-webkit-progress-bar,
+  ::-moz-progress-bar,
+  ::-webkit-progress-value {
+    background-color: var(--bg-color);
+  }
 `;
 
 export default function QuizPage() {
@@ -74,7 +85,6 @@ export default function QuizPage() {
         </Section>
       ) : (
         <p>
-          {" "}
           You answered {amountOfCorrectAnswers} questions correct. <br />
           {amountOfCorrectAnswers > 7
             ? "Really good! You can start."

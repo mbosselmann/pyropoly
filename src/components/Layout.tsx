@@ -1,12 +1,19 @@
 import Head from "next/head";
 import styled from "styled-components";
 import { Luckiest_Guy } from "next/font/google";
+import BackLink from "./BackLink";
 
 const luckiestGuy = Luckiest_Guy({
   subsets: ["latin"],
   display: "swap",
   weight: "400",
 });
+
+const Header = styled.header`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
 
 const Main = styled.main`
   width: 45rem;
@@ -19,6 +26,7 @@ const Main = styled.main`
 const Headline = styled.h1`
   text-align: center;
   font-size: 3rem;
+  padding: 0.8rem 0 0;
 `;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -31,9 +39,12 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <Main>
-        <Headline className={luckiestGuy.className}>
-          Monopoly (on Fire)
-        </Headline>
+        <Header>
+          <Headline className={luckiestGuy.className}>
+            Monopoly (on Fire)
+          </Headline>
+          <BackLink color={"var(--bg-color)"} />
+        </Header>
         {children}
       </Main>
     </>
