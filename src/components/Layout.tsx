@@ -1,11 +1,10 @@
 import Head from "next/head";
 import styled from "styled-components";
 import BackLink from "./BackLink";
+import { useRouter } from "next/router";
 
 const Header = styled.header`
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
+  position: relative;
 `;
 
 const Main = styled.main`
@@ -17,13 +16,15 @@ const Main = styled.main`
 `;
 
 const Headline = styled.h1`
-  text-align: center;
   font-size: 3rem;
   padding: 0.8rem 0 0;
+  text-align: center;
   font-family: var(--luckiest-font);
 `;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
+  const router = useRouter();
+
   return (
     <>
       <Head>
@@ -35,7 +36,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Main>
         <Header>
           <Headline>Monopoly (on Fire)</Headline>
-          <BackLink color={"var(--bg-color)"} />
+          {router.pathname !== "/" && <BackLink color={"var(--bg-color)"} />}
         </Header>
         {children}
       </Main>

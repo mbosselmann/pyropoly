@@ -13,6 +13,7 @@ export default createGlobalStyle`
   --field-size: 6.5rem;
   --board-size: 45rem;
   --bg-color: #5e548e;
+  --bg-color-dark: #4e4676;
   --light-bg-color: #9d8cef;
   --disabled-bg-color: #f3f2fd;
   --box-shadow: #c9c8d4;
@@ -29,7 +30,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color);
+    background-color: var(--bg-color-dark);
     height: 100vh;
   }
 

@@ -4,11 +4,13 @@ import Back from "./Icons/Back";
 
 const StyledLink = styled(Link)<{ color: string }>`
   display: inline-block;
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
   color: ${({ color }) => color};
   width: 50px;
   height: 50px;
   border-radius: 50%;
-
   ${({ color }) =>
     color === "#fff" &&
     css`
