@@ -1,26 +1,44 @@
-import { useState } from "react";
 import Layout from "@/components/Layout";
-import NewGame from "@/components/NewGame";
+import { Title } from "@/components/Title";
 import Link from "next/link";
+import styled from "styled-components";
+
+const Nav = styled.nav`
+  display: grid;
+  gap: 1.5rem;
+  place-content: center;
+`;
+
+const NavLink = styled(Link)`
+  background-color: var(--bg-color);
+  color: #fff;
+  text-decoration: none;
+  padding: 1.2rem 2rem 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 30rem;
+  text-align: center;
+  height: 3.5rem;
+
+  &:hover {
+    background-color: var(--bg-color-dark);
+    font-size: 1.1rem;
+  }
+`;
 
 export default function Home() {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
-
   return (
     <Layout>
-      {isOpen ? (
-        <NewGame />
-      ) : (
-        <section>
-          <h2>So happy that you are here!</h2>
-          <button type="button" onClick={() => setIsOpen(!isOpen)}>
-            Start a New Game
-          </button>
-          <Link href="/about">What is Monopoly?</Link>
-          <Link href="/rules">What are the rules?</Link>
-          <Link href="/quiz">Quiz to Check if you are ready to start.</Link>
-        </section>
-      )}
+      <Title>
+        So happy that you are here!
+        <br /> What do you want to do?
+      </Title>
+      <Nav>
+        <NavLink href="/new-game">Start a new game</NavLink>
+        <NavLink href="/about">What is Monopoly?</NavLink>
+        <NavLink href="/rules">What are the rules?</NavLink>
+        <NavLink href="/quiz">Quiz to Check if you are ready to start.</NavLink>
+      </Nav>
     </Layout>
   );
 }
