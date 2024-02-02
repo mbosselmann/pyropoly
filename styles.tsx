@@ -1,4 +1,11 @@
 import { createGlobalStyle } from "styled-components";
+import { Luckiest_Guy } from "next/font/google";
+
+const luckiestGuy = Luckiest_Guy({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
 
 export default createGlobalStyle`
 
@@ -9,6 +16,7 @@ export default createGlobalStyle`
   --light-bg-color: #9d8cef;
   --disabled-bg-color: #f3f2fd;
   --box-shadow: #c9c8d4;
+  --luckiest-font: ${luckiestGuy.style.fontFamily};
  }
 
 

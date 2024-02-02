@@ -3,6 +3,7 @@ import Layout from "@/components/Layout";
 import { useState } from "react";
 import CardList from "@/components/Quiz/CardList";
 import { quizQuestions } from "@/data/quiz";
+import { Title } from "@/components/Title";
 
 const Section = styled.section`
   display: grid;
@@ -11,13 +12,6 @@ const Section = styled.section`
   height: 85%;
   width: 100%;
   gap: 1rem;
-`;
-
-const Title = styled.h2`
-  text-align: center;
-  padding: 1rem;
-  font-size: 1.7rem;
-  margin-top: 3rem;
 `;
 
 const Paragraph = styled.p`

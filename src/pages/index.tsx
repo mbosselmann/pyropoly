@@ -16,8 +16,8 @@ export default function Home() {
           <button type="button" onClick={() => setIsOpen(!isOpen)}>
             Start a New Game
           </button>
-          <button type="button">What is Monopoly?</button>
-          <button type="button">What are the rules?</button>
+          <Link href="/about">What is Monopoly?</Link>
+          <Link href="/rules">What are the rules?</Link>
           <Link href="/quiz">Quiz to Check if you are ready to start.</Link>
         </section>
       )}

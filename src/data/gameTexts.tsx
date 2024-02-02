@@ -6,7 +6,8 @@ export const gameTexts: GameText = {
     "Monopoly is played on a square board divided into 40 spaces, featuring properties, utilities, railroads, chance and community chest cards, luxury taxes, and four corner squares: GO, Jail, Free Parking, and Go to Jail. The objective is to become the wealthiest player through buying, renting, and selling properties.",
     "Each player starts with a set amount of money. You roll two dice to move around the board, acquiring properties you land on, provided they're not already owned. You can buy houses and hotels on your properties to increase rent. When other players land on your properties, they pay you rent. The game's twist lies in its Chance and Community Chest cards, which can bring fortune or unexpected expenses.",
     "Negotiation is key. Trade properties with fellow players to create property sets and build your real estate empire. But beware of bankruptcy! If you can't pay your debts, you’re out of the game.",
-    "Remember, every game is a unique adventure. Strategy, luck, and interaction with other players make Monopoly an endlessly entertaining experience. Good luck and enjoy the game!",
+    "Remember, every game is a unique adventure. Strategy, luck, and interaction with other players make Monopoly an endlessly entertaining experience.",
+    "Good luck and enjoy the game!",
   ],
   rules: [
     "Start the game with each player selecting a token and receiving a standardized amount of money from the bank.",
