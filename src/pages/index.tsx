@@ -4,6 +4,7 @@ import Link from "next/link";
 import styled from "styled-components";
 
 const Nav = styled.nav`
+  margin-top: 3rem;
   display: grid;
   gap: 1.5rem;
   place-content: center;
