@@ -60,7 +60,7 @@ export default function QuizPage() {
 
   return (
     <Layout>
-      <Title>Quiz: Are you ready for Monopoly On Fire?</Title>
+      <Title>Quiz: Are you ready for Pyropoly On Fire?</Title>
       {count < 10 ? (
         <Section>
           <Paragraph>Correct answers: {amountOfCorrectAnswers}/10</Paragraph>

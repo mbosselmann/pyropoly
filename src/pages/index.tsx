@@ -36,7 +36,7 @@ export default function Home() {
       </Title>
       <Nav>
         <NavLink href="/new-game">Start a new game</NavLink>
-        <NavLink href="/about">What is Monopoly?</NavLink>
+        <NavLink href="/about">What is Pyropoly?</NavLink>
         <NavLink href="/rules">What are the rules?</NavLink>
         <NavLink href="/quiz">Quiz to Check if you are ready to start.</NavLink>
       </Nav>
