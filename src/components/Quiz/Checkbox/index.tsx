@@ -7,9 +7,14 @@ type CheckboxProps = {
   onChange: () => void;
   isDisabled: boolean;
   isSelected: boolean;
+  isAnswerCorrect: boolean;
 };
 
-const Label = styled.label<{ isSelected: boolean; isDisabled: boolean }>`
+const Label = styled.label<{
+  isSelected: boolean;
+  isDisabled: boolean;
+  isAnswerCorrect: boolean;
+}>`
   padding: 1rem;
   box-shadow: 0 0 10px var(--box-shadow);
   border-radius: 10px;
@@ -17,7 +22,10 @@ const Label = styled.label<{ isSelected: boolean; isDisabled: boolean }>`
   ${(props) =>
     props.isSelected &&
     css`
-      background-color: var(--burning-crimson);
+      background-color: var(
+        ${props.isAnswerCorrect ? "--sapphire-blue" : "--burning-crimson"}
+      );
+      color: #fff;
       font-weight: bold;
     `}
   ${({ isDisabled }) =>
@@ -35,6 +43,7 @@ export default function Checkbox({
   onChange,
   isDisabled,
   isSelected,
+  isAnswerCorrect,
 }: CheckboxProps) {
   return (
     <>
@@ -53,6 +62,7 @@ export default function Checkbox({
         htmlFor={option}
         isSelected={isSelected}
         isDisabled={!isSelected && isDisabled}
+        isAnswerCorrect={isAnswerCorrect}
       >
         {option}
       </Label>

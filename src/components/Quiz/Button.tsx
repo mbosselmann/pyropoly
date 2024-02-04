@@ -11,7 +11,7 @@ export const Button = styled.button<{ isAnswerSelected: boolean }>`
   box-shadow: 0 0 15px
     var(
       ${({ isAnswerSelected }) =>
-        isAnswerSelected ? "--burning-crimson" : "--box-shadow"}
+        isAnswerSelected ? "--sapphire-blue" : "--box-shadow"}
     );
 
   ${({ isAnswerSelected }) =>

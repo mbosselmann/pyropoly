@@ -54,6 +54,7 @@ export default function Card({
             onChange={() => handleChange(option)}
             isDisabled={isChecked}
             isSelected={option === selectedAnswer && isChecked}
+            isAnswerCorrect={correctAnswer === selectedAnswer}
           />
         ))}
       </Form>
