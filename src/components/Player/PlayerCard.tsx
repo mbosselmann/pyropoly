@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AVATAR_MAP } from "@/components/AvatarIcons";
+import { AVATAR_MAP } from "@/components/Player/AvatarIcons";
 import { useGameData } from "@/context";
 import { Color } from "@/types/Color";
 

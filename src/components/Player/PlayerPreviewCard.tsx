@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { AVATAR_MAP } from "../AvatarIcons";
+import { AVATAR_MAP } from "./AvatarIcons";
 import { ScreenReaderOnly } from "../ScreenReaderOnly";
 
 const Player = styled.article`

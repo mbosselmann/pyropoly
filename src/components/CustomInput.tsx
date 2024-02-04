@@ -1,6 +1,6 @@
 import { ScreenReaderOnly } from "./ScreenReaderOnly";
 import styled from "styled-components";
-import { AVATAR_MAP } from "@/components/AvatarIcons";
+import { AVATAR_MAP } from "@/components/Player/AvatarIcons";
 
 interface RadioInputProps {
   id: string;
