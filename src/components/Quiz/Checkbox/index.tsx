@@ -11,9 +11,11 @@ type CheckboxProps = {
 };
 
 const Label = styled.label<{
+  htmlFor: string;
   isSelected: boolean;
   isDisabled: boolean;
   isAnswerCorrect: boolean;
+  children?: React.ReactNode;
 }>`
   padding: 1rem;
   box-shadow: 0 0 10px var(--box-shadow);

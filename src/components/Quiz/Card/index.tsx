@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { ReactNode, useState } from "react";
 import Checkbox from "../Checkbox";
 import styled from "styled-components";
 
@@ -17,8 +17,8 @@ const Form = styled.form`
   padding: 1rem 0;
 `;
 
-const Result = styled.div<{ isAnswerSelected: boolean }>`
-  ${({ isAnswerSelected }) => !isAnswerSelected && "visibility: hidden;"}
+const Result = styled.div<{ $isAnswerSelected: boolean; children?: ReactNode }>`
+  ${({ $isAnswerSelected }) => !$isAnswerSelected && "visibility: hidden;"}
   height: 4rem;
 `;
 
@@ -58,7 +58,7 @@ export default function Card({
           />
         ))}
       </Form>
-      <Result isAnswerSelected={!!selectedAnswer}>
+      <Result $isAnswerSelected={!!selectedAnswer}>
         {correctAnswer === selectedAnswer && <p>This is correct!</p>}
         {isChecked && correctAnswer !== selectedAnswer && (
           <p>Oh no! The correct answer is: {correctAnswer}</p>
