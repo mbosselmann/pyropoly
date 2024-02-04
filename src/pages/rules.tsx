@@ -1,7 +1,7 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Styles/Layout";
 import { gameTexts } from "@/data/gameTexts";
 import styled from "styled-components";
-import { Title } from "@/components/Title";
+import { Title } from "@/components/Styles/Title";
 
 const List = styled.ol`
   padding: 0.8rem 3rem 0;

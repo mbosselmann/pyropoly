@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { ScreenReaderOnly } from "../ScreenReaderOnly";
+import { ScreenReaderOnly } from "../Styles/ScreenReaderOnly";
 
 const Container = styled.div<{ $color: string; $isCurrentPlayer: boolean }>`
   width: 1.3rem;

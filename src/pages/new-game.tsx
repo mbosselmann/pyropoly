@@ -1,4 +1,4 @@
-import Layout from "@/components/Layout";
+import Layout from "@/components/Styles/Layout";
 import NewGame from "@/components/NewGame/NewGame";
 
 export default function NewGamePage() {

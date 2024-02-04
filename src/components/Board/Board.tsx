@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import Panel from "../Panel";
+import Panel from "./Panel";
 import GameCenter from "./GameCenter";
 import { useGameData } from "@/context";
 import { Field } from "@/types/Field";

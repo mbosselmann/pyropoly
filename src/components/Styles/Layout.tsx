@@ -1,6 +1,6 @@
 import Head from "next/head";
 import styled from "styled-components";
-import BackLink from "./BackLink";
+import BackLink from "../BackLink";
 import { useRouter } from "next/router";
 import { Headline } from "./Headline";
 

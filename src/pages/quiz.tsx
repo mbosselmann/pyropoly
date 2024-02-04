@@ -1,9 +1,9 @@
 import styled from "styled-components";
-import Layout from "@/components/Layout";
+import Layout from "@/components/Styles/Layout";
 import { useState } from "react";
 import CardList from "@/components/Quiz/CardList";
 import { quizQuestions } from "@/data/quiz";
-import { Title } from "@/components/Title";
+import { Title } from "@/components/Styles/Title";
 
 const Section = styled.section`
   display: grid;

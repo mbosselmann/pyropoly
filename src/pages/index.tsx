@@ -1,5 +1,5 @@
-import Layout from "@/components/Layout";
-import { Title } from "@/components/Title";
+import Layout from "@/components/Styles/Layout";
+import { Title } from "@/components/Styles/Title";
 import Link from "next/link";
 import styled from "styled-components";
 
