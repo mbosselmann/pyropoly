@@ -17,7 +17,7 @@ const Label = styled.label<{ isSelected: boolean; isDisabled: boolean }>`
   ${(props) =>
     props.isSelected &&
     css`
-      background-color: var(--light-bg-color);
+      background-color: var(--burning-crimson);
       font-weight: bold;
     `}
   ${({ isDisabled }) =>

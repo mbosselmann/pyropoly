@@ -2,6 +2,7 @@ import Head from "next/head";
 import styled from "styled-components";
 import BackLink from "./BackLink";
 import { useRouter } from "next/router";
+import { Headline } from "./Headline";
 
 const Header = styled.header`
   position: relative;
@@ -12,14 +13,7 @@ const Main = styled.main`
   padding: 2rem 1rem 1rem;
   border-radius: 0.5rem;
   background-color: #fff;
-  height: 90%;
-`;
-
-const Headline = styled.h1`
-  font-size: 3rem;
-  padding: 0.8rem 0 0;
-  text-align: center;
-  font-family: var(--luckiest-font);
+  height: 85%;
 `;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
@@ -36,7 +30,9 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <Main>
         <Header>
           <Headline>Pyropoly</Headline>
-          {router.pathname !== "/" && <BackLink color={"var(--bg-color)"} />}
+          {router.pathname !== "/" && (
+            <BackLink color={"var(--sapphire-blue)"} />
+          )}
         </Header>
         {children}
       </Main>

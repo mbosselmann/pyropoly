@@ -12,12 +12,19 @@ export default createGlobalStyle`
  :root {
   --field-size: 6.5rem;
   --board-size: 45rem;
-  --bg-color: #5e548e;
-  --bg-color-dark: #4e4676;
-  --light-bg-color: #9d8cef;
-  --disabled-bg-color: #f3f2fd;
-  --box-shadow: #c9c8d4;
+  --disabled-bg-color: #fbdedb;
   --luckiest-font: ${luckiestGuy.style.fontFamily};
+  --fiery-red: #FF5733;
+  --blazing-orange: #FFA500;
+  --golden-yellow: #FFD700;
+  --flame-scarlet: #D73D19;
+  --burning-crimson: #c72516;
+  --box-shadow: #d9d0cf;
+  --searing-magenta: #FF3366;
+  --charcoal-black: #333333;
+  --ashen-grey: #808080;
+  --radiant-gold: #FDDC57;
+  --sapphire-blue: #0066CC;
  }
 
 
@@ -30,7 +37,7 @@ export default createGlobalStyle`
   body {
     margin: 0;
     font-family: 'Segoe UI', sans-serif;
-    background-color: var(--bg-color-dark);
+    background-color: var(--charcoal-black);
     height: 100vh;
   }
 

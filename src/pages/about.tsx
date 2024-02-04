@@ -23,7 +23,7 @@ const ListItem = styled.li`
   &:not(:last-child)::first-letter {
     font-size: 1.5rem;
     font-weight: bold;
-    color: var(--bg-color);
+    color: var(--sapphire-blue);
   }
 `;
 

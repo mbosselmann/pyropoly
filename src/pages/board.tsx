@@ -1,28 +1,13 @@
 import styled from "styled-components";
 import Head from "next/head";
 import Board from "../components/Board";
-import { Luckiest_Guy } from "next/font/google";
-import Fire from "@/components/Icons/Fire";
 import BackLink from "@/components/BackLink";
-
-const luckiestGuy = Luckiest_Guy({
-  subsets: ["latin"],
-  display: "swap",
-  weight: "400",
-});
 
 const Header = styled.header`
   width: 45rem;
-  padding: 0.5rem;
+  height: 3.5rem;
   margin: 0;
   color: #fff;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-
-  & h1 {
-    padding-top: 15px;
-  }
 `;
 
 export default function BoardPage() {
@@ -36,9 +21,6 @@ export default function BoardPage() {
       </Head>
       <main>
         <Header>
-          <Fire />
-          <h1 className={luckiestGuy.className}>Pyropoly</h1>
-          <Fire />
           <BackLink color="#fff" />
         </Header>
         <Board />

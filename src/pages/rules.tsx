@@ -8,7 +8,7 @@ const List = styled.ol`
   list-style: none;
   counter-reset: items;
   overflow-x: scroll;
-  height: 420px;
+  height: 450px;
 `;
 
 const ListItem = styled.li`
@@ -18,16 +18,16 @@ const ListItem = styled.li`
   height: 120px;
 
   &:nth-child(even) {
-    border-right: 5px solid var(--bg-color);
-    border-bottom: 5px dashed var(--bg-color);
+    border-right: 5px solid var(--sapphire-blue);
+    border-bottom: 5px dashed var(--sapphire-blue);
     border-radius: 0 20px 20px 0;
     margin-left: 30px;
     border-width: 8px;
   }
 
   &:nth-child(odd) {
-    border-left: 5px solid var(--bg-color);
-    border-bottom: 5px dashed var(--bg-color);
+    border-left: 5px solid var(--sapphire-blue);
+    border-bottom: 5px dashed var(--sapphire-blue);
     border-radius: 20px 0 0 20px;
     margin-right: 30px;
     border-width: 8px;
@@ -39,7 +39,7 @@ const ListItem = styled.li`
 
   &::before,
   ::after {
-    background-color: var(--bg-color);
+    background-color: var(--sapphire-blue);
     padding: 0.5rem;
     color: #fff;
     height: 3rem;

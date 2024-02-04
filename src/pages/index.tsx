@@ -11,7 +11,7 @@ const Nav = styled.nav`
 `;
 
 const NavLink = styled(Link)`
-  background-color: var(--bg-color);
+  background-color: var(--sapphire-blue);
   color: #fff;
   text-decoration: none;
   padding: 1.2rem 2rem 1rem;
@@ -22,7 +22,7 @@ const NavLink = styled(Link)`
   height: 3.5rem;
 
   &:hover {
-    background-color: var(--bg-color-dark);
+    background-color: var(--charcoal-black);
     font-size: 1.1rem;
   }
 `;

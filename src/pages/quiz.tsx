@@ -35,7 +35,7 @@ const Progress = styled.progress`
   &::-webkit-progress-bar,
   ::-moz-progress-bar,
   ::-webkit-progress-value {
-    background-color: var(--bg-color);
+    background-color: var(--sapphire-blue);
   }
 `;
 
