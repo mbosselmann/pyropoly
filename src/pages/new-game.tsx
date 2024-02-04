@@ -1,5 +1,5 @@
 import Layout from "@/components/Layout";
-import NewGame from "@/components/NewGame";
+import NewGame from "@/components/NewGame/NewGame";
 
 export default function NewGamePage() {
   return (

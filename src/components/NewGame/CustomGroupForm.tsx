@@ -1,4 +1,4 @@
-import CustomInput from "@/components/CustomInput";
+import CustomInput from "@/components/NewGame/CustomInput";
 import { Fieldset } from "./Fieldset";
 import { useGameData, useGameDispatch } from "@/context";
 import { Avatar } from "@/types/Avatar";

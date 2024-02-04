@@ -1,7 +1,7 @@
 import { useState } from "react";
 import styled from "styled-components";
 import { useGameData, useGameDispatch } from "@/context";
-import FieldActions from "../FieldActions";
+import FieldActions from "../Board/FieldActions";
 import Chance from "../Icons/Chance";
 import Chest from "../Icons/Chest";
 import { Avatar } from "@/types/Avatar";

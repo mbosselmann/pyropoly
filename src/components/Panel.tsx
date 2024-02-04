@@ -1,5 +1,5 @@
 import styled, { css } from "styled-components";
-import FieldItem from "./FieldItem";
+import FieldItem from "./Board/FieldItem";
 import type { Field } from "../types/Field";
 
 const List = styled.ul.attrs({

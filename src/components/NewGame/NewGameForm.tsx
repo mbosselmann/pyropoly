@@ -2,7 +2,7 @@ import { useState } from "react";
 import styled from "styled-components";
 import { useGameData, useGameDispatch } from "@/context";
 import Link from "next/link";
-import CustomGroupForm from "@/components/CustomGroupForm";
+import CustomGroupForm from "@/components/NewGame/CustomGroupForm";
 import SelectTheme from "./SelectTheme";
 import { Avatar } from "@/types/Avatar";
 

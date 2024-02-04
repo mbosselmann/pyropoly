@@ -1,8 +1,8 @@
 import styled, { css } from "styled-components";
 import GameFigure from "./GameFigure";
 import { useGameData } from "@/context";
-import Chance from "./Icons/Chance";
-import Chest from "./Icons/Chest";
+import Chance from "../Icons/Chance";
+import Chest from "../Icons/Chest";
 import { Avatar } from "@/types/Avatar";
 
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import NewGameForm from "@/components/NewGameForm";
+import NewGameForm from "@/components/NewGame/NewGameForm";
 import PlayerCard from "@/components/Player/PlayerCard";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
