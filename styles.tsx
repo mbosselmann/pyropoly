@@ -39,6 +39,7 @@ export default createGlobalStyle`
     font-family: 'Segoe UI', sans-serif;
     background-color: var(--charcoal-black);
     height: 100vh;
+    box-shadow: inset 0 0 250px #000;
   }
 
   #__next {
