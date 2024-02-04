@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import { AVATAR_MAP } from "./AvatarIcons";
-import { ScreenReaderOnly } from "./ScreenReaderOnly";
+import { AVATAR_MAP } from "../AvatarIcons";
+import { ScreenReaderOnly } from "../ScreenReaderOnly";
 
 const Player = styled.article`
   font-size: 0.7rem;

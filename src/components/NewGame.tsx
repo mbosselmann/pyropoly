@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import NewGameForm from "@/components/NewGameForm";
-import PlayerCard from "@/components/PlayerCard";
+import PlayerCard from "@/components/Player/PlayerCard";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
 

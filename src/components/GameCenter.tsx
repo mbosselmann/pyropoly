@@ -1,9 +1,9 @@
 import { useGameData } from "@/context";
 import styled from "styled-components";
 import { useState } from "react";
-import PlayerDetailsCard from "./PlayerDetailsCard";
-import PlayerPreviewCard from "./PlayerPreviewCard";
-import PlayerActions from "./PlayerActions";
+import PlayerDetailsCard from "./Player/PlayerDetailsCard";
+import PlayerPreviewCard from "./Player/PlayerPreviewCard";
+import PlayerActions from "./Player/PlayerActions";
 import { Avatar } from "@/types/Avatar";
 
 const Section = styled.section`
