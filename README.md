@@ -1,4 +1,4 @@
-# 🔥🎲 Pyropoly: Reigniting Wealth in the Flames of Fortune (WIP) 🎲🔥
+# 🔥 Pyropoly: Wealth in the Flames of Fortune (WIP) 🔥
 
 Currently in development.
 
