@@ -18,10 +18,10 @@ const List = styled.ul<{ role: "list" }>`
 `;
 
 const ListItem = styled.li<{
-  isDisplayed: boolean;
+  $isDisplayed: boolean;
 }>`
   list-style: none;
-  display: ${({ isDisplayed }) => (isDisplayed ? "grid" : "none")};
+  display: ${({ $isDisplayed }) => ($isDisplayed ? "grid" : "none")};
 `;
 
 export default function CardList({
@@ -49,7 +49,7 @@ export default function CardList({
     <List role="list">
       {quizQuestions.map(
         ({ id, question, answerIndex, options }: QuizQuestion) => (
-          <ListItem key={id} isDisplayed={id === displayedQuestionId}>
+          <ListItem key={id} $isDisplayed={id === displayedQuestionId}>
             <Card
               question={question}
               answerIndex={answerIndex}
@@ -61,7 +61,7 @@ export default function CardList({
             <Button
               type="button"
               onClick={handleDisplayQuestion}
-              isAnswerSelected={!!selectedAnswer}
+              $isAnswerSelected={!!selectedAnswer}
             >
               Next question
             </Button>

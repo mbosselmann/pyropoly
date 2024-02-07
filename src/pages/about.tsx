@@ -7,7 +7,10 @@ const List = styled.ul`
   list-style: none;
   padding: 1rem 2rem;
   overflow-x: scroll;
-  height: 450px;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sapphire-blue) transparent;
+  height: 55vh;
 `;
 
 const ListItem = styled.li`

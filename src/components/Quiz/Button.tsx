@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 
 export const Button = styled.button<{
-  isAnswerSelected: boolean;
+  $isAnswerSelected: boolean;
 }>`
   justify-self: end;
   width: 10rem;
@@ -12,12 +12,12 @@ export const Button = styled.button<{
   border-radius: 10px;
   box-shadow: 0 0 15px
     var(
-      ${({ isAnswerSelected }) =>
-        isAnswerSelected ? "--sapphire-blue" : "--box-shadow"}
+      ${({ $isAnswerSelected }) =>
+        $isAnswerSelected ? "--sapphire-blue" : "--box-shadow"}
     );
 
-  ${({ isAnswerSelected }) =>
-    isAnswerSelected &&
+  ${({ $isAnswerSelected }) =>
+    $isAnswerSelected &&
     css`
       font-weight: bold;
       text-transform: uppercase;
