@@ -13,11 +13,13 @@ type CardListProps = {
   updateProgress: () => void;
 };
 
-const List = styled.ul`
+const List = styled.ul<{ role: "list" }>`
   width: 100%;
 `;
 
-const ListItem = styled.li<{ isDisplayed: boolean }>`
+const ListItem = styled.li<{
+  isDisplayed: boolean;
+}>`
   list-style: none;
   display: ${({ isDisplayed }) => (isDisplayed ? "grid" : "none")};
 `;

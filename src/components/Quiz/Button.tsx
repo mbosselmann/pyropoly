@@ -1,6 +1,8 @@
 import styled, { css } from "styled-components";
 
-export const Button = styled.button<{ isAnswerSelected: boolean }>`
+export const Button = styled.button<{
+  isAnswerSelected: boolean;
+}>`
   justify-self: end;
   width: 10rem;
   padding: 0.8rem 1.2rem;

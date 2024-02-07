@@ -18,15 +18,15 @@ const Input = styled.input`
 `;
 
 const Label = styled.label<{
-  isSelected: boolean;
-  colorCode: string;
+  $isSelected: boolean;
+  $colorCode: string;
 }>`
   display: block;
-  border: ${({ isSelected }) =>
-    isSelected ? "5px solid black" : "5px solid lightgrey"};
+  border: ${({ $isSelected }) =>
+    $isSelected ? "5px solid black" : "5px solid lightgrey"};
   border-radius: 0.5rem;
-  background-color: ${({ colorCode }) =>
-    colorCode ? colorCode : "rgba(232, 231, 231, 0.75)"};
+  background-color: ${({ $colorCode }) =>
+    $colorCode ? $colorCode : "rgba(232, 231, 231, 0.75)"};
   width: 100px;
   height: 100px;
 `;
@@ -51,8 +51,8 @@ export default function CustomInput({
       />
       <Label
         htmlFor={String(id) + name}
-        isSelected={isSelected}
-        colorCode={colorCode}
+        $isSelected={isSelected}
+        $colorCode={colorCode}
       >
         <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
         {avatarName && AVATAR_MAP[avatarName.toLowerCase()]}

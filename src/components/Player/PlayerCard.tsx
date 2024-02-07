@@ -3,10 +3,10 @@ import { AVATAR_MAP } from "@/components/Player/AvatarIcons";
 import { useGameData } from "@/context";
 import { Color } from "@/types/Color";
 
-const AvatarIcon = styled.div<{ selectedColor: string | undefined }>`
+const AvatarIcon = styled.div<{ $selectedColor: string | undefined }>`
   height: 220px;
-  background-color: ${({ selectedColor }) =>
-    selectedColor ? selectedColor : "rgba(232, 231, 231, 0.75)"};
+  background-color: ${({ $selectedColor }) =>
+    $selectedColor ? $selectedColor : "rgba(232, 231, 231, 0.75)"};
   border-radius: 0.5rem 0.5rem 0 0;
 `;
 
@@ -41,7 +41,7 @@ export default function PlayerCard({
 
   return (
     <Article>
-      <AvatarIcon selectedColor={selectedColor}>
+      <AvatarIcon $selectedColor={selectedColor}>
         {AVATAR_MAP[selectedAvatar.toLowerCase()]}
       </AvatarIcon>
       <List role="list">

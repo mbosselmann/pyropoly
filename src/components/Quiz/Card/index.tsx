@@ -17,7 +17,7 @@ const Form = styled.form`
   padding: 1rem 0;
 `;
 
-const Result = styled.div<{ $isAnswerSelected: boolean; children?: ReactNode }>`
+const Result = styled.div<{ $isAnswerSelected: boolean }>`
   ${({ $isAnswerSelected }) => !$isAnswerSelected && "visibility: hidden;"}
   height: 4rem;
 `;
