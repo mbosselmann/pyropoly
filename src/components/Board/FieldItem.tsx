@@ -4,6 +4,9 @@ import { useGameData } from "@/context";
 import Chance from "../Icons/Chance";
 import Chest from "../Icons/Chest";
 import { Avatar } from "@/types/Avatar";
+import { Price } from "./Price";
+import { ColorBox } from "./ColorBox";
+import { FieldName as Name } from "./FieldName";
 
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   border: 4px solid hotpink;
@@ -27,55 +30,6 @@ const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   }
 `;
 
-const Name = styled.p<{ $variant: string; $fieldType: string }>`
-  margin: 0;
-  padding: 0.3rem;
-  text-align: center;
-  position: absolute;
-  hyphens: manual;
-
-  ${({ $variant }) =>
-    $variant === "vertical-left" &&
-    css`
-      top: 0;
-      right: 2rem;
-      writing-mode: vertical-rl;
-      height: 100%;
-      padding-right: 0.4rem;
-    `}
-  ${({ $variant }) =>
-    $variant === "vertical-right" &&
-    css`
-      transform: rotate(270deg);
-      bottom: 0;
-      top: 0;
-      left: 2rem;
-      right: 0;
-      padding-top: 0.4rem;
-    `}
-    ${({ $variant, $fieldType }) =>
-    $variant === "horizontal-bottom" &&
-    css`
-      top: 2rem;
-      left: 0;
-      right: 0;
-      padding-top: 0.4rem;
-      ${$fieldType === "jail" && "transform: rotate(315deg);"}
-      ${$fieldType === "start" && "transform: rotate(45deg);"}
-    `}
-    ${({ $variant, $fieldType }) =>
-    $variant === "horizontal-top" &&
-    css`
-      bottom: 2rem;
-      left: 0;
-      right: 0;
-      transform: rotate(180deg);
-      padding-top: 0.4rem;
-      ${$fieldType === "jail" && "transform: rotate(135deg);"}
-      ${$fieldType === "bonus" && "transform: rotate(225deg);"}
-    `};
-`;
-
 const Wrapper = styled.div`
   position: absolute;
   top: 50%;
@@ -85,81 +39,6 @@ const Wrapper = styled.div`
   flex-wrap: wrap;
   gap: 0.2rem;
   z-index: 3;
-`;
-
-const ColorBox = styled.div<{ $color?: string; $variant: string }>`
-  background-color: ${({ $color }) => $color ?? "black"};
-  position: absolute;
-  height: 1.5rem;
-  bottom: 0;
-  left: 0;
-  width: 100%;
-
-  ${({ $variant }) =>
-    ($variant === "vertical-left" || $variant === "vertical-right") &&
-    css`
-      height: 100%;
-      width: 1.5rem;
-    `}
-
-  ${({ $variant }) =>
-    $variant === "vertical-left" &&
-    css`
-      right: 0;
-      left: auto;
-    `}
-
-  ${({ $variant }) =>
-    $variant === "horizontal-bottom" &&
-    css`
-      bottom: auto;
-      top: 0;
-    `}
-`;
-
-const Price = styled.p<{ $variant: string }>`
-  margin: 0;
-  position: absolute;
-  text-align: center;
-  width: fit-content;
-  padding: 0.2rem;
-
-  ${({ $variant }) =>
-    $variant === "vertical-left" &&
-    css`
-      transform: rotate(90deg);
-      top: 50%;
-      left: -1.7rem;
-      translate: 0 -50%;
-      width: 4rem;
-      height: 1.5rem;
-    `}
-
-  ${({ $variant }) =>
-    $variant === "vertical-right" &&
-    css`
-      transform: rotate(270deg);
-      top: 50%;
-      right: -1.7rem;
-      translate: 0 -50%;
-      width: 4rem;
-      height: 1.5rem;
-    `}
-
-    ${({ $variant }) =>
-    $variant === "horizontal-bottom" &&
-    css`
-      bottom: 0;
-      width: 100%;
-    `}
-
-    ${({ $variant }) =>
-    $variant === "horizontal-top" &&
-    css`
-      top: 0;
-      width: 100%;
-      transform: rotate(180deg);
-    `}
 `;
 
 export default function FieldItem({
