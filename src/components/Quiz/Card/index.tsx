@@ -43,8 +43,8 @@ export default function Card({
 
   return (
     <article>
-      <h3>{question}</h3>
-      <Form>
+      <h3 id="question">{question}</h3>
+      <Form aria-labelledby="question">
         {options.map((option, index) => (
           <Checkbox
             key={index}
