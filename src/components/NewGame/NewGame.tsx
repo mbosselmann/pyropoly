@@ -6,7 +6,6 @@ import { Avatar } from "@/types/Avatar";
 
 const Section = styled.section`
   display: grid;
-  height: 100%;
   grid-template-areas: "title title title" "user-input form form" "user-input form form" "user-input form form";
 `;
 

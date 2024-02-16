@@ -14,6 +14,7 @@ const Form = styled.form`
   place-items: center;
   padding: 1rem;
   min-height: 430px;
+  position: relative;
 `;
 
 export default function NewGameForm() {

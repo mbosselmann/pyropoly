@@ -1,11 +1,18 @@
 import { useGameDispatch } from "@/context";
 import { themes } from "@/data/colors";
+import styled from "styled-components";
+
+const Section = styled.section`
+  position: absolute;
+  top: 0;
+  right: 4rem;
+`;
 
 export default function SelectTheme() {
   const dispatch = useGameDispatch();
 
   return (
-    <section>
+    <Section>
       <label htmlFor="theme">Select Theme</label>
       <select
         name="theme"
@@ -28,6 +35,6 @@ export default function SelectTheme() {
         <option value={3}>Fire Wood</option>
         <option value={4}>Neon Fire</option>
       </select>
-    </section>
+    </Section>
   );
 }
