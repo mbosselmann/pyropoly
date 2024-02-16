@@ -23,5 +23,11 @@ export const gameTexts: GameText = {
     "Bankruptcy occurs when a player cannot pay what they owe. If it's to another player, all their assets are given to that player. If it's to the bank, their assets are auctioned off.",
     "Trading between players for money, properties, and 'Get Out of Jail Free' cards is allowed and encouraged.",
     "The game continues until all but one player have gone bankrupt. The last player remaining is declared the winner.",
+    "Special events where properties go on 'fire sale' at discounted prices. Players must act quickly to seize these opportunities before they're gone.",
+    "Heat Wave Taxes: Periodic 'heat wave taxes' where players must pay additional fees on their properties during certain rounds, simulating the challenges of managing properties in a scorching environment.",
+    "Inferno Investments: Players can invest in fire-related businesses or properties that offer unique advantages, such as fire stations, factories, or renewable energy sources like solar panels.",
+    "Fire Insurance: A mechanism where players can protect their properties from potential fire hazards. However, premiums may fluctuate based on the current state of the game board, requiring strategic decisions about risk management.",
+    "Players can invest in upgrades for their properties, such as fire-resistant materials, emergency sprinkler systems, or advanced firefighting technology, to mitigate the risks of fire damage and enhance property values.",
+    "Special tokens that players can use to influence the game in various ways, such as starting controlled burns to clear land for development, triggering firebreaks to protect their properties, or even igniting rival players' assets for strategic advantage.",
   ],
 };
