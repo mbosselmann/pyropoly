@@ -1,12 +1,12 @@
 import styles from "./styles.module.css";
 import priceStyles from "./Price.module.css";
 import colorBoxStyles from "./ColorBox.module.css";
+import fieldNameStyles from "./FieldName.module.css";
 import GameFigure from "./GameFigure/GameFigure";
 import { useGameData } from "@/context";
 import Chance from "../../../Icons/Chance";
 import Chest from "../../../Icons/Chest";
 import { Avatar } from "@/types/Avatar";
-import { FieldName as Name } from "./FieldName";
 
 export default function FieldItem({
   name,
@@ -35,9 +35,14 @@ export default function FieldItem({
           className={`${colorBoxStyles["color-box"]} ${colorBoxStyles[variant]} ${colorBoxStyles[color]}`}
         />
       )}
-      <Name $variant={variant} $fieldType={type}>
+      <p
+        className={`${fieldNameStyles.paragraph} ${fieldNameStyles[variant]} ${
+          fieldNameStyles[`${variant}-${type}`] ?? ""
+        } ${fieldNameStyles[type] ?? ""} 
+        `}
+      >
         {name}
-      </Name>
+      </p>
       {type === "chance" && <Chance />}
       {type === "chest" && <Chest />}
       <div className={styles.wrapper}>
