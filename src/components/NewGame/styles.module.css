@@ -1,0 +1,23 @@
+.section {
+  display: grid;
+  grid-template-areas: "title title title" "user-input form form" "user-input form form" "user-input form form";
+}
+
+.title {
+  grid-area: title;
+}
+
+.current-state {
+  width: 250px;
+  grid-area: user-input;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  padding: 1rem;
+}
+
+.current-state p {
+  margin: 0;
+}

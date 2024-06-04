@@ -1,21 +1,10 @@
 import { useState } from "react";
-import styled from "styled-components";
+import styles from "./styles.module.css";
 import { useGameData, useGameDispatch } from "@/context";
 import Link from "next/link";
-import CustomGroupForm from "@/components/NewGame/CustomGroupForm";
-import SelectTheme from "./SelectTheme";
+import SelectTheme from "../SelectTheme";
 import { Avatar } from "@/types/Avatar";
-
-const Form = styled.form`
-  width: 450px;
-  grid-area: form;
-  display: grid;
-  grid-template-rows: 1fr 3rem;
-  place-items: center;
-  padding: 1rem;
-  min-height: 430px;
-  position: relative;
-`;
+import CustomGroupForm from "../CustomGroupForm";
 
 export default function NewGameForm() {
   const { user }: { user: Avatar } = useGameData();
@@ -27,7 +16,8 @@ export default function NewGameForm() {
   }
 
   return (
-    <Form
+    <form
+      className={styles.form}
       aria-labelledby="game-start"
       onSubmit={(event) => event.preventDefault()}
     >
@@ -97,6 +87,6 @@ export default function NewGameForm() {
           </>
         )}
       </section>
-    </Form>
+    </form>
   );
 }

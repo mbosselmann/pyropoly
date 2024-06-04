@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
-import priceStyles from "./Price.module.css";
-import colorBoxStyles from "./ColorBox.module.css";
-import fieldNameStyles from "./FieldName.module.css";
+import priceStyles from "./Styles/Price.module.css";
+import colorBoxStyles from "./Styles/ColorBox.module.css";
+import fieldNameStyles from "./Styles/FieldName.module.css";
 import GameFigure from "./GameFigure/GameFigure";
 import { useGameData } from "@/context";
 import Chance from "../../../Icons/Chance";

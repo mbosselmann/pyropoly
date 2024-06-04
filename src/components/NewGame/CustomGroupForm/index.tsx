@@ -1,8 +1,8 @@
-import { Fieldset } from "./Fieldset";
+import styles from "./styles.module.css";
 import { useGameData, useGameDispatch } from "@/context";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
-import CustomInput from "./CustomInput";
+import CustomInput from "../CustomInput";
 
 interface FormSectionProps {
   type: string;
@@ -29,7 +29,7 @@ export default function CustomGroupForm({
     ?.filter((color) => color !== (user.color as string));
 
   return (
-    <Fieldset>
+    <fieldset className={styles.fieldset}>
       <legend>{legend}</legend>
       {step === 1 &&
         players.map(({ id, name, isSelected }) => (
@@ -85,6 +85,6 @@ export default function CustomGroupForm({
             }
           />
         ))}
-    </Fieldset>
+    </fieldset>
   );
 }

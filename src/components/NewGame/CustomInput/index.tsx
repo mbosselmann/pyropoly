@@ -24,7 +24,7 @@ export default function CustomInput({
   avatarName = "",
 }: RadioInputProps) {
   return (
-    <p>
+    <p className={styles.paragraph}>
       <input
         className={styles.input}
         type={type}
