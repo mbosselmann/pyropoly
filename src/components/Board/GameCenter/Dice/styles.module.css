@@ -31,6 +31,7 @@
     "a . c"
     "e g f"
     "d . b";
+  gap: 3px;
 }
 
 .front {
@@ -142,8 +143,6 @@
 }
 
 .dot {
-  width: 10px;
-  height: 10px;
   background-color: #fff;
   border-radius: 50%;
 }
