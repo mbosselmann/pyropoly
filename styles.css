@@ -1,0 +1,62 @@
+/* 
+
+todo: add font
+
+import { Luckiest_Guy } from "next/font/google";
+
+const luckiestGuy = Luckiest_Guy({
+  subsets: ["latin"],
+  display: "swap",
+  weight: "400",
+});
+ */
+
+:root {
+  --field-size: 6.5rem;
+  --board-size: 45rem;
+  --disabled-bg-color: #fbdedb;
+  --luckiest-font: sans-serif;
+  --fiery-red: #ff5733;
+  --blazing-orange: #ffa500;
+  --golden-yellow: #ffd700;
+  --flame-scarlet: #d73d19;
+  --burning-crimson: #c72516;
+  --box-shadow: #d9d0cf;
+  --searing-magenta: #ff3366;
+  --charcoal-black: #333333;
+  --ashen-grey: #808080;
+  --radiant-gold: #fddc57;
+  --sapphire-blue: #0066cc;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: "Segoe UI", sans-serif;
+  background-color: var(--charcoal-black);
+  height: 100vh;
+  box-shadow: inset 0 0 250px #000;
+}
+
+#__next {
+  display: grid;
+  place-items: center;
+  height: 100%;
+}
+
+ul {
+  padding-left: 0;
+}
+
+p,
+ul,
+h1,
+h2,
+h3 {
+  margin: 0;
+}
