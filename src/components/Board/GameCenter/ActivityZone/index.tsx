@@ -1,16 +1,11 @@
+import styles from "./styles.module.css";
 import { useGameDispatch } from "@/context";
-import styled from "styled-components";
-import PlayerDetailsCard from "../../Player/PlayerDetailsCard";
-import ActionArea from "./ActionArea";
-import DiceArea from "./DiceArea";
-import CardArea from "./CardArea";
+import PlayerDetailsCard from "../../../Player/PlayerDetailsCard";
+import ActionArea from "../ActionArea";
+import DiceArea from "../DiceArea";
+import CardArea from "../CardArea";
 import { Avatar } from "@/types/Avatar";
 import { useState } from "react";
-
-const Wrapper = styled.div`
-  display: grid;
-  grid-template-rows: 3fr 2fr 2fr;
-`;
 
 export default function ActivityZone({
   player,
@@ -46,7 +41,7 @@ export default function ActivityZone({
           onClosePlayerDetails={onClosePlayerDetails}
         />
       ) : (
-        <Wrapper>
+        <div className={styles.wrapper}>
           <ActionArea
             diceResult={number}
             hasRolled={hasRolled}
@@ -56,7 +51,7 @@ export default function ActivityZone({
           />
           <DiceArea />
           <CardArea />
-        </Wrapper>
+        </div>
       )}
     </>
   );

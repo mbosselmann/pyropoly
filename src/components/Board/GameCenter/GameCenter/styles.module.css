@@ -1,0 +1,6 @@
+.section {
+  display: grid;
+  grid-template-rows: 1fr 5fr;
+  padding: 0.5rem;
+  height: 100%;
+}

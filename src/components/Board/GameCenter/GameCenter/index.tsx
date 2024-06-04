@@ -1,16 +1,9 @@
 import { useGameData } from "@/context";
-import styled from "styled-components";
+import styles from "./styles.module.css";
 import { useState } from "react";
 import { Avatar } from "@/types/Avatar";
-import PlayerOverview from "./PlayerOverview";
-import ActivityZone from "./ActivityZone";
-
-const Section = styled.section`
-  display: grid;
-  grid-template-rows: 1fr 5fr;
-  padding: 0.5rem;
-  height: 100%;
-`;
+import PlayerOverview from "../PlayerOverview";
+import ActivityZone from "../ActivityZone";
 
 export default function GameCenter() {
   const {
@@ -24,7 +17,7 @@ export default function GameCenter() {
   )?.playerLocation;
 
   return (
-    <Section>
+    <section className={styles.section}>
       <PlayerOverview onSelectPlayer={(id: number) => setPlayerDetailsId(id)} />
       <ActivityZone
         player={
@@ -35,6 +28,6 @@ export default function GameCenter() {
         onClosePlayerDetails={() => setPlayerDetailsId(null)}
         playerLocationOfCurrentPlayer={playerLocationOfCurrentPlayer}
       />
-    </Section>
+    </section>
   );
 }

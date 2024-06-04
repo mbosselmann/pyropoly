@@ -1,15 +1,7 @@
 import { useGameData } from "@/context";
-import styled from "styled-components";
-import PlayerPreviewCard from "../../Player/PlayerPreviewCard";
+import styles from "./styles.module.css";
+import PlayerPreviewCard from "../../../Player/PlayerPreviewCard";
 import { Avatar } from "@/types/Avatar";
-
-const List = styled.ul`
-  list-style: none;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  border-bottom: 5px dotted hotpink;
-`;
 
 export default function PlayerOverview({
   onSelectPlayer,
@@ -22,7 +14,7 @@ export default function PlayerOverview({
   }: { selectedPlayers: Avatar[]; currentPlayer: number } = useGameData();
 
   return (
-    <List role="list">
+    <ul className={styles.list} role="list">
       {selectedPlayers.map(({ name, id, username, color }) => (
         <li key={id}>
           <PlayerPreviewCard
@@ -35,6 +27,6 @@ export default function PlayerOverview({
           />
         </li>
       ))}
-    </List>
+    </ul>
   );
 }
