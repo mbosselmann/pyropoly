@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import Head from "next/head";
-import Board from "../components/Board/Board";
+import Board from "../components/Board";
 import BackLink from "@/components/BackLink";
 
 const Header = styled.header`

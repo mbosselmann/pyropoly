@@ -1,5 +1,5 @@
 import styles from "./styles.module.css";
-import Dice from "../../Dice";
+import Dice from "../Dice/Dice";
 
 export default function DiceArea() {
   return (

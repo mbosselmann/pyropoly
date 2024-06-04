@@ -1,0 +1,24 @@
+.color-box {
+  background-color: black;
+  position: absolute;
+  height: 1.5rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.vertical-left,
+.vertical-right {
+  height: 100%;
+  width: 1.5rem;
+}
+
+.vertical-left {
+  right: 0;
+  left: auto;
+}
+
+.horizontal-bottom {
+  bottom: auto;
+  top: 0;
+}

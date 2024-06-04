@@ -1,6 +1,6 @@
 import styled, { css } from "styled-components";
 import FieldItem from "./FieldItem";
-import type { Field } from "../../types/Field";
+import type { Field } from "../../../types/Field";
 
 const List = styled.ul.attrs({
   role: "list",

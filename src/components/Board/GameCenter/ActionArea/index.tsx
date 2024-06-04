@@ -1,5 +1,5 @@
 import { useGameData } from "@/context";
-import FieldActions from "../../FieldActions";
+import FieldActions from "../FieldActions";
 import { Avatar } from "@/types/Avatar";
 
 export default function ActionArea({

@@ -2,8 +2,8 @@ import { useGameData } from "@/context";
 import styles from "./styles.module.css";
 import { useState } from "react";
 import { Avatar } from "@/types/Avatar";
-import PlayerOverview from "../PlayerOverview";
-import ActivityZone from "../ActivityZone";
+import PlayerOverview from "./PlayerOverview";
+import ActivityZone from "./ActivityZone";
 
 export default function GameCenter() {
   const {

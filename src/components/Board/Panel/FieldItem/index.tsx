@@ -1,12 +1,13 @@
 import styled, { css } from "styled-components";
+import styles from "./ColorBox.module.css";
 import GameFigure from "./GameFigure";
 import { useGameData } from "@/context";
-import Chance from "../Icons/Chance";
-import Chest from "../Icons/Chest";
+import Chance from "../../../Icons/Chance";
+import Chest from "../../../Icons/Chest";
 import { Avatar } from "@/types/Avatar";
 import { Price } from "./Price";
-import { ColorBox } from "./ColorBox";
 import { FieldName as Name } from "./FieldName";
+import { ColorBox } from "./ColorBox";
 
 const ListItem = styled.li<{ $variant: string; $fieldType: string }>`
   border: 4px solid hotpink;
