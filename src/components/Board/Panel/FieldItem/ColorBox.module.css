@@ -22,3 +22,35 @@
   bottom: auto;
   top: 0;
 }
+
+.red {
+  background-color: #f94144;
+}
+
+.green {
+  background-color: #90be6d;
+}
+
+.blue {
+  background-color: #55a9f3;
+}
+
+.pink {
+  background-color: #c11d64;
+}
+
+.dark-green {
+  background-color: #43aa8b;
+}
+
+.orange {
+  background-color: #f3722c;
+}
+
+.dark-blue {
+  background-color: #1267dd;
+}
+
+.yellow {
+  background-color: #f9c74f;
+}

@@ -1,0 +1,292 @@
+:root {
+  /*themes */
+  /* on fire (default) */
+  --on-fire-green: #00b59e;
+  --on-fire-blue: #009efa;
+  --on-fire-purple: #8075ca;
+  --on-fire-pink: #e45691;
+  --on-fire-orange: #ffb656;
+  --on-fire-yellow: #fbd148;
+
+  /* darker fire */
+  --darker-fire-green: #8ac926;
+  --darker-fire-blue: #1982c4;
+  --darker-fire-purple: #6a4c93;
+  --darker-fire-red: #ff595e;
+  --darker-fire-orange: #ff924c;
+  --darker-fire-yellow: #ffca3a;
+
+  /* pastel fire */
+  --pastel-fire-green: #d0f4de;
+  --pastel-fire-blue: #a9def9;
+  --pastel-fire-purple: #e4c1f9;
+  --pastel-fire-pink: #ff99c8;
+  --pastel-fire-rose: #fec8c3;
+  --pastel-fire-yellow: #fcf6bd;
+
+  /* fire wood */
+  --fire-wood-green: #3a5a40;
+  --fire-wood-light-green: #9ec7b9;
+  --fire-wood-light-blue: #bcd8e7;
+  --fire-wood-peach: #f8ddb0;
+  --fire-wood-orange: #e58f65;
+  --fire-wood-yellow: #e8b545;
+
+  /* neon fire */
+  --neon-fire-green: #90fe00;
+  --neon-fire-blue: #0015ff;
+  --neon-fire-purple: #8400ff;
+  --neon-fire-pink: #ff00a1;
+  --neon-fire-orange: #ff7300;
+  --neon-fire-aquamarine: #00fff7;
+}
+
+/* on fire (default) */
+
+.onFireGreenBackgroundColor {
+  background-color: var(--on-fire-green);
+}
+
+.onFireGreenColor {
+  color: var(--on-fire-green);
+}
+
+.onFireBlueBackgroundColor {
+  background-color: var(--on-fire-blue);
+}
+
+.onFireBlueColor {
+  color: var(--on-fire-blue);
+}
+
+.onFirePurpleBackgroundColor {
+  background-color: var(--on-fire-purple);
+}
+
+.onFirePurpleColor {
+  color: var(--on-fire-purple);
+}
+
+.onFirePinkBackgroundColor {
+  background-color: var(--on-fire-pink);
+}
+
+.onFirePinkColor {
+  color: var(--on-fire-pink);
+}
+
+.onFireOrangeBackgroundColor {
+  background-color: var(--on-fire-orange);
+}
+
+.onFireOrangeColor {
+  color: var(--on-fire-orange);
+}
+
+.onFireYellowBackgroundColor {
+  background-color: var(--on-fire-yellow);
+}
+
+.onFireYellowColor {
+  color: var(--on-fire-yellow);
+}
+
+/* darker fire */
+
+.darkerFireGreenBackgroundColor {
+  background-color: var(--darker-fire-green);
+}
+
+.darkerFireGreenColor {
+  color: var(--darker-fire-green);
+}
+
+.darkerFireBlueBackgroundColor {
+  background-color: var(--darker-fire-blue);
+}
+
+.darkerFireBlueColor {
+  color: var(--darker-fire-blue);
+}
+
+.darkerFirePurpleBackgroundColor {
+  background-color: var(--darker-fire-purple);
+}
+
+.darkerFirePurpleColor {
+  color: var(--darker-fire-purple);
+}
+
+.darkerFireRedBackgroundColor {
+  background-color: var(--darker-fire-red);
+}
+
+.darkerFireRedColor {
+  color: var(--darker-fire-red);
+}
+
+.darkerFireOrangeBackgroundColor {
+  background-color: var(--darker-fire-orange);
+}
+
+.darkerFireOrangeColor {
+  color: var(--darker-fire-orange);
+}
+
+.darkerFireYellowBackgroundColor {
+  background-color: var(--darker-fire-yellow);
+}
+
+.darkerFireYellowColor {
+  color: var(--darker-fire-yellow);
+}
+
+/* pastel fire */
+
+.pastelFireGreenBackgroundColor {
+  background-color: var(--pastel-fire-green);
+}
+
+.pastelFireGreenColor {
+  color: var(--pastel-fire-green);
+}
+
+.pastelFireBlueBackgroundColor {
+  background-color: var(--pastel-fire-blue);
+}
+
+.pastelFireBlueColor {
+  color: var(--pastel-fire-blue);
+}
+
+.pastelFirePurpleBackgroundColor {
+  background-color: var(--pastel-fire-purple);
+}
+
+.pastelFirePurpleColor {
+  color: var(--pastel-fire-purple);
+}
+
+.pastelFirePinkBackgroundColor {
+  background-color: var(--pastel-fire-pink);
+}
+
+.pastelFirePinkColor {
+  color: var(--pastel-fire-pink);
+}
+
+.pastelFireRoseBackgroundColor {
+  background-color: var(--pastel-fire-rose);
+}
+
+.pastelFireRoseColor {
+  color: var(--pastel-fire-rose);
+}
+
+.pastelFireYellowBackgroundColor {
+  background-color: var(--pastel-fire-yellow);
+}
+
+.pastelFireYellowColor {
+  color: var(--pastel-fire-yellow);
+}
+
+/* fire wood */
+
+.fireWoodGreenBackgroundColor {
+  background-color: var(--fire-wood-green);
+}
+
+.fireWoodGreenColor {
+  color: var(--fire-wood-green);
+}
+
+.fireWoodLightGreenBackgroundColor {
+  background-color: var(--fire-wood-light-green);
+}
+
+.fireWoodLightGreenColor {
+  color: var(--fire-wood-light-green);
+}
+
+.fireWoodLightBlueBackgroundColor {
+  background-color: var(--fire-wood-light-blue);
+}
+
+.fireWoodLightBlueColor {
+  color: var(--fire-wood-light-blue);
+}
+
+.fireWoodPeachBackgroundColor {
+  background-color: var(--fire-wood-peach);
+}
+
+.fireWoodPeachColor {
+  color: var(--fire-wood-peach);
+}
+
+.fireWoodOrangeBackgroundColor {
+  background-color: var(--fire-wood-orange);
+}
+
+.fireWoodOrangeColor {
+  color: var(--fire-wood-orange);
+}
+
+.fireWoodYellowBackgroundColor {
+  background-color: var(--fire-wood-yellow);
+}
+
+.fireWoodYellowColor {
+  color: var(--fire-wood-yellow);
+}
+
+/* neon fire */
+
+.neonFireGreenBackgroundColor {
+  background-color: var(--neon-fire-green);
+}
+
+.neonFireGreenColor {
+  color: var(--neon-fire-green);
+}
+
+.neonFireBlueBackgroundColor {
+  background-color: var(--neon-fire-blue);
+}
+
+.neonFireBlueColor {
+  color: var(--neon-fire-blue);
+}
+
+.neonFirePurpleBackgroundColor {
+  background-color: var(--neon-fire-purple);
+}
+
+.neonFirePurpleColor {
+  color: var(--neon-fire-purple);
+}
+
+.neonFirePinkBackgroundColor {
+  background-color: var(--neon-fire-pink);
+}
+
+.neonFirePinkColor {
+  color: var(--neon-fire-pink);
+}
+
+.neonFireOrangeBackgroundColor {
+  background-color: var(--neon-fire-orange);
+}
+
+.neonFireOrangeColor {
+  color: var(--neon-fire-orange);
+}
+
+.neonFireAquamarineBackgroundColor {
+  background-color: var(--neon-fire-aquamarine);
+}
+
+.neonFireAquamarineColor {
+  color: var(--neon-fire-aquamarine);
+}

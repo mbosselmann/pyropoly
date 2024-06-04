@@ -1,8 +1,8 @@
-import CustomInput from "@/components/NewGame/CustomInput";
 import { Fieldset } from "./Fieldset";
 import { useGameData, useGameDispatch } from "@/context";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
+import CustomInput from "./CustomInput";
 
 interface FormSectionProps {
   type: string;
@@ -25,7 +25,7 @@ export default function CustomGroupForm({
   const dispatch = useGameDispatch();
 
   const colorCodesCopy = colors
-    ?.map((color) => color.code)
+    ?.map((color) => color.styleName)
     ?.filter((color) => color !== (user.color as string));
 
   return (
@@ -70,7 +70,7 @@ export default function CustomGroupForm({
           ))}
       {step === 3 &&
         colors &&
-        colors.map(({ id, name, code }) => (
+        colors.map(({ id, name, styleName }) => (
           <CustomInput
             key={id}
             id={id}
@@ -78,10 +78,10 @@ export default function CustomGroupForm({
             avatarName={name}
             name={inputName}
             labelText={name}
-            isSelected={(user.color as string) === code}
-            colorCode={code}
+            isSelected={(user.color as string) === styleName}
+            colorCode={styleName}
             onChange={() =>
-              dispatch({ type: "updateUser", key: "color", value: code })
+              dispatch({ type: "updateUser", key: "color", value: styleName })
             }
           />
         ))}

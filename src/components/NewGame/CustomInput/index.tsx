@@ -1,5 +1,5 @@
-import { ScreenReaderOnly } from "../Styles/ScreenReaderOnly";
-import styled from "styled-components";
+import { ScreenReaderOnly } from "../../Styles/ScreenReaderOnly";
+import styles from "./styles.module.css";
 import { AVATAR_MAP } from "@/components/Player/AvatarIcons";
 
 interface RadioInputProps {
@@ -13,24 +13,6 @@ interface RadioInputProps {
   onChange: () => void;
 }
 
-const Input = styled.input`
-  display: none;
-`;
-
-const Label = styled.label<{
-  $isSelected: boolean;
-  $colorCode: string;
-}>`
-  display: block;
-  border: ${({ $isSelected }) =>
-    $isSelected ? "5px solid black" : "5px solid lightgrey"};
-  border-radius: 0.5rem;
-  background-color: ${({ $colorCode }) =>
-    $colorCode ? $colorCode : "rgba(232, 231, 231, 0.75)"};
-  width: 100px;
-  height: 100px;
-`;
-
 export default function CustomInput({
   id,
   name,
@@ -43,20 +25,22 @@ export default function CustomInput({
 }: RadioInputProps) {
   return (
     <p>
-      <Input
+      <input
+        className={styles.input}
         type={type}
         id={String(id) + name}
         name={name}
         onChange={onChange}
       />
-      <Label
+      <label
+        className={`${styles.label} ${colorCode}BackgroundColor ${
+          isSelected ? styles.isSelected : ""
+        }`}
         htmlFor={String(id) + name}
-        $isSelected={isSelected}
-        $colorCode={colorCode}
       >
         <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
         {avatarName && AVATAR_MAP[avatarName.toLowerCase()]}
-      </Label>
+      </label>
     </p>
   );
 }

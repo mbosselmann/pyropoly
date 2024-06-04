@@ -1,0 +1,15 @@
+.input {
+  display: none;
+}
+
+.label {
+  display: block;
+  border: 5px solid lightgrey;
+  border-radius: 0.5rem;
+  width: 100px;
+  height: 100px;
+}
+
+.isSelected {
+  border: 5px solid black;
+}
