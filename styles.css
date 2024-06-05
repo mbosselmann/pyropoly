@@ -72,3 +72,11 @@ h3 {
   white-space: nowrap;
   border-width: 0;
 }
+
+.border {
+  border: 3px solid black;
+}
+
+.fallbackBorder {
+  border: 3px solid lightgrey;
+}

@@ -11,8 +11,8 @@ export default function GameFigure({
 }) {
   return (
     <div
-      className={`${styles.container} ${color}BackgroundColor ${
-        isCurrentPlayer ? styles.border : ""
+      className={`${styles.container} ${color ?? "fallback"}BackgroundColor ${
+        isCurrentPlayer ? "border" : "fallbackBorder"
       }`}
     >
       <span className="screenreaderonly">{name}</span>

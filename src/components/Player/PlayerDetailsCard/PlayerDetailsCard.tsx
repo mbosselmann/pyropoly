@@ -1,21 +1,8 @@
-import styled from "styled-components";
+import styles from "./styles.module.css";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
-import PlayerCard from "./PlayerCard";
+import PlayerCard from "../PlayerCard";
 import { Field } from "@/types/Field";
-
-const Article = styled.article`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  border-radius: 0.5rem;
-  gap: 1rem;
-  padding: 1rem;
-  box-shadow: 0px 0px 18px 0px rgba(158, 158, 158, 0.75);
-
-  & :first-child {
-    align-self: center;
-  }
-`;
 
 type PlayerDetailsCardProps = {
   player: Avatar | undefined;
@@ -41,7 +28,7 @@ export default function PlayerDetailsCard({
   const { name, username, color, playerLocation, gems } = player;
 
   return (
-    <Article>
+    <article className={styles.article}>
       <PlayerCard
         selectedAvatar={name}
         selectedColor={color}
@@ -57,6 +44,6 @@ export default function PlayerDetailsCard({
         </p>
         <p>Gems: {gems} 💎</p>
       </div>
-    </Article>
+    </article>
   );
 }

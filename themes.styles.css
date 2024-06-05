@@ -41,6 +41,10 @@
   --neon-fire-aquamarine: #00fff7;
 }
 
+.fallbackBackgroundColor {
+  background-color: rgba(232, 231, 231, 0.75);
+}
+
 /* on fire (default) */
 
 .onFireGreenBackgroundColor {

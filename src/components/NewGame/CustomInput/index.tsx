@@ -7,7 +7,7 @@ interface RadioInputProps {
   name: string;
   labelText: string;
   isSelected: boolean;
-  colorCode: string;
+  colorCode: string | null;
   avatarName?: string;
   onChange: () => void;
 }
@@ -19,7 +19,7 @@ export default function CustomInput({
   labelText,
   isSelected,
   onChange,
-  colorCode = "",
+  colorCode = null,
   avatarName = "",
 }: RadioInputProps) {
   return (
@@ -32,7 +32,7 @@ export default function CustomInput({
         onChange={onChange}
       />
       <label
-        className={`${styles.label} ${colorCode}BackgroundColor ${
+        className={`${styles.label} ${colorCode ?? "fallback"}BackgroundColor ${
           isSelected ? styles.isSelected : ""
         }`}
         htmlFor={String(id) + name}

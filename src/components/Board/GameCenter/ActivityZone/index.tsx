@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import { useGameDispatch } from "@/context";
-import PlayerDetailsCard from "../../../Player/PlayerDetailsCard";
+import PlayerDetailsCard from "../../../Player/PlayerDetailsCard/PlayerDetailsCard";
 import ActionArea from "../ActionArea";
 import DiceArea from "../DiceArea";
 import CardArea from "../CardArea";
