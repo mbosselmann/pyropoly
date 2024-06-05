@@ -1,4 +1,3 @@
-import { ScreenReaderOnly } from "../../Styles/ScreenReaderOnly";
 import styles from "./styles.module.css";
 import { AVATAR_MAP } from "@/components/Player/AvatarIcons";
 
@@ -38,7 +37,7 @@ export default function CustomInput({
         }`}
         htmlFor={String(id) + name}
       >
-        <ScreenReaderOnly>{labelText}</ScreenReaderOnly>
+        <span className="screenreaderonly">{labelText}</span>
         {avatarName && AVATAR_MAP[avatarName.toLowerCase()]}
       </label>
     </p>

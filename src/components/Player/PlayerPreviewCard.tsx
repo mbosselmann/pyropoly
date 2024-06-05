@@ -1,6 +1,5 @@
 import styled from "styled-components";
 import { AVATAR_MAP } from "./AvatarIcons";
-import { ScreenReaderOnly } from "../Styles/ScreenReaderOnly";
 
 const Player = styled.article`
   font-size: 0.7rem;
@@ -71,7 +70,7 @@ export default function PlayerPreviewCard({
       </AvatarWrapper>
       <h2>{username ? username : name}</h2>
       <Button onClick={onPlayerDetailsId} type="button">
-        <ScreenReaderOnly>Details</ScreenReaderOnly>
+        <span className="screenreaderonly">Details</span>
       </Button>
     </Player>
   );

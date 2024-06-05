@@ -1,5 +1,4 @@
 import styles from "./styles.module.css";
-import { ScreenReaderOnly } from "../../../../Styles/ScreenReaderOnly";
 
 export default function GameFigure({
   name,
@@ -16,7 +15,7 @@ export default function GameFigure({
         isCurrentPlayer ? styles.border : ""
       }`}
     >
-      <ScreenReaderOnly>{name}</ScreenReaderOnly>
+      <span className="screenreaderonly">{name}</span>
     </div>
   );
 }
