@@ -1,0 +1,23 @@
+.nav {
+  margin-top: 3rem;
+  display: grid;
+  gap: 1.5rem;
+  place-content: center;
+}
+
+.nav-link {
+  background-color: var(--sapphire-blue);
+  color: #fff;
+  text-decoration: none;
+  padding: 1.2rem 2rem 1rem;
+  font-weight: bold;
+  border-radius: 0.5rem;
+  width: 30rem;
+  text-align: center;
+  height: 3.5rem;
+}
+
+.nav-link:hover {
+  background-color: var(--charcoal-black);
+  font-size: 1.1rem;
+}

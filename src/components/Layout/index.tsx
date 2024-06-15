@@ -1,10 +1,12 @@
+"use client";
+
 import Head from "next/head";
 import styles from "./styles.module.css";
 import BackLink from "../BackLink";
-import { useRouter } from "next/router";
+import { usePathname } from "next/navigation";
 
 export default function Layout({ children }: { children: React.ReactNode }) {
-  const router = useRouter();
+  const pathname = usePathname();
 
   return (
     <>
@@ -17,7 +19,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <main className={styles.main}>
         <header className={styles.header}>
           <h1 className={styles.headline}>Pyropoly</h1>
-          {router.pathname !== "/" && <BackLink color={"dark"} />}
+          {pathname !== "/" && <BackLink color={"dark"} />}
         </header>
         {children}
       </main>

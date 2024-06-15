@@ -1,0 +1,26 @@
+.list {
+  list-style: none;
+  padding: 1rem 2rem;
+  overflow-x: scroll;
+  overflow-y: scroll;
+  scrollbar-width: thin;
+  scrollbar-color: var(--sapphire-blue) transparent;
+  height: 55vh;
+}
+
+.list-item {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.list-item:last-child {
+  /* font-family: var(--luckiest-font); */
+  font-size: 1.7rem;
+  text-align: center;
+}
+
+.list-item:not(:last-child)::first-letter {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--sapphire-blue);
+}
