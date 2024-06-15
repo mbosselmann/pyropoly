@@ -4,7 +4,7 @@ import styles from "./styles.module.css";
 import Form from "@/app/new-game/components/Form";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
-import PlayerCard from "@/app/board/components/Player/PlayerCard";
+import PlayerCard from "@/components/PlayerCard";
 
 export default function NewGame() {
   const { user }: { user: Avatar } = useGameData();

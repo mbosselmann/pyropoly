@@ -1,7 +1,7 @@
 import styles from "./styles.module.css";
 import { useGameData } from "@/context";
 import { Avatar } from "@/types/Avatar";
-import PlayerCard from "../PlayerCard";
+import PlayerCard from "../../../../../components/PlayerCard";
 import { Field } from "@/types/Field";
 
 type PlayerDetailsCardProps = {
