@@ -1,20 +1,7 @@
 import Head from "next/head";
-import styled from "styled-components";
+import styles from "./styles.module.css";
 import BackLink from "../BackLink";
 import { useRouter } from "next/router";
-import { Headline } from "./Headline";
-
-const Header = styled.header`
-  position: relative;
-`;
-
-const Main = styled.main`
-  width: 45rem;
-  padding: 2rem 1rem 1rem;
-  border-radius: 0.5rem;
-  background-color: #fff;
-  height: 85%;
-`;
 
 export default function Layout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
@@ -27,15 +14,13 @@ export default function Layout({ children }: { children: React.ReactNode }) {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <Main>
-        <Header>
-          <Headline>Pyropoly</Headline>
-          {router.pathname !== "/" && (
-            <BackLink color={"var(--sapphire-blue)"} />
-          )}
-        </Header>
+      <main className={styles.main}>
+        <header className={styles.header}>
+          <h1 className={styles.headline}>Pyropoly</h1>
+          {router.pathname !== "/" && <BackLink color={"dark"} />}
+        </header>
         {children}
-      </Main>
+      </main>
     </>
   );
 }

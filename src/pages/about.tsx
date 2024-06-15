@@ -1,7 +1,7 @@
-import Layout from "@/components/Styles/Layout";
+import Layout from "@/components/Layout";
 import { gameTexts } from "@/data/gameTexts";
 import styled from "styled-components";
-import { Title } from "@/components/Styles/Title";
+import Title from "../components/Title.module.css";
 
 const List = styled.ul`
   list-style: none;
@@ -33,7 +33,7 @@ const ListItem = styled.li`
 export default function About() {
   return (
     <Layout>
-      <Title>About</Title>
+      <h2 className={Title.styles}>About</h2>
       <List>
         {gameTexts.about.map((about, index) => (
           <ListItem key={index}>{about}</ListItem>
