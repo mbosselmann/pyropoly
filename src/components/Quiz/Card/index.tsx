@@ -1,6 +1,6 @@
+import styles from "./styles.module.css";
 import { useState } from "react";
 import Checkbox from "../Checkbox";
-import styled from "styled-components";
 
 type CardProps = {
   question: string;
@@ -10,17 +10,6 @@ type CardProps = {
   selectedAnswer: string;
   updateSelectedAnswer: (arg0: string) => void;
 };
-
-const Form = styled.form`
-  display: grid;
-  gap: 0.8rem;
-  padding: 1rem 0;
-`;
-
-const Result = styled.div<{ $isAnswerSelected: boolean }>`
-  ${({ $isAnswerSelected }) => !$isAnswerSelected && "visibility: hidden;"}
-  height: 4rem;
-`;
 
 export default function Card({
   question,
@@ -44,7 +33,7 @@ export default function Card({
   return (
     <article>
       <h3 id="question">{question}</h3>
-      <Form aria-labelledby="question">
+      <form className={styles.form} aria-labelledby="question">
         {options.map((option, index) => (
           <Checkbox
             key={index}
@@ -57,13 +46,13 @@ export default function Card({
             isAnswerCorrect={correctAnswer === selectedAnswer}
           />
         ))}
-      </Form>
-      <Result $isAnswerSelected={!!selectedAnswer}>
+      </form>
+      <div className={`${styles.result} ${!!selectedAnswer ? "" : "hidden"}`}>
         {correctAnswer === selectedAnswer && <p>This is correct!</p>}
         {isChecked && correctAnswer !== selectedAnswer && (
           <p>Oh no! The correct answer is: {correctAnswer}</p>
         )}
-      </Result>
+      </div>
     </article>
   );
 }

@@ -1,8 +1,8 @@
+import styles from "./styles.module.css";
 import { QuizQuestion } from "@/types/QuizQuestion";
-import styled from "styled-components";
 import { useState } from "react";
 import Card from "../Card";
-import { Button } from "../Button";
+import Button from "../Button.module.css";
 
 type CardListProps = {
   quizQuestions: QuizQuestion[];
@@ -12,17 +12,6 @@ type CardListProps = {
   count: number;
   updateProgress: () => void;
 };
-
-const List = styled.ul<{ role: "list" }>`
-  width: 100%;
-`;
-
-const ListItem = styled.li<{
-  $isDisplayed: boolean;
-}>`
-  list-style: none;
-  display: ${({ $isDisplayed }) => ($isDisplayed ? "grid" : "none")};
-`;
 
 export default function CardList({
   quizQuestions,
@@ -46,10 +35,15 @@ export default function CardList({
   }
 
   return (
-    <List role="list">
+    <ul className={styles.list} role="list">
       {quizQuestions.map(
         ({ id, question, answerIndex, options }: QuizQuestion) => (
-          <ListItem key={id} $isDisplayed={id === displayedQuestionId}>
+          <li
+            className={`${styles["list-item"]} ${
+              id === displayedQuestionId ? "" : "hidden"
+            }`}
+            key={id}
+          >
             <Card
               question={question}
               answerIndex={answerIndex}
@@ -58,16 +52,18 @@ export default function CardList({
               selectedAnswer={selectedAnswer}
               updateSelectedAnswer={updateSelectedAnswer}
             />
-            <Button
+            <button
+              className={`${Button.styles} ${
+                !!selectedAnswer ? Button["is-selected"] : ""
+              }`}
               type="button"
               onClick={handleDisplayQuestion}
-              $isAnswerSelected={!!selectedAnswer}
             >
               Next question
-            </Button>
-          </ListItem>
+            </button>
+          </li>
         )
       )}
-    </List>
+    </ul>
   );
 }

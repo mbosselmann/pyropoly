@@ -16,7 +16,7 @@ export const fields: Field[][] = [
       fieldNumber: 11,
       message:
         "This one is a tough topic. Try to gain the chance to free yourself from here by rolling the dice.",
-      color: "#F94144",
+      color: "red",
       price: 140,
     },
     {
@@ -34,7 +34,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 13,
       message: "If we have no structure we do not find anything in our code.",
-      color: "#F94144",
+      color: "red",
       price: 140,
     },
     {
@@ -43,7 +43,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 14,
       message: "If we have no structure we do not find anything in our code.",
-      color: "#F94144",
+      color: "red",
       price: 160,
     },
     {
@@ -60,7 +60,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 16,
       message: "If we have no structure we do not find anything in our code.",
-      color: "#90BE6D",
+      color: "green",
       price: 180,
     },
     {
@@ -76,7 +76,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 18,
       message: "If we have no structure we do not find anything in our code.",
-      color: "#90BE6D",
+      color: "green",
       price: 180,
     },
     {
@@ -85,7 +85,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 19,
       message: "If we have no structure we do not find anything in our code.",
-      color: "#90BE6D",
+      color: "green",
       price: 200,
     },
     {
@@ -105,7 +105,7 @@ export const fields: Field[][] = [
       fieldNumber: 9,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
-      color: "#55a9f3",
+      color: "blue",
       price: 120,
     },
     {
@@ -115,7 +115,7 @@ export const fields: Field[][] = [
       fieldNumber: 8,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
-      color: "#55a9f3",
+      color: "blue",
       price: 100,
     },
     {
@@ -133,7 +133,7 @@ export const fields: Field[][] = [
       fieldNumber: 6,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
-      color: "#55a9f3",
+      color: "blue",
       price: 100,
     },
     {
@@ -161,7 +161,7 @@ export const fields: Field[][] = [
       fieldNumber: 3,
       message:
         "We have structure, we have stylings, now we want interaction! Let's go!",
-      color: "#c11d64",
+      color: "pink",
       price: 60,
     },
     {
@@ -177,7 +177,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 1,
       message: "Nice start! Let's learn all about semantics.",
-      color: "#c11d64",
+      color: "pink",
       price: 60,
     },
   ],
@@ -188,7 +188,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 21,
       message: "Challenge accepted! Understand the basics.",
-      color: "#43AA8B",
+      color: "dark-green",
       price: 220,
     },
     {
@@ -205,7 +205,7 @@ export const fields: Field[][] = [
       fieldNumber: 23,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
-      color: "#43AA8B",
+      color: "dark-green",
       price: 220,
     },
     {
@@ -215,7 +215,7 @@ export const fields: Field[][] = [
       fieldNumber: 24,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
-      color: "#43AA8B",
+      color: "dark-green",
       price: 240,
     },
     {
@@ -234,7 +234,7 @@ export const fields: Field[][] = [
       fieldNumber: 26,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
-      color: "#F3722C",
+      color: "orange",
       price: 260,
     },
     {
@@ -244,7 +244,7 @@ export const fields: Field[][] = [
       fieldNumber: 27,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
-      color: "#F3722C",
+      color: "orange",
       price: 260,
     },
     {
@@ -263,7 +263,7 @@ export const fields: Field[][] = [
       fieldNumber: 29,
       message:
         "Nice to be here and relax. Throw the dice to see if you want to stay here longer.",
-      color: "#F3722C",
+      color: "orange",
       price: 280,
     },
   ],
@@ -283,7 +283,7 @@ export const fields: Field[][] = [
       fieldNumber: 39,
       message:
         "Optional or not. This step also needs to be learned. Let us stay here before we start with our capstone project.",
-      color: "#1267dd",
+      color: "dark-blue",
       price: 400,
     },
     {
@@ -300,7 +300,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 37,
       message: "Nice start!",
-      color: "#1267dd",
+      color: "dark-blue",
       price: 350,
     },
     {
@@ -324,7 +324,7 @@ export const fields: Field[][] = [
       type: "property",
       fieldNumber: 34,
       message: "Nice start!",
-      color: "#F9C74F",
+      color: "yellow",
       price: 320,
     },
     {
@@ -340,7 +340,7 @@ export const fields: Field[][] = [
       fieldNumber: 32,
       type: "property",
       message: "Nice start!",
-      color: "#F9C74F",
+      color: "yellow",
       price: 300,
     },
     {
@@ -349,7 +349,7 @@ export const fields: Field[][] = [
       fieldNumber: 31,
       type: "property",
       message: "Nice start!",
-      color: "#F9C74F",
+      color: "yellow",
       price: 300,
     },
     {

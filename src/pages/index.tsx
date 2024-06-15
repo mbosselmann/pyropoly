@@ -1,5 +1,5 @@
-import Layout from "@/components/Styles/Layout";
-import { Title } from "@/components/Styles/Title";
+import Layout from "@/components/Layout";
+import Title from "@/components/Title.module.css";
 import Link from "next/link";
 import styled from "styled-components";
 
@@ -30,10 +30,10 @@ const NavLink = styled(Link)`
 export default function Home() {
   return (
     <Layout>
-      <Title>
+      <h2 className={Title.styles}>
         So happy that you are here!
         <br /> What do you want to do?
-      </Title>
+      </h2>
       <Nav>
         <NavLink href="/new-game">Start a new game</NavLink>
         <NavLink href="/about">What is Pyropoly?</NavLink>

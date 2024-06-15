@@ -1,0 +1,56 @@
+.color-box {
+  background-color: black;
+  position: absolute;
+  height: 1.5rem;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+}
+
+.vertical-left,
+.vertical-right {
+  height: 100%;
+  width: 1.5rem;
+}
+
+.vertical-left {
+  right: 0;
+  left: auto;
+}
+
+.horizontal-bottom {
+  bottom: auto;
+  top: 0;
+}
+
+.red {
+  background-color: #f94144;
+}
+
+.green {
+  background-color: #90be6d;
+}
+
+.blue {
+  background-color: #55a9f3;
+}
+
+.pink {
+  background-color: #c11d64;
+}
+
+.dark-green {
+  background-color: #43aa8b;
+}
+
+.orange {
+  background-color: #f3722c;
+}
+
+.dark-blue {
+  background-color: #1267dd;
+}
+
+.yellow {
+  background-color: #f9c74f;
+}

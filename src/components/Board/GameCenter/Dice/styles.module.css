@@ -1,0 +1,148 @@
+.container {
+  width: 50px;
+  height: 50px;
+  position: relative;
+}
+
+.cube {
+  width: 100%;
+  height: 100%;
+  transform-style: preserve-3d;
+  transition: transform 6s;
+  border-radius: 3px;
+}
+
+.side {
+  background-color: var(--blazing-orange);
+  position: absolute;
+  width: 50px;
+  height: 50px;
+  padding: 5px;
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  box-shadow: inset 0 0 10px var(--fiery-red);
+  overflow: hidden;
+  text-align: center;
+  transform-origin: center;
+  color: #fff;
+  display: grid;
+  grid-template: repeat(3, 1fr) / repeat(3, 1fr);
+  grid-template-areas:
+    "a . c"
+    "e g f"
+    "d . b";
+  gap: 3px;
+}
+
+.front {
+  transform: rotateY(0deg) translateZ(25px);
+}
+
+.front :first-child {
+  grid-area: g;
+}
+
+.back {
+  transform: rotateY(180deg) translateZ(25px);
+}
+
+.back :nth-child(1) {
+  grid-area: a;
+}
+
+.back :nth-child(2) {
+  grid-area: b;
+}
+
+.right {
+  transform: rotateY(90deg) translateZ(25px);
+}
+
+.right :nth-child(1) {
+  grid-area: a;
+}
+
+.right :nth-child(2) {
+  grid-area: g;
+}
+
+.right :nth-child(3) {
+  grid-area: b;
+}
+
+.left {
+  transform: rotateY(-90deg) translateZ(25px);
+}
+
+.left :nth-child(1) {
+  grid-area: a;
+}
+
+.left :nth-child(2) {
+  grid-area: d;
+}
+
+.left :nth-child(3) {
+  grid-area: c;
+}
+
+.left :nth-child(4) {
+  grid-area: b;
+}
+
+.top {
+  transform: rotateX(90deg) translateZ(25px);
+}
+
+.top :nth-child(1) {
+  grid-area: a;
+}
+
+.top :nth-child(2) {
+  grid-area: c;
+}
+
+.top :nth-child(3) {
+  grid-area: g;
+}
+
+.top :nth-child(4) {
+  grid-area: d;
+}
+
+.top :nth-child(5) {
+  grid-area: b;
+}
+
+.bottom {
+  transform: rotateX(-90deg) translateZ(25px);
+}
+
+.bottom :nth-child(1) {
+  grid-area: a;
+}
+
+.bottom :nth-child(2) {
+  grid-area: c;
+}
+
+.bottom :nth-child(3) {
+  grid-area: e;
+}
+
+.bottom :nth-child(4) {
+  grid-area: f;
+}
+
+.bottom :nth-child(5) {
+  grid-area: d;
+}
+
+.bottom :nth-child(6) {
+  grid-area: b;
+}
+
+.dot {
+  background-color: #fff;
+  border-radius: 50%;
+}

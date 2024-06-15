@@ -1,0 +1,9 @@
+.form {
+  grid-area: form;
+  display: grid;
+  grid-template-rows: 1fr 3rem;
+  place-items: center;
+  padding: 1rem;
+  min-height: 430px;
+  position: relative;
+}

@@ -1,7 +1,7 @@
-import Layout from "@/components/Styles/Layout";
+import Layout from "@/components/Layout";
 import { gameTexts } from "@/data/gameTexts";
 import styled from "styled-components";
-import { Title } from "@/components/Styles/Title";
+import Title from "@/components/Title.module.css";
 
 const List = styled.ol`
   padding: 0.8rem 3rem 0;
@@ -71,7 +71,7 @@ const ListItem = styled.li`
 export default function Rules() {
   return (
     <Layout>
-      <Title>What are the rules?</Title>
+      <h2 className={Title.styles}>What are the rules?</h2>
       <List>
         {gameTexts.rules.map((rule, index) => (
           <ListItem key={index}>{rule}</ListItem>

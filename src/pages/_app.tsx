@@ -1,11 +1,11 @@
 import type { AppProps } from "next/app";
-import GlobalStyles from "../../styles";
+import "../styles.css";
+import "../themes.styles.css";
 import { PlayersProvider } from "@/context";
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
     <PlayersProvider>
-      <GlobalStyles />
       <Component {...pageProps} />
     </PlayersProvider>
   );

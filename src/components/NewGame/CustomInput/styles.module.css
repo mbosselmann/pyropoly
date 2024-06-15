@@ -1,0 +1,21 @@
+.input {
+  display: none;
+}
+
+.label {
+  display: block;
+  border: 5px solid lightgrey;
+  border-radius: 0.5rem;
+  width: 100px;
+  height: 100px;
+}
+
+.paragraph {
+  margin: 0;
+  height: 100px;
+  width: 100px;
+}
+
+.isSelected {
+  border: 5px solid black;
+}

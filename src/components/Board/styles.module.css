@@ -1,0 +1,15 @@
+.container {
+  display: grid;
+  width: var(--board-size);
+  height: var(--board-size);
+  margin: 0 auto;
+  background-color: #fff;
+  gap: 0;
+  grid-template-rows: var(--field-size) auto var(--field-size);
+}
+
+.grid {
+  display: grid;
+  height: 100%;
+  grid-template-columns: var(--field-size) auto var(--field-size);
+}
