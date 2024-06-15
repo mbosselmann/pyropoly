@@ -1,7 +1,6 @@
 "use client";
 
 import { useState } from "react";
-import Title from "@/components/Title.module.css";
 import { Quiz } from "@/app/quiz/components/Quiz";
 
 export default function QuizPage() {
@@ -25,9 +24,6 @@ export default function QuizPage() {
 
   return (
     <>
-      <h2 className={Title.styles}>
-        Quiz: Are you ready for Pyropoly On Fire?
-      </h2>
       {count < 10 ? (
         <Quiz
           amountOfCorrectAnswers={amountOfCorrectAnswers}

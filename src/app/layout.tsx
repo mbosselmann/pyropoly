@@ -2,15 +2,10 @@
 
 import "@/styles.css";
 import "@/themes.styles.css";
-import styles from "./layout.module.css";
-import { usePathname } from "next/navigation";
-import BackLink from "@/components/BackLink";
 import { ReactNode } from "react";
 import { PlayersProvider } from "@/context";
 
 export default function RootLayout({ children }: { children: ReactNode }) {
-  const pathname = usePathname();
-
   return (
     <html lang="en">
       <head>
@@ -20,15 +15,7 @@ export default function RootLayout({ children }: { children: ReactNode }) {
         <link rel="icon" href="/favicon.ico" />
       </head>
       <body>
-        <PlayersProvider>
-          <main className={styles.main}>
-            <header className={styles.header}>
-              <h1 className={styles.headline}>Pyropoly</h1>
-              {pathname !== "/" && <BackLink color={"dark"} />}
-            </header>
-            {children}
-          </main>
-        </PlayersProvider>
+        <PlayersProvider>{children}</PlayersProvider>
       </body>
     </html>
   );
