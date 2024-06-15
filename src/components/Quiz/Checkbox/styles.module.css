@@ -1,0 +1,23 @@
+.label {
+  padding: 1rem;
+  box-shadow: 0 0 10px var(--box-shadow);
+  border-radius: 10px;
+}
+
+.is-selected {
+  color: #fff;
+  font-weight: bold;
+}
+
+.is-disabled {
+  background-color: var(--disabled-bg-color);
+  box-shadow: none;
+}
+
+.is-correct {
+  background-color: var(--sapphire-blue);
+}
+
+.is-wrong {
+  background-color: var(--burning-crimson);
+}

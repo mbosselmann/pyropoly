@@ -80,3 +80,7 @@ h3 {
 .fallbackBorder {
   border: 3px solid lightgrey;
 }
+
+.hidden {
+  display: none !important;
+}

@@ -1,4 +1,4 @@
-import styled, { css } from "styled-components";
+import styles from "./styles.module.css";
 
 type CheckboxProps = {
   index: string;
@@ -9,32 +9,6 @@ type CheckboxProps = {
   isSelected: boolean;
   isAnswerCorrect: boolean;
 };
-
-const Label = styled.label<{
-  $isSelected: boolean;
-  $isDisabled: boolean;
-  $isAnswerCorrect: boolean;
-}>`
-  padding: 1rem;
-  box-shadow: 0 0 10px var(--box-shadow);
-  border-radius: 10px;
-
-  ${(props) =>
-    props.$isSelected &&
-    css`
-      background-color: var(
-        ${props.$isAnswerCorrect ? "--sapphire-blue" : "--burning-crimson"}
-      );
-      color: #fff;
-      font-weight: bold;
-    `}
-  ${({ $isDisabled }) =>
-    $isDisabled &&
-    css`
-      background-color: var(--disabled-bg-color);
-      box-shadow: none;
-    `}
-`;
 
 export default function Checkbox({
   index,
@@ -58,14 +32,20 @@ export default function Checkbox({
         disabled={isDisabled}
         hidden={true}
       />
-      <Label
+      <label
+        className={`${styles.label} ${
+          isSelected ? styles["is-selected"] : ""
+        } ${isDisabled ? styles["is-disabled"] : ""} ${
+          isSelected && isAnswerCorrect
+            ? styles["is-correct"]
+            : isSelected && !isAnswerCorrect
+            ? styles["is-wrong"]
+            : ""
+        }`}
         htmlFor={option}
-        $isSelected={isSelected}
-        $isDisabled={!isSelected && isDisabled}
-        $isAnswerCorrect={isAnswerCorrect}
       >
         {option}
-      </Label>
+      </label>
     </>
   );
 }
