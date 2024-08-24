@@ -1,5 +1,6 @@
+import useLocalStorageState from "use-local-storage-state";
 import styles from "./styles.module.css";
-import { useGameData, useGameDispatch } from "@/context";
+import { PlayerData, useGameData, useGameDispatch } from "@/context";
 import { Avatar } from "@/types/Avatar";
 import { Color } from "@/types/Color";
 import CustomInput from "../CustomInput";
@@ -42,9 +43,9 @@ export default function CustomGroupForm({
             labelText={name}
             isSelected={isSelected}
             colorCode={user.color as string}
-            onChange={() =>
-              dispatch({ type: "updateUser", key: "name", value: name })
-            }
+            onChange={() => {
+              dispatch({ type: "updateUser", key: "name", value: name });
+            }}
           />
         ))}
       {step === 4 &&

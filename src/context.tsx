@@ -1,4 +1,10 @@
-import { createContext, useContext, useReducer } from "react";
+import {
+  createContext,
+  useContext,
+  useEffect,
+  useMemo,
+  useReducer,
+} from "react";
 import { fields } from "@/data/fields";
 import { themes } from "@/data/colors";
 import { avatars } from "@/data/avatars";
@@ -6,6 +12,13 @@ import gameReducer from "./reducer";
 import type { Avatar } from "./types/Avatar";
 import type { Field } from "./types/Field";
 import type { Color } from "./types/Color";
+import useLocalStorageState from "use-local-storage-state";
+
+export type PlayerData = {
+  selectedPlayers: Avatar[];
+  currentPlayer: number;
+  selectedColorTheme: Color[];
+};
 
 const GameContext = createContext<{
   players: Avatar[];
@@ -26,26 +39,67 @@ const GameContext = createContext<{
 const GameDispatchContext = createContext<React.Dispatch<any>>(() => null);
 
 export function PlayersProvider({ children }: { children: React.ReactNode }) {
-  const initialState = {
-    players: avatars,
-    currentPlayer: Number(avatars[0].id),
-    colors: themes[0],
-  };
+  const [playerData, setPlayerData] = useLocalStorageState<PlayerData>(
+    "playerData",
+    {
+      defaultValue: {
+        selectedPlayers: avatars,
+        currentPlayer: NaN,
+        selectedColorTheme: themes[0],
+      },
+    }
+  );
 
-  const [{ players, currentPlayer, colors }, dispatch] = useReducer(
+  const initialState = useMemo(
+    () => ({
+      players: playerData.selectedPlayers,
+      currentPlayer: playerData.currentPlayer,
+      colors: themes[0],
+      isInitial: true,
+    }),
+    [playerData.currentPlayer, playerData.selectedPlayers]
+  );
+
+  const [{ players, currentPlayer, colors, isInitial }, dispatch] = useReducer(
     gameReducer,
     initialState
   );
 
-  const value = {
+  const selectedPlayers = players.filter(
+    (player) => player.isSelected || player.isOpponent
+  );
+
+  useEffect(() => {
+    dispatch({
+      type: "initialize",
+      initialState,
+    });
+  }, [initialState]);
+
+  useEffect(() => {
+    if (!isInitial) {
+      setPlayerData({
+        selectedPlayers,
+        currentPlayer,
+        selectedColorTheme: colors,
+      });
+    }
+  }, [
     players,
     currentPlayer,
-    user: players.find((player) => player.isSelected) ?? avatars[3],
-    selectedPlayers: players.filter(
-      (player) => player.isSelected || player.isOpponent
-    ),
-    fields,
     colors,
+    setPlayerData,
+    isInitial,
+    selectedPlayers,
+  ]);
+
+  const value = {
+    players,
+    currentPlayer: currentPlayer ?? playerData.currentPlayer,
+    user: players.find((player) => player.isSelected) ?? avatars[3],
+    selectedPlayers: selectedPlayers ?? [],
+    fields,
+    colors: colors,
   };
 
   return (

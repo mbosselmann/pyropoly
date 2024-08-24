@@ -1,6 +1,6 @@
 import styles from "./styles.module.css";
 import FieldItem from "./FieldItem";
-import type { Field } from "../../../../types/Field";
+import { Field } from "@/types/Field";
 interface PanelProps {
   fields: Field[];
   variant: string;

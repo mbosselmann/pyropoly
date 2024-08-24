@@ -1,8 +1,18 @@
 import type { Avatar } from "./types/Avatar";
 import { avatars } from "./data/avatars";
 import { Color } from "./types/Color";
+import { themes } from "./data/colors";
 
 type GameActions =
+  | {
+      type: "initialize";
+      initialState: {
+        players: Avatar[];
+        currentPlayer: number;
+        colors: Color[];
+        isInitial: boolean;
+      };
+    }
   | {
       key: string;
       value: string;
@@ -22,13 +32,30 @@ type GameActions =
   | {
       type: "updateSelectedTheme";
       value: Color[];
+    }
+  | {
+      type: "resetGame";
+      value: { players: Avatar[]; currentPlayer: number; colors: Color[][] };
     };
 
 export default function gameReducer(
-  state: { players: Avatar[]; currentPlayer: number; colors: Color[] },
+  state: {
+    players: Avatar[];
+    currentPlayer: number;
+    colors: Color[];
+    isInitial?: boolean;
+  },
   action: GameActions
-): { players: Avatar[]; currentPlayer: number; colors: Color[] } {
+): {
+  players: Avatar[];
+  currentPlayer: number;
+  colors: Color[];
+  isInitial?: boolean;
+} {
   switch (action.type) {
+    case "initialize": {
+      return action.initialState;
+    }
     case "setNextPlayer": {
       const selectedPlayers = state.players.filter(
         (player) => player.isSelected || player.isOpponent
@@ -43,6 +70,7 @@ export default function gameReducer(
             : findCurrentPlayerIndex + 1
         ].id
       );
+
       return {
         currentPlayer: nextPlayer,
         players: state.players,
@@ -121,6 +149,14 @@ export default function gameReducer(
         currentPlayer: state.currentPlayer,
         players: state.players,
         colors: action.value,
+      };
+    }
+
+    case "resetGame": {
+      return {
+        players: avatars,
+        currentPlayer: Number(avatars[0].id),
+        colors: themes[0],
       };
     }
   }
