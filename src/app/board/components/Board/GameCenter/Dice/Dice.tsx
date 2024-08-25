@@ -1,27 +1,14 @@
-import { useState } from "react";
 import styles from "./styles.module.css";
 
-const min = 1;
-const max = 24;
-
-function getRandom(max: number, min: number) {
-  return (Math.floor(Math.random() * (max - min)) + min) * 90;
-}
-
-export default function Dice() {
-  const [rotation, setRotation] = useState({ x: 0, y: 0 });
-
-  const handleClick = () => {
-    const xRand = getRandom(max, min);
-    const yRand = getRandom(max, min);
-
-    setRotation({ x: xRand, y: yRand });
-  };
+export default function Dice({
+  rotation,
+}: {
+  rotation: { x: number; y: number };
+}) {
   return (
     <div className={styles.container}>
       <div
         className={styles.cube}
-        onClick={handleClick}
         style={{
           transform: `rotateX(${rotation.x}deg) rotateY(${rotation.y}deg)`,
         }}
