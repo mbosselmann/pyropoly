@@ -7,36 +7,14 @@ import { Avatar } from "@/types/Avatar";
 import { useState } from "react";
 import PlayerDetailsCard from "../../../Player/PlayerDetailsCard/PlayerDetailsCard";
 
-const min = 1;
-const max = 24;
-
-function getRandom(max: number, min: number) {
-  return (Math.floor(Math.random() * (max - min)) + min) * 90;
-}
-
-function getDiceFace(rotation: { x: number; y: number }): number {
-  let { x, y } = rotation;
-  x = x % 360;
-  y = y % 360;
-  console.log(x, y);
-  if (x === 0 && y === 0) return 1;
-  if (x === 180 && y === 180) return 1;
-  if (x === 180 && y === 0) return 2;
-  if (x === 0 && y === 180) return 2;
-  if (x === 180 && y === 90) return 3;
-  if (x === 0 && y === 270) return 3;
-  if (x === 0 && y === 90) return 4;
-  if (x === 180 && y === 270) return 4;
-  if (x === 270 && y === 180) return 5;
-  if (x === 270 && y === 90) return 5;
-  if (x === 270 && y === 270) return 5;
-  if (x === 270 && y === 0) return 5;
-  if (x === 90 && y === 180) return 6;
-  if (x === 90 && y === 90) return 6;
-  if (x === 90 && y === 0) return 6;
-  if (x === 90 && y === 270) return 6;
-
-  return 0;
+function getDiceFace(number: number): { x: number; y: number } {
+  if (number === 1) return { x: 0, y: 0 };
+  if (number === 2) return { x: 0, y: 180 };
+  if (number === 3) return { x: 0, y: 270 };
+  if (number === 4) return { x: 0, y: 90 };
+  if (number === 5) return { x: 270, y: 0 };
+  if (number === 6) return { x: 90, y: 0 };
+  throw new Error("Invalid dice number");
 }
 
 export default function ActivityZone({
@@ -49,7 +27,6 @@ export default function ActivityZone({
   playerLocationOfCurrentPlayer: number | undefined;
 }) {
   const dispatch = useGameDispatch();
-  const [number, setNumber] = useState<number>(0);
   const [diceRotation, setDiceRotation] = useState([
     { x: 0, y: 0 },
     { x: 0, y: 0 },
@@ -60,22 +37,29 @@ export default function ActivityZone({
   function handleNextPlayer() {
     dispatch({ type: "setNextPlayer" });
     setHasRolled(false);
-    setNumber(0);
+    setDiceResult([0, 0]);
   }
 
   function handleResult() {
-    const newRotation = [...diceRotation];
-    newRotation[0] = { x: getRandom(max, min), y: getRandom(max, min) };
-    newRotation[1] = { x: getRandom(max, min), y: getRandom(max, min) };
+    const newDiceResult = [
+      Math.floor(Math.random() * 6) + 1,
+      Math.floor(Math.random() * 6) + 1,
+    ];
+    setDiceResult(newDiceResult);
+    console.log(newDiceResult);
+    const newRotation = [
+      getDiceFace(newDiceResult[0]),
+      getDiceFace(newDiceResult[1]),
+    ].map((rotation) => ({
+      x: rotation.x + 360 * Math.floor(Math.random() * 6),
+      y: rotation.y + 360 * Math.floor(Math.random() * 6),
+    }));
+
     setDiceRotation(newRotation);
-    const newResult = [...diceResult];
-    newResult[0] = getDiceFace(newRotation[0]);
-    newResult[1] = getDiceFace(newRotation[1]);
-    console.log(newResult);
-    setDiceResult(newResult);
+
     dispatch({
       type: "updatePlayerLocation",
-      value: newResult[0] + newResult[1],
+      value: newDiceResult[0] + newDiceResult[1],
     });
     setHasRolled(true);
   }
@@ -90,7 +74,7 @@ export default function ActivityZone({
       ) : (
         <div className={styles.wrapper}>
           <ActionArea
-            diceResult={number}
+            diceResult={diceResult[0] + diceResult[1]}
             hasRolled={hasRolled}
             handleNextPlayer={handleNextPlayer}
             rollDice={handleResult}
