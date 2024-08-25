@@ -52,12 +52,12 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
 
   const initialState = useMemo(
     () => ({
-      players: playerData.selectedPlayers,
-      currentPlayer: playerData.currentPlayer,
+      players: playerData?.selectedPlayers,
+      currentPlayer: playerData?.currentPlayer,
       colors: themes[0],
       isInitial: true,
     }),
-    [playerData.currentPlayer, playerData.selectedPlayers]
+    [playerData?.currentPlayer, playerData?.selectedPlayers]
   );
 
   const [{ players, currentPlayer, colors, isInitial }, dispatch] = useReducer(
@@ -65,7 +65,7 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
     initialState
   );
 
-  const selectedPlayers = players.filter(
+  const selectedPlayers = players?.filter(
     (player) => player.isSelected || player.isOpponent
   );
 
@@ -79,8 +79,10 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => {
     if (!isInitial) {
       setPlayerData({
-        selectedPlayers,
-        currentPlayer,
+        selectedPlayers: players,
+        currentPlayer:
+          currentPlayer ??
+          Number(players?.find((player) => player.isSelected)?.id),
         selectedColorTheme: colors,
       });
     }
@@ -95,8 +97,8 @@ export function PlayersProvider({ children }: { children: React.ReactNode }) {
 
   const value = {
     players,
-    currentPlayer: currentPlayer ?? playerData.currentPlayer,
-    user: players.find((player) => player.isSelected) ?? avatars[3],
+    currentPlayer: playerData?.currentPlayer,
+    user: players?.find((player) => player.isSelected) ?? avatars[3],
     selectedPlayers: selectedPlayers ?? [],
     fields,
     colors: colors,
